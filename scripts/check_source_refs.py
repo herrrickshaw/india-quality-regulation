@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Verify every `sources/...` path mentioned in docs/**/*.md and README.md
-resolves to a real file.
+"""Verify every `sources/...` path mentioned in docs/**/*.md, COMPENDIUM.md,
+and README.md resolves to a real file.
 
 These are inline code spans (`sources/bis-core/bis-isi-mark.pdf`), not
 markdown hyperlinks, so a hyperlink checker like lychee never looks at
@@ -14,14 +14,17 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-# Require a real file extension so prose like `` `sources/...` `` (used to
-# describe the pattern, e.g. in this file's own docstring or the README) is
-# never mistaken for an actual reference.
-SOURCE_REF = re.compile(r"`(sources/[^`\s]+\.[a-zA-Z0-9]+)`")
+# Require a real file extension, and exclude `*` (glob wildcards never
+# appear in a real path), so prose like `` `sources/...` `` or
+# `` `sources/*/MANIFEST.md` `` (used to describe the pattern, e.g. in this
+# file's own docstring, the README, or COMPENDIUM.md's intro) is never
+# mistaken for an actual reference.
+SOURCE_REF = re.compile(r"`(sources/[^`\s*]+\.[a-zA-Z0-9]+)`")
 
 
 def find_markdown_files():
     yield REPO_ROOT / "README.md"
+    yield REPO_ROOT / "COMPENDIUM.md"
     yield from (REPO_ROOT / "docs").rglob("*.md")
 
 

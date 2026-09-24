@@ -20,6 +20,12 @@ mirrored, 14 have an official scheme/administrative page (the correct
 primary source for a body with no founding statute — an accreditation
 board, a voluntary industry mark). Zero entries have nothing mirrored.
 
+**Everything in one file → [`COMPENDIUM.md`](COMPENDIUM.md)** — the
+overview, all 36 entries, and the coverage table flattened into a single
+self-contained Markdown file, for offline reading, pasting elsewhere, or
+handing to something without repo access. Generated from `docs/`; see
+"Checks" below for how it stays in sync.
+
 ## Why this exists
 
 BIS is the name most people reach for, but "quality regulation in India" is
@@ -130,6 +136,8 @@ docs/coverage.md          generated source-coverage table (see below)
 docs/                     one page per body/scheme — authority, legal basis,
                           status, source tier, scope, cross-references,
                           primary-source link
+COMPENDIUM.md             generated: every docs/ page flattened into one
+                          self-contained file
 sources/                  mirrored primary documents (Acts, QCOs, gazette
                           notifications, official scheme pages), grouped in
                           the same categories as docs/
@@ -140,6 +148,12 @@ badges/entries.json       shields.io endpoint badge (entry count) — also
 scripts/generate_coverage.py   regenerates docs/coverage.md and
                           badges/entries.json from every doc page's
                           **Source tier:** field
+scripts/build_compendium.py    regenerates COMPENDIUM.md from every
+                          docs/*.md page, rewiring cross-doc links to
+                          in-file anchors
+scripts/verify_compendium.py   checks COMPENDIUM.md against its source
+                          docs (headings/fields/sections/anchors/coverage
+                          counts) — CI check, see "Checks" below
 scripts/check_source_refs.py   CI check — see "Checks" below
 ```
 
@@ -176,12 +190,20 @@ every push/PR to `main`, monthly on a schedule, and on demand, split into two
 jobs with different reliability:
 
 - **Internal links (blocking)** — every relative cross-link between doc
-  pages, checked offline via [lychee](https://lychee.cli.rs) (config:
-  [`.lychee.toml`](.lychee.toml)), plus every inline `` `sources/...` ``
-  path via [`scripts/check_source_refs.py`](scripts/check_source_refs.py)
-  (a hyperlink checker doesn't see those — they're code spans, not links —
+  pages (including `COMPENDIUM.md`'s in-file anchors), checked offline via
+  [lychee](https://lychee.cli.rs) (config: [`.lychee.toml`](.lychee.toml)),
+  plus every inline `` `sources/...` `` path via
+  [`scripts/check_source_refs.py`](scripts/check_source_refs.py) (a
+  hyperlink checker doesn't see those — they're code spans, not links —
   and a mismatched one is exactly the kind of mistake this repo has hit
-  before). Fully deterministic, no network involved, and fails the build.
+  before). This job also re-runs `generate_coverage.py` and
+  `build_compendium.py` and fails on any diff, so a doc page edited
+  without regenerating its derived files fails the build instead of
+  silently drifting, and re-runs
+  [`scripts/verify_compendium.py`](scripts/verify_compendium.py) to check
+  the compendium's headings, fields, section content, anchors, and
+  embedded coverage counts all still match their source docs exactly.
+  Fully deterministic, no network involved, and fails the build.
 - **External sources (best-effort)** — every "Primary source" URL, over
   the network. Several official `.gov.in`/`.nic.in` hosts in this repo are
   reachable normally but not reliably from GitHub's hosted runners — broken
@@ -189,12 +211,15 @@ jobs with different reliability:
   clean local run against this job's failures — so it *reports* rather than
   blocking merges. Read the job summary for what's actually unreachable.
 
-Run both locally before pushing:
+Run it all locally before pushing:
 
 ```bash
-lychee --offline --config .lychee.toml README.md "docs/**/*.md"   # internal, blocking
-python3 scripts/check_source_refs.py                              # internal, blocking
-lychee --config .lychee.toml README.md "docs/**/*.md"             # external, best-effort
+python3 scripts/generate_coverage.py                                      # regenerate coverage + badge
+python3 scripts/build_compendium.py                                       # regenerate COMPENDIUM.md
+lychee --offline --config .lychee.toml README.md "docs/**/*.md" COMPENDIUM.md   # internal, blocking
+python3 scripts/check_source_refs.py                                      # internal, blocking
+python3 scripts/verify_compendium.py --check all                          # internal, blocking
+lychee --config .lychee.toml README.md "docs/**/*.md" COMPENDIUM.md       # external, best-effort
 ```
 
 ## License
