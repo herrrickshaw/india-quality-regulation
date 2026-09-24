@@ -11,6 +11,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import extract_pdf_text as extractor  # reuse its exact pdftotext-with-fallback logic
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCES = REPO_ROOT / "sources"
 DOCS = REPO_ROOT / "docs"
@@ -58,9 +61,7 @@ def check_ocr_content():
     # references/gates.md on testing a known positive before trusting an
     # absence claim... here it's the inverse: confirm the "positive" input
     # to the OCR path is genuinely OCR-only, not silently native).
-    native = subprocess.run(
-        ["pdftotext", "-layout", str(target), "-"], capture_output=True, text=True, check=True
-    ).stdout
+    native = extractor.native_text(target)
     if len(native.strip()) >= 40:
         print(f"FAIL: {target.relative_to(REPO_ROOT)} unexpectedly has native text — "
               f"the OCR-path fixture assumption is stale, update this check", file=sys.stderr)
@@ -121,9 +122,7 @@ def check_completeness():
         if "no native text layer found" in text[:600]:
             continue  # OCR path has its own dedicated check, not diffable against pdftotext
 
-        fresh = subprocess.run(
-            ["pdftotext", "-layout", str(pdf), "-"], capture_output=True, text=True, check=True
-        ).stdout
+        fresh = extractor.native_text(pdf)
         fresh_len = len(re.sub(r"\s+", "", fresh))
         if fresh_len == 0:
             continue  # shouldn't happen (would've gone through OCR), but don't divide by zero

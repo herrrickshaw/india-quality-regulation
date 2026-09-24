@@ -33,9 +33,26 @@ def run(cmd, **kw):
     return subprocess.run(cmd, check=True, capture_output=True, text=True, **kw)
 
 
-def pdftotext_layout(pdf_path: Path) -> str:
-    result = run(["pdftotext", "-layout", str(pdf_path), "-"])
-    return result.stdout
+def native_text(pdf_path: Path) -> str:
+    """Try `pdftotext -layout` first (keeps column/table alignment); if the
+    installed poppler version chokes on this specific PDF's structure —
+    seen in practice on Ubuntu's older poppler-utils against a Word-
+    exported PDF that a newer Homebrew poppler parses fine — fall back to
+    plain `pdftotext` (no -layout), which is a simpler code path and more
+    tolerant of exactly this kind of quirk. Returns "" (never raises) if
+    neither works, which the caller treats as "needs OCR"."""
+    try:
+        return run(["pdftotext", "-layout", str(pdf_path), "-"]).stdout
+    except subprocess.CalledProcessError as e:
+        print(f"WARNING: 'pdftotext -layout' failed on {pdf_path.name} "
+              f"(exit {e.returncode}); retrying without -layout: "
+              f"{e.stderr.strip()[:300]}", file=sys.stderr)
+    try:
+        return run(["pdftotext", str(pdf_path), "-"]).stdout
+    except subprocess.CalledProcessError as e:
+        print(f"WARNING: plain 'pdftotext' also failed on {pdf_path.name} "
+              f"(exit {e.returncode}): {e.stderr.strip()[:300]}", file=sys.stderr)
+        return ""
 
 
 def ocr_pdf(pdf_path: Path) -> str:
@@ -125,10 +142,10 @@ def process_pdf(pdf_path: Path) -> tuple[str, int]:
     slug = pdf_path.stem
     pdf_relpath = pdf_path.relative_to(REPO_ROOT).as_posix()
 
-    native_text = pdftotext_layout(pdf_path)
-    if len(native_text.strip()) >= NATIVE_TEXT_THRESHOLD:
-        method = "`pdftotext -layout` (native PDF text layer)"
-        raw_text = native_text
+    extracted = native_text(pdf_path)
+    if len(extracted.strip()) >= NATIVE_TEXT_THRESHOLD:
+        method = "`pdftotext` (native PDF text layer)"
+        raw_text = extracted
     else:
         method = f"OCR (`tesseract`, {OCR_DPI} DPI page renders via PyMuPDF) — no native text layer found"
         raw_text = ocr_pdf(pdf_path)
