@@ -39,6 +39,18 @@ NATIVE_TEXT_THRESHOLD = 40  # non-whitespace chars; below this, treat as scan-on
 # count, fail loudly instead of silently trying to OCR the whole thing.
 OCR_MAX_PAGES = 40
 
+# sources/health-pharma/ayush-schedule-t.pdf has a genuinely malformed
+# xref/trailer that a newer poppler (this repo's local dev machines) reads
+# fine but an older poppler (Ubuntu's apt package, used in CI) rejects
+# outright ("Syntax Error: Couldn't find trailer dictionary"). Left to the
+# normal try-pdftotext-then-fall-back chain, that means local runs commit
+# a pdftotext-flavoured extraction while CI regenerates a PyMuPDF-flavoured
+# one for the exact same PDF — a permanent, unfixable-by-retry mismatch in
+# the "regenerate and diff" CI check. Forcing this one known file straight
+# to PyMuPDF makes the method deterministic across both environments
+# regardless of which poppler happens to be installed.
+FORCE_PYMUPDF = {"sources/health-pharma/ayush-schedule-t.pdf"}
+
 PDFTOTEXT_TIMEOUT_S = 120  # generous for even the largest (635-page) PDF here
 TESSERACT_TIMEOUT_S = 90   # per page — generous for a single 300-DPI page image
 
@@ -219,7 +231,10 @@ def process_pdf(pdf_path: Path) -> tuple[str, int]:
     slug = pdf_path.stem
     pdf_relpath = pdf_path.relative_to(REPO_ROOT).as_posix()
 
-    extracted, native_method = native_text(pdf_path)
+    if pdf_relpath in FORCE_PYMUPDF:
+        extracted, native_method = pymupdf_native_text(pdf_path), "PyMuPDF `page.get_text()` (native PDF text layer; forced — see FORCE_PYMUPDF)"
+    else:
+        extracted, native_method = native_text(pdf_path)
     if len(extracted.strip()) >= NATIVE_TEXT_THRESHOLD:
         method = native_method
         raw_text = extracted

@@ -121,7 +121,17 @@ def check_completeness():
         if "no native text layer found" in text[:600]:
             continue  # OCR path has its own dedicated check, not diffable against pdftotext
 
-        fresh, _method = extractor.native_text(pdf)
+        # Match whichever method the generator actually used for this file
+        # — a forced-PyMuPDF file (see extractor.FORCE_PYMUPDF) must be
+        # re-checked with PyMuPDF too, not the default pdftotext-first
+        # chain, or this "fresh" comparison silently uses a different
+        # extractor than the one that produced the committed text and
+        # flags a false drift.
+        pdf_relpath = pdf.relative_to(REPO_ROOT).as_posix()
+        if pdf_relpath in extractor.FORCE_PYMUPDF:
+            fresh = extractor.pymupdf_native_text(pdf)
+        else:
+            fresh, _method = extractor.native_text(pdf)
         fresh_len = len(re.sub(r"\s+", "", fresh))
         if fresh_len == 0:
             continue  # shouldn't happen (would've gone through OCR), but don't divide by zero

@@ -255,7 +255,9 @@ jobs with different reliability:
   blocking merges. Read the job summary for what's actually unreachable.
 
 Run it all locally before pushing (macOS: `brew install poppler tesseract
-tesseract-lang`; `pip install pymupdf` either way):
+tesseract-lang`; `pip install pymupdf==1.28.2` either way — pinned to
+match CI, since a different PyMuPDF release can legitimately extract a
+given PDF's text slightly differently):
 
 ```bash
 python3 scripts/generate_coverage.py                                      # regenerate coverage + badge
