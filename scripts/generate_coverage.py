@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Regenerate docs/coverage.md from the **Source tier:** field on every
-docs/**/*.md page.
+"""Regenerate docs/coverage.md, and the README entry-count badge JSON, from
+the **Source tier:** field on every docs/**/*.md page.
 
 Run this after adding, removing, or re-sourcing an entry, instead of
-hand-editing docs/coverage.md — the table is derived, not authored, so it
-can't drift out of sync with what the doc pages actually say.
+hand-editing docs/coverage.md or the badge count — both are derived, not
+authored, so they can't drift out of sync with what the doc pages actually
+say.
 """
+import json
 import re
 import sys
 from pathlib import Path
@@ -13,6 +15,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DOCS = REPO_ROOT / "docs"
 OUTPUT = DOCS / "coverage.md"
+BADGE_OUTPUT = REPO_ROOT / "badges" / "entries.json"
 
 CATEGORY_ORDER = [
     ("apex-accreditation", "Apex & Accreditation Infrastructure"),
@@ -106,8 +109,20 @@ def main():
         lines.append("")
 
     OUTPUT.write_text("\n".join(lines), encoding="utf-8")
+
+    # shields.io endpoint badge schema: https://shields.io/badges/endpoint-badge
+    BADGE_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    badge = {
+        "schemaVersion": 1,
+        "label": "entries",
+        "message": f"{total} bodies & schemes",
+        "color": "blue",
+    }
+    BADGE_OUTPUT.write_text(json.dumps(badge, indent=2) + "\n", encoding="utf-8")
+
     print(f"Wrote {OUTPUT.relative_to(REPO_ROOT)}: {total} entries "
           f"({statutory} statutory text, {official} official page).")
+    print(f"Wrote {BADGE_OUTPUT.relative_to(REPO_ROOT)}: message={badge['message']!r}")
 
 
 if __name__ == "__main__":

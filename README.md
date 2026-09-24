@@ -1,6 +1,7 @@
 # How India Regulates Quality
 
 [![Link check](https://github.com/herrrickshaw/india-quality-regulation/actions/workflows/link-check.yml/badge.svg)](https://github.com/herrrickshaw/india-quality-regulation/actions/workflows/link-check.yml)
+[![Entries](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/herrrickshaw/india-quality-regulation/main/badges/entries.json)](docs/coverage.md)
 
 A field guide to BIS and the ~36 other statutory regulators, accreditation
 boards and voluntary marks that certify, license and grade quality in
@@ -134,8 +135,11 @@ sources/                  mirrored primary documents (Acts, QCOs, gazette
                           the same categories as docs/
 sources/*/MANIFEST.md     per-category table: entry, local file, original
                           URL, fetch date, document type, notes
-scripts/generate_coverage.py   regenerates docs/coverage.md from every doc
-                          page's **Source tier:** field
+badges/entries.json       shields.io endpoint badge (entry count) — also
+                          written by generate_coverage.py
+scripts/generate_coverage.py   regenerates docs/coverage.md and
+                          badges/entries.json from every doc page's
+                          **Source tier:** field
 scripts/check_source_refs.py   CI check — see "Checks" below
 ```
 
