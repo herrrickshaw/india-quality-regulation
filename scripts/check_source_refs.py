@@ -14,7 +14,10 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SOURCE_REF = re.compile(r"`(sources/[^`\s]+)`")
+# Require a real file extension so prose like `` `sources/...` `` (used to
+# describe the pattern, e.g. in this file's own docstring or the README) is
+# never mistaken for an actual reference.
+SOURCE_REF = re.compile(r"`(sources/[^`\s]+\.[a-zA-Z0-9]+)`")
 
 
 def find_markdown_files():

@@ -151,26 +151,29 @@ anything here for an actual filing.
 ## Checks
 
 A GitHub Actions workflow (`.github/workflows/link-check.yml`) runs on
-every push/PR to `main`, weekly on a schedule, and on demand — it verifies
-that every link resolves:
+every push/PR to `main`, weekly on a schedule, and on demand, split into two
+jobs with different reliability:
 
-- **Hyperlinks** — every relative cross-link between doc pages and every
-  external "Primary source" URL, via [lychee](https://lychee.cli.rs)
-  (config: [`.lychee.toml`](.lychee.toml)). A handful of `.nic.in` hosts
-  that are already documented as unreachable from automated environments
-  (see the per-category `MANIFEST.md` files) are excluded so the build
-  doesn't flap on a known issue instead of a real one.
-- **Mirrored-source references** — every inline `` `sources/...` `` path
-  cited in a doc page, via [`scripts/check_source_refs.py`](scripts/check_source_refs.py)
-  (a hyperlink checker doesn't see these — they're code spans, not links —
+- **Internal links (blocking)** — every relative cross-link between doc
+  pages, checked offline via [lychee](https://lychee.cli.rs) (config:
+  [`.lychee.toml`](.lychee.toml)), plus every inline `` `sources/...` ``
+  path via [`scripts/check_source_refs.py`](scripts/check_source_refs.py)
+  (a hyperlink checker doesn't see those — they're code spans, not links —
   and a mismatched one is exactly the kind of mistake this repo has hit
-  before).
+  before). Fully deterministic, no network involved, and fails the build.
+- **External sources (best-effort)** — every "Primary source" URL, over
+  the network. Several official `.gov.in`/`.nic.in` hosts in this repo are
+  reachable normally but not reliably from GitHub's hosted runners — broken
+  TLS chains or what looks like IP-range blocking, confirmed by comparing a
+  clean local run against this job's failures — so it *reports* rather than
+  blocking merges. Read the job summary for what's actually unreachable.
 
 Run both locally before pushing:
 
 ```bash
-lychee --config .lychee.toml README.md "docs/**/*.md"
-python3 scripts/check_source_refs.py
+lychee --offline --config .lychee.toml README.md "docs/**/*.md"   # internal, blocking
+python3 scripts/check_source_refs.py                              # internal, blocking
+lychee --config .lychee.toml README.md "docs/**/*.md"             # external, best-effort
 ```
 
 ## License

@@ -10,27 +10,52 @@ on:
   workflow_dispatch:
 
 jobs:
-  hyperlinks:
-    name: Hyperlinks (internal cross-links + external primary sources)
+  internal-links:
+    name: Internal links (docs cross-links + sources/ paths — blocking)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check links with lychee
+      # --offline checks only local file paths (relative markdown links
+      # between doc pages) and never makes a network request, so this job
+      # is fast, fully deterministic, and safe to block merges on.
+      - name: Check relative cross-links
         uses: lycheeverse/lychee-action@v2
         with:
           args: >
+            --offline
             --config .lychee.toml
             --no-progress
             README.md
             "docs/**/*.md"
           fail: true
 
-  source-refs:
-    name: Mirrored-source references (sources/... paths)
+      - name: Check every `sources/...` reference resolves to a real file
+        run: python3 scripts/check_source_refs.py
+
+  external-sources:
+    name: External primary-source URLs (best-effort — not blocking)
     runs-on: ubuntu-latest
+    # Several official .gov.in / .nic.in hosts in this repo are reachable
+    # from a residential/office connection but not reliably from GitHub's
+    # hosted runners — broken TLS chains (egazette.gov.in, consumeraffairs
+    # .gov.in) or connection resets that look like IP-range blocking
+    # (aerb.gov.in), confirmed by comparing a clean local lychee run against
+    # this job's own failures. That's a property of those sites' hosting,
+    # not a regression in this repo, so this job reports rather than gates
+    # merges — read the job summary for what's actually unreachable.
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check every `sources/...` reference resolves to a real file
-        run: python3 scripts/check_source_refs.py
+      - name: Check external links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >
+            --config .lychee.toml
+            --no-progress
+            --insecure
+            --exclude-path sources
+            README.md
+            "docs/**/*.md"
+          fail: true
