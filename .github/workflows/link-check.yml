@@ -31,11 +31,14 @@ jobs:
       # generated from docs/*.md — regenerate and diff so a doc page edited
       # without re-running the generator fails the build instead of
       # silently going stale.
+      # Order matters: extraction can add "Full text:" links to doc pages,
+      # which coverage/compendium regeneration then needs to see.
       - name: Regenerate derived files and diff
         run: |
+          python3 scripts/extract_pdf_text.py
           python3 scripts/generate_coverage.py
           python3 scripts/build_compendium.py
-          git diff --exit-code -- docs/coverage.md badges/entries.json COMPENDIUM.md
+          git diff --exit-code -- sources docs COMPENDIUM.md badges/entries.json
 
       # --offline checks only local file paths (relative markdown links
       # between doc pages) and never makes a network request, so this job

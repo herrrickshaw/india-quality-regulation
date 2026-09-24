@@ -230,8 +230,12 @@ jobs with different reliability:
   embedded coverage counts all still match their source docs exactly, and
   [`scripts/verify_pdf_extraction.py`](scripts/verify_pdf_extraction.py)
   to check every PDF's `.md` transcription is present, complete (within 3%
-  of a fresh direct extraction), correctly OCR'd where OCR was needed,
-  linked from its doc page, and reproducible from the extractor script.
+  of a fresh direct extraction), correctly OCR'd where OCR was needed, and
+  linked from its doc page — the regeneration step above already re-runs
+  `extract_pdf_text.py` itself and diffs `sources/`/`docs/`, which is what
+  proves reproducibility (a separate scratch-copy re-run here once made
+  this job hang for 15+ minutes on a slow CI runner; removed in favour of
+  the cheaper diff-based check already used for coverage/compendium).
   Fully deterministic, no network involved, and fails the build. (Needs
   `poppler-utils`, `tesseract-ocr` + `tesseract-ocr-hin`, and `pymupdf` —
   the CI job installs these; see below to run locally.)
