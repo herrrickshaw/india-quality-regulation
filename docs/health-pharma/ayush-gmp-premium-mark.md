@@ -14,6 +14,8 @@ The Ministry of AYUSH regulates Ayurvedic, Siddha, Unani and Homoeopathy (ASU&H)
 ## Primary source
 
 - [Schedule T, Drugs and Cosmetics Rules, 1945](https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Pdf-documents/acts_rules/2016DrugsandCosmeticsAct1940Rules1945.pdf) (See Rule 157) — "Good Manufacturing Practices for Ayurvedic, Siddha and Unani Medicines," the actual mandatory-GMP legal text — mirrored at `sources/health-pharma/ayush-schedule-t.pdf`, fetched 2026-09-24. This is a fuller CDSCO consolidation of the Drugs and Cosmetics Act, 1940 + Rules, 1945 (635 pp, all Schedules) than the Act-only PDF already mirrored for [CDSCO](cdsco.md) (`sources/health-pharma/cdsco.pdf`, 64 pp) — that shorter file does **not** contain Schedule T, confirmed by direct text search; this longer one does, starting at its page ~553 ("SCHEDULE T (See rule 157)").
+- Full text: [`sources/health-pharma/cdsco.md`](../../sources/health-pharma/cdsco.md) (extracted, for search/offline reading)
+- Full text: [`sources/health-pharma/ayush-schedule-t.md`](../../sources/health-pharma/ayush-schedule-t.md) (extracted, for search/offline reading)
 - [Ayush Mark Certification Scheme](https://www.pib.gov.in/PressReleasePage.aspx?PRID=1843836) (Press Information Bureau, Government of India) — the voluntary AYUSH Mark scheme announcement, kept as secondary — mirrored at `sources/health-pharma/ayush-gmp-premium-mark.html`, fetched 2026-09-24
 
 ## Notes

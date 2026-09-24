@@ -363,6 +363,7 @@ CRS need to track that transition.
 #### Primary source
 
 - [Electronics and Information Technology Goods (Requirement for Compulsory Registration) Order, 2012 — S.O. 2357(E)](https://egazette.gov.in/WriteReadData/2012/E_1975_2012_003.pdf) — mirrored at `sources/bis-core/bis-crs.pdf`, fetched 2026-09-24
+- Full text: [`sources/bis-core/bis-crs.md`](sources/bis-core/bis-crs.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -411,6 +412,7 @@ accredited through NABL.
 #### Primary source
 
 - [BIS (Hallmarking) Regulations, 2018 — Gazette notification](https://www.bis.gov.in/bs/BIS_Hallmarking_Regulations_2018_Gazette_notification.pdf) — mirrored at `sources/bis-core/bis-hallmarking.pdf`, fetched 2026-09-24
+- Full text: [`sources/bis-core/bis-hallmarking.md`](sources/bis-core/bis-hallmarking.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -467,6 +469,7 @@ commercial [Management System Certification](#bis-management-system-certificatio
 #### Primary source
 
 - [The Bureau of Indian Standards Act, 2016 (No. 11 of 2016)](https://bis.gov.in/wp-content/uploads/2020/12/BIS-Act-2016-Bilingual.pdf) — mirrored at `sources/bis-core/bis-isi-mark.pdf`, fetched 2026-09-24
+- Full text: [`sources/bis-core/bis-isi-mark.md`](sources/bis-core/bis-isi-mark.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -513,6 +516,7 @@ in a market it does not otherwise regulate.
 #### Primary source
 
 - [Features of BIS Management Systems Certification Scheme (BIS MSCS)](https://bis.gov.in/wp-content/uploads/2018/11/Features-of-BIS-MSCS.pdf) — mirrored at `sources/bis-core/bis-management-system-certification.pdf`, fetched 2026-09-24
+- Full text: [`sources/bis-core/bis-management-system-certification.md`](sources/bis-core/bis-management-system-certification.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -557,6 +561,7 @@ later notifications tied to the government's "Lifestyle for Environment"
 #### Primary source
 
 - [Ecomark Certification Rules, 2023 — Gazette notification, MoEFCC (11 October 2023)](https://egazette.gov.in/WriteReadData/2023/249354.pdf) — mirrored at `sources/bis-core/ecomark.pdf`, fetched 2026-09-24
+- Full text: [`sources/bis-core/ecomark.md`](sources/bis-core/ecomark.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -659,6 +664,7 @@ scheme in this repository, predating independence by a decade.
 #### Primary source
 
 - [Agricultural Produce (Grading and Marking) Act, 1937 (as amended)](https://agmarkonline.dmi.gov.in/writereaddata/DMI/files/15364146815b93d3d9ab807A1937-1.pdf) — mirrored at `sources/food-agriculture/agmark.pdf`, fetched 2026-09-24
+- Full text: [`sources/food-agriculture/agmark.md`](sources/food-agriculture/agmark.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -701,6 +707,7 @@ edition (2024); NPOP-covered organic production for 2024–25 ran to roughly
 #### Primary source
 
 - [National Programme for Organic Production (NPOP), 8th Edition, 2024](https://npop.apeda.gov.in/sites/default/files/2024-10/NPOP_Eight_Edition_2024.pdf) — mirrored at `sources/food-agriculture/apeda-npop.pdf`, fetched 2026-09-24
+- Full text: [`sources/food-agriculture/apeda-npop.md`](sources/food-agriculture/apeda-npop.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -746,7 +753,9 @@ safety.
 #### Primary source
 
 - [Food Safety and Standards Act, 2006](https://fssai.gov.in/upload/uploadfiles/files/FOOD_ACT.pdf) — mirrored at `sources/food-agriculture/fssai.pdf`, fetched 2026-09-24
+- Full text: [`sources/food-agriculture/fssai.md`](sources/food-agriculture/fssai.md) (extracted, for search/offline reading)
 - [Food Safety and Standards (Prohibition and Restrictions on Sales) Regulations — consolidated compendium, Version XI (02.04.2025), reflecting the BIS/AGMARK omission](https://fssai.gov.in/upload/uploadfiles/files/Comp_Prohibition%20and%20Restrcition%20of%20sales%20XI_01042025.pdf) — mirrored at `sources/food-agriculture/fssai-2024-prohibition-amendment-gazette.pdf`, fetched 2026-09-24
+- Full text: [`sources/food-agriculture/fssai-2024-prohibition-amendment-gazette.md`](sources/food-agriculture/fssai-2024-prohibition-amendment-gazette.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -796,6 +805,7 @@ sector-specific to seafood rather than a general laboratory accreditation.
 #### Primary source
 
 - [Marine Products Export Development Authority Act, 1972](https://thc.nic.in/Central%20Governmental%20Acts/Marine%20Products%20Export%20Development%20Authority%20Act,%201972..pdf) — mirrored at `sources/food-agriculture/mpeda.pdf`, fetched 2026-09-24
+- Full text: [`sources/food-agriculture/mpeda.md`](sources/food-agriculture/mpeda.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -919,7 +929,9 @@ this combined entry is marked Mixed.
 #### Primary source
 
 - [Tea Act, 1953 (with Rules)](https://www.teaboard.gov.in/pdf/policy/tea_act_and_rule.pdf) — mirrored at `sources/food-agriculture/tea-board-coffee-board.pdf`, fetched 2026-09-24
+- Full text: [`sources/food-agriculture/tea-board-coffee-board.md`](sources/food-agriculture/tea-board-coffee-board.md) (extracted, for search/offline reading)
 - [Coffee Act, 1942 (with Rules)](https://coffeeboard.gov.in/CoffeeBoard/Coffee_Act_Rules.pdf) — mirrored at `sources/food-agriculture/tea-board-coffee-board-coffee-act.pdf`, fetched 2026-09-24
+- Full text: [`sources/food-agriculture/tea-board-coffee-board-coffee-act.md`](sources/food-agriculture/tea-board-coffee-board-coffee-act.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -954,6 +966,8 @@ The Ministry of AYUSH regulates Ayurvedic, Siddha, Unani and Homoeopathy (ASU&H)
 #### Primary source
 
 - [Schedule T, Drugs and Cosmetics Rules, 1945](https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Pdf-documents/acts_rules/2016DrugsandCosmeticsAct1940Rules1945.pdf) (See Rule 157) — "Good Manufacturing Practices for Ayurvedic, Siddha and Unani Medicines," the actual mandatory-GMP legal text — mirrored at `sources/health-pharma/ayush-schedule-t.pdf`, fetched 2026-09-24. This is a fuller CDSCO consolidation of the Drugs and Cosmetics Act, 1940 + Rules, 1945 (635 pp, all Schedules) than the Act-only PDF already mirrored for [CDSCO](#cdsco-central-drugs-standard-control-organisation) (`sources/health-pharma/cdsco.pdf`, 64 pp) — that shorter file does **not** contain Schedule T, confirmed by direct text search; this longer one does, starting at its page ~553 ("SCHEDULE T (See rule 157)").
+- Full text: [`sources/health-pharma/cdsco.md`](sources/health-pharma/cdsco.md) (extracted, for search/offline reading)
+- Full text: [`sources/health-pharma/ayush-schedule-t.md`](sources/health-pharma/ayush-schedule-t.md) (extracted, for search/offline reading)
 - [Ayush Mark Certification Scheme](https://www.pib.gov.in/PressReleasePage.aspx?PRID=1843836) (Press Information Bureau, Government of India) — the voluntary AYUSH Mark scheme announcement, kept as secondary — mirrored at `sources/health-pharma/ayush-gmp-premium-mark.html`, fetched 2026-09-24
 
 #### Notes
@@ -979,6 +993,7 @@ CDSCO is India's national drug regulatory authority, headquartered at FDA Bhawan
 #### Primary source
 
 - [The Drugs and Cosmetics Act, 1940 and Rules, 1945](https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2022/acts_and_rules/Drugs%20and%20Cosmetics%20Act,%201940.pdf) — mirrored at `sources/health-pharma/cdsco.pdf`, fetched 2026-09-24
+- Full text: [`sources/health-pharma/cdsco.md`](sources/health-pharma/cdsco.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -1027,6 +1042,7 @@ AERB is India's nuclear and radiological safety regulator, constituted under the
 #### Primary source
 
 - [The Atomic Energy Act, 1962](https://www.aerb.gov.in/images/PDF/Atomic-Energy-Act-1962.pdf) — mirrored at `sources/energy-safety-environment/aerb.pdf`, fetched 2026-09-24
+- Full text: [`sources/energy-safety-environment/aerb.md`](sources/energy-safety-environment/aerb.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -1049,7 +1065,9 @@ BEE runs the Standards & Labelling (S&L) programme, which rates the energy effic
 #### Primary source
 
 - [Gazette notification No. 5506/BEE/S&L/AL/2025-26](https://egazette.gov.in/WriteReadData/2025/268894.pdf) — the Bureau of Energy Efficiency (Appliance Labelling and Compliance) Regulations, 2026, dated 26 December 2025 and published in the Gazette of India (Extraordinary) on 29 December 2025 — mirrored at `sources/energy-safety-environment/bee-star-label-sl-scheme.pdf`, fetched 2026-09-24. This is the actual S&L scheme regulation, issued under Section 58(1) of the Energy Conservation Act, 2001, and is what expands the mandatory-labelling list from 1 January 2026 (frost-free/direct-cool refrigerators, deep freezers, certain room-AC types, grid-connected solar inverters, distribution transformers, etc.) referenced below.
+- Full text: [`sources/energy-safety-environment/bee-star-label-sl-scheme.md`](sources/energy-safety-environment/bee-star-label-sl-scheme.md) (extracted, for search/offline reading)
 - [The Energy Conservation Act, 2001](https://cdnbbsr.s3waas.gov.in/s3716e1b8c6cd17b771da77391355749f3/uploads/2024/02/20240219558401063.pdf) (hosted via the NIC/S3WaaS government cloud, mirroring the same Act published at `beeindia.gov.in`) — the parent Act; kept as secondary/background — mirrored at `sources/energy-safety-environment/bee-star-label.pdf`, fetched 2026-09-24
+- Full text: [`sources/energy-safety-environment/bee-star-label.md`](sources/energy-safety-environment/bee-star-label.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -1073,6 +1091,7 @@ CPCB was constituted in September 1974 under the Water (Prevention and Control o
 #### Primary source
 
 - [The Water (Prevention and Control of Pollution) Act, 1974](https://cpcb.nic.in/upload/home/water-pollution/WaterAct-1974.pdf) — mirrored at `sources/energy-safety-environment/cpcb-state-pcbs.pdf`, fetched 2026-09-24
+- Full text: [`sources/energy-safety-environment/cpcb-state-pcbs.md`](sources/energy-safety-environment/cpcb-state-pcbs.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -1123,6 +1142,7 @@ TEC is the Department of Telecommunications' standards and testing arm. Under th
 #### Primary source
 
 - [Procedure for Mandatory Testing & Certification of Telecommunication Equipment (MTCTE), 2017](https://tec.gov.in/public/pdf/Whatsnew/Final%20MTCTE%202017%20Procedure.pdf) — mirrored at `sources/telecom-electronics/tec-mtcte.pdf`, fetched 2026-09-24
+- Full text: [`sources/telecom-electronics/tec-mtcte.md`](sources/telecom-electronics/tec-mtcte.md) (extracted, for search/offline reading)
 
 #### Notes
 
@@ -1220,6 +1240,7 @@ The Textiles Committee is a statutory body corporate created by Parliament under
 #### Primary source
 
 - [The Textiles Committee Act, 1963](https://web.archive.org/web/20240831084713/https://www.textilescommittee.nic.in/sites/default/files/act_rules/act_texcom.pdf) (Act No. 41 of 1963) — mirrored at `sources/textiles/textiles-committee.pdf`, fetched 2026-09-24 via a Wayback Machine snapshot (dated 31 August 2024) of the Textiles Committee's own PDF, since the live domain remains unreachable (see below).
+- Full text: [`sources/textiles/textiles-committee.md`](sources/textiles/textiles-committee.md) (extracted, for search/offline reading)
 
 Live retrieval notes: textilescommittee.nic.in itself still refuses/times out every direct TCP connection attempt as of this research session (across HTTP, HTTPS, bare and `www.` hosts) — the Wayback Machine's cached copy of the exact same URL was used instead, and its digest matches across at least six snapshots from 2022–2024, indicating the file has been stable. The Ministry of Textiles' own page on the Committee (https://texmin.gov.in/textiles-committee) still returns only an empty client-rendered application shell with no textual content to `curl`.
 
@@ -1401,47 +1422,47 @@ Two tiers, not one "covered/not covered" flag, because the right primary source 
 
 | Entry | Tier | Primary citation | Mirrored files |
 |---|---|---|---|
-| [BIS — Compulsory Registration Scheme (CRS)](#bis-compulsory-registration-scheme-crs) | Statutory text | Electronics and Information Technology Goods (Requirement for Compulsory Registration) Order, 2012 — S.O. 2357(E) | 1 |
-| [BIS — Hallmarking](#bis-hallmarking) | Statutory text | BIS (Hallmarking) Regulations, 2018 — Gazette notification | 1 |
-| [BIS — ISI Mark](#bis-isi-mark) | Statutory text | The Bureau of Indian Standards Act, 2016 (No. 11 of 2016) | 1 |
-| [BIS — Management System Certification](#bis-management-system-certification) | Official page | Features of BIS Management Systems Certification Scheme (BIS MSCS) | 1 |
-| [BIS / MoEFCC — Ecomark](#bis-moefcc-ecomark) | Statutory text | Ecomark Certification Rules, 2023 — Gazette notification, MoEFCC (11 October 2023) | 1 |
+| [BIS — Compulsory Registration Scheme (CRS)](#bis-compulsory-registration-scheme-crs) | Statutory text | Electronics and Information Technology Goods (Requirement for Compulsory Registration) Order, 2012 — S.O. 2357(E) | 2 |
+| [BIS — Hallmarking](#bis-hallmarking) | Statutory text | BIS (Hallmarking) Regulations, 2018 — Gazette notification | 2 |
+| [BIS — ISI Mark](#bis-isi-mark) | Statutory text | The Bureau of Indian Standards Act, 2016 (No. 11 of 2016) | 2 |
+| [BIS — Management System Certification](#bis-management-system-certification) | Official page | Features of BIS Management Systems Certification Scheme (BIS MSCS) | 2 |
+| [BIS / MoEFCC — Ecomark](#bis-moefcc-ecomark) | Statutory text | Ecomark Certification Rules, 2023 — Gazette notification, MoEFCC (11 October 2023) | 2 |
 | [STQC (Standardisation Testing and Quality Certification)](#stqc-standardisation-testing-and-quality-certification) | Official page | About STQC | 2 |
 
 ### Food & Agriculture
 
 | Entry | Tier | Primary citation | Mirrored files |
 |---|---|---|---|
-| [AGMARK](#agmark) | Statutory text | Agricultural Produce (Grading and Marking) Act, 1937 (as amended) | 1 |
-| [APEDA — NPOP (National Programme for Organic Production)](#apeda-npop-national-programme-for-organic-production) | Statutory text | National Programme for Organic Production (NPOP), 8th Edition, 2024 | 1 |
-| [FSSAI (Food Safety & Standards Authority of India)](#fssai-food-safety-standards-authority-of-india) | Statutory text | Food Safety and Standards Act, 2006 | 2 |
-| [MPEDA (Marine Products Export Development Authority)](#mpeda-marine-products-export-development-authority) | Statutory text | Marine Products Export Development Authority Act, 1972 | 1 |
+| [AGMARK](#agmark) | Statutory text | Agricultural Produce (Grading and Marking) Act, 1937 (as amended) | 2 |
+| [APEDA — NPOP (National Programme for Organic Production)](#apeda-npop-national-programme-for-organic-production) | Statutory text | National Programme for Organic Production (NPOP), 8th Edition, 2024 | 2 |
+| [FSSAI (Food Safety & Standards Authority of India)](#fssai-food-safety-standards-authority-of-india) | Statutory text | Food Safety and Standards Act, 2006 | 4 |
+| [MPEDA (Marine Products Export Development Authority)](#mpeda-marine-products-export-development-authority) | Statutory text | Marine Products Export Development Authority Act, 1972 | 2 |
 | [PGS-India (Participatory Guarantee System)](#pgs-india-participatory-guarantee-system) | Official page | PGS-India — Participatory Guarantee System | 1 |
 | [Spices Board India](#spices-board-india) | Statutory text | The Spices Board Act, 1986 — full text | 2 |
-| [Tea Board / Coffee Board](#tea-board-coffee-board) | Statutory text | Tea Act, 1953 (with Rules) | 2 |
+| [Tea Board / Coffee Board](#tea-board-coffee-board) | Statutory text | Tea Act, 1953 (with Rules) | 4 |
 
 ### Health, Pharma & AYUSH
 
 | Entry | Tier | Primary citation | Mirrored files |
 |---|---|---|---|
-| [AYUSH — GMP & Premium Mark](#ayush-gmp-premium-mark) | Statutory text | Schedule T, Drugs and Cosmetics Rules, 1945 | 3 |
-| [CDSCO (Central Drugs Standard Control Organisation)](#cdsco-central-drugs-standard-control-organisation) | Statutory text | The Drugs and Cosmetics Act, 1940 and Rules, 1945 | 1 |
+| [AYUSH — GMP & Premium Mark](#ayush-gmp-premium-mark) | Statutory text | Schedule T, Drugs and Cosmetics Rules, 1945 | 5 |
+| [CDSCO (Central Drugs Standard Control Organisation)](#cdsco-central-drugs-standard-control-organisation) | Statutory text | The Drugs and Cosmetics Act, 1940 and Rules, 1945 | 2 |
 | [State Drug Controllers](#state-drug-controllers) | Official page | State Drugs Control | 1 |
 
 ### Energy, Safety & Environment
 
 | Entry | Tier | Primary citation | Mirrored files |
 |---|---|---|---|
-| [AERB (Atomic Energy Regulatory Board)](#aerb-atomic-energy-regulatory-board) | Statutory text | The Atomic Energy Act, 1962 | 1 |
-| [BEE — Star Label](#bee-star-label) | Statutory text | Gazette notification No. 5506/BEE/S&L/AL/2025-26 | 2 |
-| [CPCB / State PCBs (Pollution Control Boards)](#cpcb-state-pcbs-pollution-control-boards) | Statutory text | The Water (Prevention and Control of Pollution) Act, 1974 | 1 |
+| [AERB (Atomic Energy Regulatory Board)](#aerb-atomic-energy-regulatory-board) | Statutory text | The Atomic Energy Act, 1962 | 2 |
+| [BEE — Star Label](#bee-star-label) | Statutory text | Gazette notification No. 5506/BEE/S&L/AL/2025-26 | 4 |
+| [CPCB / State PCBs (Pollution Control Boards)](#cpcb-state-pcbs-pollution-control-boards) | Statutory text | The Water (Prevention and Control of Pollution) Act, 1974 | 2 |
 | [PESO (Petroleum and Explosives Safety Organisation)](#peso-petroleum-and-explosives-safety-organisation) | Statutory text | The Explosives Act, 1884 — full text | 2 |
 
 ### Telecom & Electronics
 
 | Entry | Tier | Primary citation | Mirrored files |
 |---|---|---|---|
-| [TEC — MTCTE (Mandatory Testing & Certification of Telecommunication Equipment)](#tec-mtcte-mandatory-testing-certification-of-telecommunication-equipment) | Statutory text | Procedure for Mandatory Testing & Certification of Telecommunication Equipment (MTCTE), 2017 | 1 |
+| [TEC — MTCTE (Mandatory Testing & Certification of Telecommunication Equipment)](#tec-mtcte-mandatory-testing-certification-of-telecommunication-equipment) | Statutory text | Procedure for Mandatory Testing & Certification of Telecommunication Equipment (MTCTE), 2017 | 2 |
 | [WPC Wing — Equipment Type Approval (ETA)](#wpc-wing-equipment-type-approval-eta) | Statutory text | The Indian Wireless Telegraphy Act, 1933 | 2 |
 
 ### Textiles & Handicrafts
@@ -1450,7 +1471,7 @@ Two tiers, not one "covered/not covered" flag, because the right primary source 
 |---|---|---|---|
 | [Handloom Mark / India Handloom Brand](#handloom-mark-india-handloom-brand) | Official page | Handloom Mark — official scheme site | 3 |
 | [Silk Mark](#silk-mark) | Official page | SMOI — Silk Mark Organization of India | 1 |
-| [Textiles Committee](#textiles-committee) | Statutory text | The Textiles Committee Act, 1963 | 1 |
+| [Textiles Committee](#textiles-committee) | Statutory text | The Textiles Committee Act, 1963 | 2 |
 
 ### Origin & Trademarks
 

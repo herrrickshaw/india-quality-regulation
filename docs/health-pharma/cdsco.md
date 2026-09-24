@@ -14,6 +14,7 @@ CDSCO is India's national drug regulatory authority, headquartered at FDA Bhawan
 ## Primary source
 
 - [The Drugs and Cosmetics Act, 1940 and Rules, 1945](https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2022/acts_and_rules/Drugs%20and%20Cosmetics%20Act,%201940.pdf) — mirrored at `sources/health-pharma/cdsco.pdf`, fetched 2026-09-24
+- Full text: [`sources/health-pharma/cdsco.md`](../../sources/health-pharma/cdsco.md) (extracted, for search/offline reading)
 
 ## Notes
 

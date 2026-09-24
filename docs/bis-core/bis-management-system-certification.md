@@ -30,6 +30,7 @@ in a market it does not otherwise regulate.
 ## Primary source
 
 - [Features of BIS Management Systems Certification Scheme (BIS MSCS)](https://bis.gov.in/wp-content/uploads/2018/11/Features-of-BIS-MSCS.pdf) — mirrored at `sources/bis-core/bis-management-system-certification.pdf`, fetched 2026-09-24
+- Full text: [`sources/bis-core/bis-management-system-certification.md`](../../sources/bis-core/bis-management-system-certification.md) (extracted, for search/offline reading)
 
 ## Notes
 

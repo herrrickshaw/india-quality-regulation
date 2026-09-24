@@ -31,6 +31,7 @@ accredited through NABL.
 ## Primary source
 
 - [BIS (Hallmarking) Regulations, 2018 — Gazette notification](https://www.bis.gov.in/bs/BIS_Hallmarking_Regulations_2018_Gazette_notification.pdf) — mirrored at `sources/bis-core/bis-hallmarking.pdf`, fetched 2026-09-24
+- Full text: [`sources/bis-core/bis-hallmarking.md`](../../sources/bis-core/bis-hallmarking.md) (extracted, for search/offline reading)
 
 ## Notes
 

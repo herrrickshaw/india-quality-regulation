@@ -27,6 +27,7 @@ scheme in this repository, predating independence by a decade.
 ## Primary source
 
 - [Agricultural Produce (Grading and Marking) Act, 1937 (as amended)](https://agmarkonline.dmi.gov.in/writereaddata/DMI/files/15364146815b93d3d9ab807A1937-1.pdf) — mirrored at `sources/food-agriculture/agmark.pdf`, fetched 2026-09-24
+- Full text: [`sources/food-agriculture/agmark.md`](../../sources/food-agriculture/agmark.md) (extracted, for search/offline reading)
 
 ## Notes
 

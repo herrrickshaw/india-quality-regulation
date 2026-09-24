@@ -14,6 +14,7 @@ The Textiles Committee is a statutory body corporate created by Parliament under
 ## Primary source
 
 - [The Textiles Committee Act, 1963](https://web.archive.org/web/20240831084713/https://www.textilescommittee.nic.in/sites/default/files/act_rules/act_texcom.pdf) (Act No. 41 of 1963) — mirrored at `sources/textiles/textiles-committee.pdf`, fetched 2026-09-24 via a Wayback Machine snapshot (dated 31 August 2024) of the Textiles Committee's own PDF, since the live domain remains unreachable (see below).
+- Full text: [`sources/textiles/textiles-committee.md`](../../sources/textiles/textiles-committee.md) (extracted, for search/offline reading)
 
 Live retrieval notes: textilescommittee.nic.in itself still refuses/times out every direct TCP connection attempt as of this research session (across HTTP, HTTPS, bare and `www.` hosts) — the Wayback Machine's cached copy of the exact same URL was used instead, and its digest matches across at least six snapshots from 2022–2024, indicating the file has been stable. The Ministry of Textiles' own page on the Committee (https://texmin.gov.in/textiles-committee) still returns only an empty client-rendered application shell with no textual content to `curl`.
 

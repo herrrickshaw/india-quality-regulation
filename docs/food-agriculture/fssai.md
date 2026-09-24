@@ -33,7 +33,9 @@ safety.
 ## Primary source
 
 - [Food Safety and Standards Act, 2006](https://fssai.gov.in/upload/uploadfiles/files/FOOD_ACT.pdf) — mirrored at `sources/food-agriculture/fssai.pdf`, fetched 2026-09-24
+- Full text: [`sources/food-agriculture/fssai.md`](../../sources/food-agriculture/fssai.md) (extracted, for search/offline reading)
 - [Food Safety and Standards (Prohibition and Restrictions on Sales) Regulations — consolidated compendium, Version XI (02.04.2025), reflecting the BIS/AGMARK omission](https://fssai.gov.in/upload/uploadfiles/files/Comp_Prohibition%20and%20Restrcition%20of%20sales%20XI_01042025.pdf) — mirrored at `sources/food-agriculture/fssai-2024-prohibition-amendment-gazette.pdf`, fetched 2026-09-24
+- Full text: [`sources/food-agriculture/fssai-2024-prohibition-amendment-gazette.md`](../../sources/food-agriculture/fssai-2024-prohibition-amendment-gazette.md) (extracted, for search/offline reading)
 
 ## Notes
 

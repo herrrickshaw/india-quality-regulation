@@ -35,6 +35,7 @@ commercial [Management System Certification](bis-management-system-certification
 ## Primary source
 
 - [The Bureau of Indian Standards Act, 2016 (No. 11 of 2016)](https://bis.gov.in/wp-content/uploads/2020/12/BIS-Act-2016-Bilingual.pdf) — mirrored at `sources/bis-core/bis-isi-mark.pdf`, fetched 2026-09-24
+- Full text: [`sources/bis-core/bis-isi-mark.md`](../../sources/bis-core/bis-isi-mark.md) (extracted, for search/offline reading)
 
 ## Notes
 

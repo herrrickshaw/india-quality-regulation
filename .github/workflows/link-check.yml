@@ -17,6 +17,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # poppler-utils (pdftotext/pdfinfo) and tesseract (+ Hindi language
+      # data, for the bilingual gazette scans) back scripts/extract_pdf_text
+      # .py and scripts/verify_pdf_extraction.py's completeness/OCR/
+      # reproducibility checks below.
+      - name: Install PDF/OCR tooling
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils tesseract-ocr tesseract-ocr-hin
+          pip install --quiet pymupdf
+
       # docs/coverage.md, badges/entries.json, and COMPENDIUM.md are all
       # generated from docs/*.md — regenerate and diff so a doc page edited
       # without re-running the generator fails the build instead of
@@ -47,6 +57,9 @@ jobs:
 
       - name: Check the compendium matches its source docs exactly
         run: python3 scripts/verify_compendium.py --check all
+
+      - name: Check every mirrored PDF's text extraction
+        run: python3 scripts/verify_pdf_extraction.py --check all
 
   external-sources:
     name: External primary-source URLs (best-effort — not blocking)

@@ -28,6 +28,7 @@ sector-specific to seafood rather than a general laboratory accreditation.
 ## Primary source
 
 - [Marine Products Export Development Authority Act, 1972](https://thc.nic.in/Central%20Governmental%20Acts/Marine%20Products%20Export%20Development%20Authority%20Act,%201972..pdf) — mirrored at `sources/food-agriculture/mpeda.pdf`, fetched 2026-09-24
+- Full text: [`sources/food-agriculture/mpeda.md`](../../sources/food-agriculture/mpeda.md) (extracted, for search/offline reading)
 
 ## Notes
 

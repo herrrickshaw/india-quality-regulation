@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+
+# Local unlazy working ledger and approval/hook state — machine-specific,
+# not a repo deliverable. See ~/.claude/skills/unlazy/SECURITY.md.
+GATES.md
+.unlazy/
+.unlazy-hook-state.json
+.claude/settings.local.json

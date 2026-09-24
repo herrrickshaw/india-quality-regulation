@@ -29,7 +29,9 @@ this combined entry is marked Mixed.
 ## Primary source
 
 - [Tea Act, 1953 (with Rules)](https://www.teaboard.gov.in/pdf/policy/tea_act_and_rule.pdf) — mirrored at `sources/food-agriculture/tea-board-coffee-board.pdf`, fetched 2026-09-24
+- Full text: [`sources/food-agriculture/tea-board-coffee-board.md`](../../sources/food-agriculture/tea-board-coffee-board.md) (extracted, for search/offline reading)
 - [Coffee Act, 1942 (with Rules)](https://coffeeboard.gov.in/CoffeeBoard/Coffee_Act_Rules.pdf) — mirrored at `sources/food-agriculture/tea-board-coffee-board-coffee-act.pdf`, fetched 2026-09-24
+- Full text: [`sources/food-agriculture/tea-board-coffee-board-coffee-act.md`](../../sources/food-agriculture/tea-board-coffee-board-coffee-act.md) (extracted, for search/offline reading)
 
 ## Notes
 

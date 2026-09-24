@@ -14,6 +14,7 @@ TEC is the Department of Telecommunications' standards and testing arm. Under th
 ## Primary source
 
 - [Procedure for Mandatory Testing & Certification of Telecommunication Equipment (MTCTE), 2017](https://tec.gov.in/public/pdf/Whatsnew/Final%20MTCTE%202017%20Procedure.pdf) — mirrored at `sources/telecom-electronics/tec-mtcte.pdf`, fetched 2026-09-24
+- Full text: [`sources/telecom-electronics/tec-mtcte.md`](../../sources/telecom-electronics/tec-mtcte.md) (extracted, for search/offline reading)
 
 ## Notes
 

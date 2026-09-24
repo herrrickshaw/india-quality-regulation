@@ -14,6 +14,7 @@ CPCB was constituted in September 1974 under the Water (Prevention and Control o
 ## Primary source
 
 - [The Water (Prevention and Control of Pollution) Act, 1974](https://cpcb.nic.in/upload/home/water-pollution/WaterAct-1974.pdf) — mirrored at `sources/energy-safety-environment/cpcb-state-pcbs.pdf`, fetched 2026-09-24
+- Full text: [`sources/energy-safety-environment/cpcb-state-pcbs.md`](../../sources/energy-safety-environment/cpcb-state-pcbs.md) (extracted, for search/offline reading)
 
 ## Notes
 

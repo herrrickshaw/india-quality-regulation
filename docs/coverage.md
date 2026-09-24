@@ -20,47 +20,47 @@ Two tiers, not one "covered/not covered" flag, because the right primary source 
 
 | Entry | Tier | Primary citation | Mirrored files |
 |---|---|---|---|
-| [BIS — Compulsory Registration Scheme (CRS)](bis-core/bis-crs.md) | Statutory text | Electronics and Information Technology Goods (Requirement for Compulsory Registration) Order, 2012 — S.O. 2357(E) | 1 |
-| [BIS — Hallmarking](bis-core/bis-hallmarking.md) | Statutory text | BIS (Hallmarking) Regulations, 2018 — Gazette notification | 1 |
-| [BIS — ISI Mark](bis-core/bis-isi-mark.md) | Statutory text | The Bureau of Indian Standards Act, 2016 (No. 11 of 2016) | 1 |
-| [BIS — Management System Certification](bis-core/bis-management-system-certification.md) | Official page | Features of BIS Management Systems Certification Scheme (BIS MSCS) | 1 |
-| [BIS / MoEFCC — Ecomark](bis-core/ecomark.md) | Statutory text | Ecomark Certification Rules, 2023 — Gazette notification, MoEFCC (11 October 2023) | 1 |
+| [BIS — Compulsory Registration Scheme (CRS)](bis-core/bis-crs.md) | Statutory text | Electronics and Information Technology Goods (Requirement for Compulsory Registration) Order, 2012 — S.O. 2357(E) | 2 |
+| [BIS — Hallmarking](bis-core/bis-hallmarking.md) | Statutory text | BIS (Hallmarking) Regulations, 2018 — Gazette notification | 2 |
+| [BIS — ISI Mark](bis-core/bis-isi-mark.md) | Statutory text | The Bureau of Indian Standards Act, 2016 (No. 11 of 2016) | 2 |
+| [BIS — Management System Certification](bis-core/bis-management-system-certification.md) | Official page | Features of BIS Management Systems Certification Scheme (BIS MSCS) | 2 |
+| [BIS / MoEFCC — Ecomark](bis-core/ecomark.md) | Statutory text | Ecomark Certification Rules, 2023 — Gazette notification, MoEFCC (11 October 2023) | 2 |
 | [STQC (Standardisation Testing and Quality Certification)](bis-core/stqc.md) | Official page | About STQC | 2 |
 
 ## Food & Agriculture
 
 | Entry | Tier | Primary citation | Mirrored files |
 |---|---|---|---|
-| [AGMARK](food-agriculture/agmark.md) | Statutory text | Agricultural Produce (Grading and Marking) Act, 1937 (as amended) | 1 |
-| [APEDA — NPOP (National Programme for Organic Production)](food-agriculture/apeda-npop.md) | Statutory text | National Programme for Organic Production (NPOP), 8th Edition, 2024 | 1 |
-| [FSSAI (Food Safety & Standards Authority of India)](food-agriculture/fssai.md) | Statutory text | Food Safety and Standards Act, 2006 | 2 |
-| [MPEDA (Marine Products Export Development Authority)](food-agriculture/mpeda.md) | Statutory text | Marine Products Export Development Authority Act, 1972 | 1 |
+| [AGMARK](food-agriculture/agmark.md) | Statutory text | Agricultural Produce (Grading and Marking) Act, 1937 (as amended) | 2 |
+| [APEDA — NPOP (National Programme for Organic Production)](food-agriculture/apeda-npop.md) | Statutory text | National Programme for Organic Production (NPOP), 8th Edition, 2024 | 2 |
+| [FSSAI (Food Safety & Standards Authority of India)](food-agriculture/fssai.md) | Statutory text | Food Safety and Standards Act, 2006 | 4 |
+| [MPEDA (Marine Products Export Development Authority)](food-agriculture/mpeda.md) | Statutory text | Marine Products Export Development Authority Act, 1972 | 2 |
 | [PGS-India (Participatory Guarantee System)](food-agriculture/pgs-india.md) | Official page | PGS-India — Participatory Guarantee System | 1 |
 | [Spices Board India](food-agriculture/spices-board.md) | Statutory text | The Spices Board Act, 1986 — full text | 2 |
-| [Tea Board / Coffee Board](food-agriculture/tea-board-coffee-board.md) | Statutory text | Tea Act, 1953 (with Rules) | 2 |
+| [Tea Board / Coffee Board](food-agriculture/tea-board-coffee-board.md) | Statutory text | Tea Act, 1953 (with Rules) | 4 |
 
 ## Health, Pharma & AYUSH
 
 | Entry | Tier | Primary citation | Mirrored files |
 |---|---|---|---|
-| [AYUSH — GMP & Premium Mark](health-pharma/ayush-gmp-premium-mark.md) | Statutory text | Schedule T, Drugs and Cosmetics Rules, 1945 | 3 |
-| [CDSCO (Central Drugs Standard Control Organisation)](health-pharma/cdsco.md) | Statutory text | The Drugs and Cosmetics Act, 1940 and Rules, 1945 | 1 |
+| [AYUSH — GMP & Premium Mark](health-pharma/ayush-gmp-premium-mark.md) | Statutory text | Schedule T, Drugs and Cosmetics Rules, 1945 | 5 |
+| [CDSCO (Central Drugs Standard Control Organisation)](health-pharma/cdsco.md) | Statutory text | The Drugs and Cosmetics Act, 1940 and Rules, 1945 | 2 |
 | [State Drug Controllers](health-pharma/state-drug-controllers.md) | Official page | State Drugs Control | 1 |
 
 ## Energy, Safety & Environment
 
 | Entry | Tier | Primary citation | Mirrored files |
 |---|---|---|---|
-| [AERB (Atomic Energy Regulatory Board)](energy-safety-environment/aerb.md) | Statutory text | The Atomic Energy Act, 1962 | 1 |
-| [BEE — Star Label](energy-safety-environment/bee-star-label.md) | Statutory text | Gazette notification No. 5506/BEE/S&L/AL/2025-26 | 2 |
-| [CPCB / State PCBs (Pollution Control Boards)](energy-safety-environment/cpcb-state-pcbs.md) | Statutory text | The Water (Prevention and Control of Pollution) Act, 1974 | 1 |
+| [AERB (Atomic Energy Regulatory Board)](energy-safety-environment/aerb.md) | Statutory text | The Atomic Energy Act, 1962 | 2 |
+| [BEE — Star Label](energy-safety-environment/bee-star-label.md) | Statutory text | Gazette notification No. 5506/BEE/S&L/AL/2025-26 | 4 |
+| [CPCB / State PCBs (Pollution Control Boards)](energy-safety-environment/cpcb-state-pcbs.md) | Statutory text | The Water (Prevention and Control of Pollution) Act, 1974 | 2 |
 | [PESO (Petroleum and Explosives Safety Organisation)](energy-safety-environment/peso.md) | Statutory text | The Explosives Act, 1884 — full text | 2 |
 
 ## Telecom & Electronics
 
 | Entry | Tier | Primary citation | Mirrored files |
 |---|---|---|---|
-| [TEC — MTCTE (Mandatory Testing & Certification of Telecommunication Equipment)](telecom-electronics/tec-mtcte.md) | Statutory text | Procedure for Mandatory Testing & Certification of Telecommunication Equipment (MTCTE), 2017 | 1 |
+| [TEC — MTCTE (Mandatory Testing & Certification of Telecommunication Equipment)](telecom-electronics/tec-mtcte.md) | Statutory text | Procedure for Mandatory Testing & Certification of Telecommunication Equipment (MTCTE), 2017 | 2 |
 | [WPC Wing — Equipment Type Approval (ETA)](telecom-electronics/wpc-eta.md) | Statutory text | The Indian Wireless Telegraphy Act, 1933 | 2 |
 
 ## Textiles & Handicrafts
@@ -69,7 +69,7 @@ Two tiers, not one "covered/not covered" flag, because the right primary source 
 |---|---|---|---|
 | [Handloom Mark / India Handloom Brand](textiles/handloom-mark.md) | Official page | Handloom Mark — official scheme site | 3 |
 | [Silk Mark](textiles/silk-mark.md) | Official page | SMOI — Silk Mark Organization of India | 1 |
-| [Textiles Committee](textiles/textiles-committee.md) | Statutory text | The Textiles Committee Act, 1963 | 1 |
+| [Textiles Committee](textiles/textiles-committee.md) | Statutory text | The Textiles Committee Act, 1963 | 2 |
 
 ## Origin & Trademarks
 

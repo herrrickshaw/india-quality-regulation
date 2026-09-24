@@ -14,6 +14,7 @@ AERB is India's nuclear and radiological safety regulator, constituted under the
 ## Primary source
 
 - [The Atomic Energy Act, 1962](https://www.aerb.gov.in/images/PDF/Atomic-Energy-Act-1962.pdf) — mirrored at `sources/energy-safety-environment/aerb.pdf`, fetched 2026-09-24
+- Full text: [`sources/energy-safety-environment/aerb.md`](../../sources/energy-safety-environment/aerb.md) (extracted, for search/offline reading)
 
 ## Notes
 

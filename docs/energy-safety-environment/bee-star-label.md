@@ -14,7 +14,9 @@ BEE runs the Standards & Labelling (S&L) programme, which rates the energy effic
 ## Primary source
 
 - [Gazette notification No. 5506/BEE/S&L/AL/2025-26](https://egazette.gov.in/WriteReadData/2025/268894.pdf) — the Bureau of Energy Efficiency (Appliance Labelling and Compliance) Regulations, 2026, dated 26 December 2025 and published in the Gazette of India (Extraordinary) on 29 December 2025 — mirrored at `sources/energy-safety-environment/bee-star-label-sl-scheme.pdf`, fetched 2026-09-24. This is the actual S&L scheme regulation, issued under Section 58(1) of the Energy Conservation Act, 2001, and is what expands the mandatory-labelling list from 1 January 2026 (frost-free/direct-cool refrigerators, deep freezers, certain room-AC types, grid-connected solar inverters, distribution transformers, etc.) referenced below.
+- Full text: [`sources/energy-safety-environment/bee-star-label-sl-scheme.md`](../../sources/energy-safety-environment/bee-star-label-sl-scheme.md) (extracted, for search/offline reading)
 - [The Energy Conservation Act, 2001](https://cdnbbsr.s3waas.gov.in/s3716e1b8c6cd17b771da77391355749f3/uploads/2024/02/20240219558401063.pdf) (hosted via the NIC/S3WaaS government cloud, mirroring the same Act published at `beeindia.gov.in`) — the parent Act; kept as secondary/background — mirrored at `sources/energy-safety-environment/bee-star-label.pdf`, fetched 2026-09-24
+- Full text: [`sources/energy-safety-environment/bee-star-label.md`](../../sources/energy-safety-environment/bee-star-label.md) (extracted, for search/offline reading)
 
 ## Notes
 

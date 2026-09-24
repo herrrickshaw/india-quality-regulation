@@ -31,6 +31,7 @@ CRS need to track that transition.
 ## Primary source
 
 - [Electronics and Information Technology Goods (Requirement for Compulsory Registration) Order, 2012 — S.O. 2357(E)](https://egazette.gov.in/WriteReadData/2012/E_1975_2012_003.pdf) — mirrored at `sources/bis-core/bis-crs.pdf`, fetched 2026-09-24
+- Full text: [`sources/bis-core/bis-crs.md`](../../sources/bis-core/bis-crs.md) (extracted, for search/offline reading)
 
 ## Notes
 

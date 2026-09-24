@@ -28,6 +28,7 @@ edition (2024); NPOP-covered organic production for 2024–25 ran to roughly
 ## Primary source
 
 - [National Programme for Organic Production (NPOP), 8th Edition, 2024](https://npop.apeda.gov.in/sites/default/files/2024-10/NPOP_Eight_Edition_2024.pdf) — mirrored at `sources/food-agriculture/apeda-npop.pdf`, fetched 2026-09-24
+- Full text: [`sources/food-agriculture/apeda-npop.md`](../../sources/food-agriculture/apeda-npop.md) (extracted, for search/offline reading)
 
 ## Notes
 

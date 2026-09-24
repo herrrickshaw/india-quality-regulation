@@ -31,6 +31,7 @@ later notifications tied to the government's "Lifestyle for Environment"
 ## Primary source
 
 - [Ecomark Certification Rules, 2023 — Gazette notification, MoEFCC (11 October 2023)](https://egazette.gov.in/WriteReadData/2023/249354.pdf) — mirrored at `sources/bis-core/ecomark.pdf`, fetched 2026-09-24
+- Full text: [`sources/bis-core/ecomark.md`](../../sources/bis-core/ecomark.md) (extracted, for search/offline reading)
 
 ## Notes
 

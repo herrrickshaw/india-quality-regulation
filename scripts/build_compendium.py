@@ -125,11 +125,19 @@ def rewrite_links(text: str, doc_docs_relative_dir: str, title_map: dict, catego
         if target.endswith(".md"):
             resolved = resolve_docs_relative(doc_docs_relative_dir, target)
             title = title_map.get(resolved)
-            if title is None:
-                print(f"WARNING: unresolved cross-link '{target}' in {doc_docs_relative_dir or '.'}",
-                      file=sys.stderr)
-                return m.group(0)
-            return f"[{label}](#{slugify(title)})"
+            if title is not None:
+                return f"[{label}](#{slugify(title)})"
+            # A link that climbs out of docs/ entirely (e.g.
+            # `../../sources/bis-core/bis-isi-mark.md`, used to cite a
+            # PDF's extracted-text transcription) resolves, once it clears
+            # docs/, to a path that's already correct relative to the
+            # REPOSITORY ROOT — which is exactly where COMPENDIUM.md lives.
+            # Point the link straight at that file instead of an anchor.
+            if resolved.startswith("sources/") and (REPO_ROOT / resolved).is_file():
+                return f"[{label}]({resolved})"
+            print(f"WARNING: unresolved cross-link '{target}' in {doc_docs_relative_dir or '.'}",
+                  file=sys.stderr)
+            return m.group(0)
 
         if target.endswith("/"):
             resolved = resolve_docs_relative(doc_docs_relative_dir, target)
