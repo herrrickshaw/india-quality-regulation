@@ -12,10 +12,11 @@ Legal Metrology is not a quality certifier in the sense that BIS or FSSAI are �
 
 ## Primary source
 
-- [The Legal Metrology Act — Department of Consumer Affairs](https://consumeraffairs.gov.in/pages/legal-metrology-act) — mirrored at `sources/legal-metrology/legal-metrology.html`, fetched 2026-09-24
+- [The Legal Metrology Act, 2009 — full text](https://indiankanoon.org/doc/122504373/) — mirrored at `sources/legal-metrology/legal-metrology-act.html`, fetched 2026-09-24
+- [The Legal Metrology Act — Department of Consumer Affairs](https://consumeraffairs.gov.in/pages/legal-metrology-act) (secondary/administrative reference) — mirrored at `sources/legal-metrology/legal-metrology.html`, fetched 2026-09-24
 
 ## Notes
 
-- The bare Act PDF is also hosted on India Code (indiacode.nic.in/bitstream/123456789/2102/1/2009l.pdf), but that host timed out repeatedly from this research environment (consistent with the `.nic.in` access issues noted on other pages in this batch); the Department of Consumer Affairs' own page was mirrored instead.
+- **2026-09-24 fix:** recovered the bare Act full text from IndianKanoon after `indiacode.nic.in` was confirmed dead. `legislative.gov.in`'s `lddashboard` subdomain was tried first per the standard preference order and timed out identically to indiacode.nic.in (same unreachable NIC infrastructure); a Meghalaya state weights-and-measures mirror (`megweights.gov.in`) surfaced in search but failed with a TLS handshake error. IndianKanoon's bare-act page fetched cleanly and was verified to contain the Act's full text. The Department of Consumer Affairs' own page is retained as a secondary/administrative reference.
 - Legal Metrology is frequently the first line of enforcement consumers actually encounter (short-weighing complaints, MRP overcharging) even though it gets far less public attention than BIS or FSSAI marks — worth flagging in the overview's "quality-relevant" framing since it's easy to overlook as a "quality" regulator at all.
 - The Indian Institute of Legal Metrology (IILM), a training body under the Department, is a related but separate institution from the enforcement apparatus described here — it trains metrology officers rather than regulating the market directly.

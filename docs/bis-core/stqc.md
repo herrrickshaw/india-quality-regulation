@@ -31,18 +31,20 @@ that reference it.
 
 ## Primary source
 
-- [STQC — Standardisation Testing and Quality Certification Directorate](https://www.stqc.gov.in/) — mirrored at `sources/bis-core/stqc.html`, fetched 2026-09-24
+- [About STQC](https://www.stqc.gov.in/about-stqc) — mirrored at `sources/bis-core/stqc-about.html`, fetched 2026-09-24. Unlike the bare homepage, this page carries real descriptive prose: STQC's role as a MeitY attached office, its four service lines (Testing, Calibration, IT & e-Governance, Certification), its lab/centre network (ERTLs, ETDCs, IT Centres, CFR, IIQM), and its QMS/ISMS/ITSM certification track record.
+- [STQC — Standardisation Testing and Quality Certification Directorate (homepage)](https://www.stqc.gov.in/) — kept as secondary — mirrored at `sources/bis-core/stqc.html`, fetched 2026-09-24
 
 ## Notes
 
-- The STQC homepage is mostly navigation/JS chrome with limited prose about
-  scope on the page itself — the "established 1980" and service-line detail
-  above come from secondary sources (Wikipedia, MeitY organisational
-  listings) cross-checked against the official site's own self-description,
-  not from body text on the homepage; if a firmer primary citation is
-  needed later, MeitY's own STQC PDF
-  (`meity.gov.in/static/uploads/2024/10/bfb7eb2a620f12ee4ef86aa6bd0fa618.pdf`)
-  is a candidate worth fetching separately.
+- The "About STQC" page above supplies a firmer primary citation for STQC's
+  scope/mandate than the homepage did; the "established 1980" fact is still
+  sourced from secondary listings (Wikipedia, MeitY organisational pages)
+  since neither STQC page states a founding year directly.
+- A candidate MeitY PDF (`meity.gov.in/static/uploads/2024/10/bfb7eb2a620f12ee4ef86aa6bd0fa618.pdf`)
+  was also checked: it is a 2024 recruitment advertisement, not a scheme
+  document — it repeats the same "about STQC" boilerplate paragraph but
+  isn't a better primary source than the About STQC page above, so it
+  wasn't mirrored.
 - STQC recently launched a "SATYA" lab-automation portal (per a 2026 PIB
   release) — a sign the directorate is still actively modernising its
   testing infrastructure, not a legacy/dormant body.

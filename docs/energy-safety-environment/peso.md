@@ -12,10 +12,12 @@ PESO is India's oldest surviving safety regulator, tracing back to the 1898 Depa
 
 ## Primary source
 
-- [Explosives Act 1884](https://peso.gov.in/web/en/explosives-act-1884) — mirrored at `sources/energy-safety-environment/peso.html`, fetched 2026-09-24
+- [The Explosives Act, 1884 — full text](https://indiankanoon.org/doc/176528/) — mirrored at `sources/energy-safety-environment/peso-act.html`, fetched 2026-09-24
+- [Explosives Act 1884 — PESO's own page about the Act](https://peso.gov.in/web/en/explosives-act-1884) (secondary/administrative reference) — mirrored at `sources/energy-safety-environment/peso.html`, fetched 2026-09-24
 
 ## Notes
 
+- **2026-09-24 fix:** the previously mirrored file was PESO's own page *about* the Act, not the Act text itself. Recovered the actual bare Act full text from IndianKanoon after `indiacode.nic.in` was confirmed dead. `legislative.gov.in`'s `lddashboard` subdomain was tried first per the standard preference order and timed out identically to indiacode.nic.in; a Puducherry district-administration mirror (`puducherry-dt.gov.in/document/the-explosives-act-1884/`) was also found and is reachable, but IndianKanoon's bare-act page was preferred as the more standard citation and was verified to contain the Act's full section text. PESO's own page is retained as a secondary/administrative reference.
 - PESO's non-HTTPS legacy domain (`peso.gov.in` without a scheme, and the `www.peso.gov.in/en` variant) did not respond within a reasonable timeout during this research; the working, current site is the HTTPS `peso.gov.in/web/...` path.
 - PESO published a "Note for Public & Stakeholder Consultation" on repealing the Explosives Act, 1884 — a modernisation/replacement of India's oldest safety statute appears to be in progress; this page should be re-checked periodically rather than treated as permanently current.
 - PESO's scope overlaps three of this repo's other categories in practice — explosives (unique to PESO), petroleum/LPG (shared conceptually with BIS product marks), and pressure vessels (shared conceptually with boiler/industrial-safety regimes not yet covered in this repo) — but PESO is the single licensing authority across all three.

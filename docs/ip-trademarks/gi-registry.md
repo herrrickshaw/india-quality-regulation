@@ -12,10 +12,11 @@ The GI Registry, based in Chennai under the Office of the Controller General of 
 
 ## Primary source
 
-- [Geographical Indications Registry — Background](https://ipindia.gov.in/registry) — mirrored at `sources/ip-trademarks/gi-registry.html`, fetched 2026-09-24
+- [The Geographical Indications of Goods (Registration and Protection) Act, 1999 — full text](https://indiankanoon.org/doc/1463915/) — mirrored at `sources/ip-trademarks/gi-registry-act.html`, fetched 2026-09-24
+- [Geographical Indications Registry — Background](https://ipindia.gov.in/registry) (secondary/administrative reference) — mirrored at `sources/ip-trademarks/gi-registry.html`, fetched 2026-09-24
 
 ## Notes
 
-- The Act's full text is also available via India Code (indiacode.nic.in) and a legacy ipindia.nic.in mirror, but both of those hosts timed out from this research environment during fetch attempts (same pattern as the Textiles Committee site — likely a network-level block on certain `.nic.in` hosts rather than the documents being unavailable). The `ipindia.gov.in/registry` page fetched cleanly and is the Registry's own current landing page, so it was used as the mirrored primary source instead of the bare Act PDF.
+- **2026-09-24 fix:** the bare Act full text was recovered from IndianKanoon after `indiacode.nic.in` was confirmed dead (per the repo-wide exclude list in `.lychee.toml`) — a second attempt was made specifically to replace the ipindia.gov.in landing page with real statutory text, without retrying indiacode.nic.in. `legislative.gov.in` was tried first per the standard host-preference order, but its `lddashboard.legislative.gov.in` subdomain (where the actual Act PDF lives) timed out identically to indiacode.nic.in — both appear to sit behind the same NIC hosting infrastructure that's unreachable from this environment. IndianKanoon's bare-act page worked cleanly and was verified to contain the full section-by-section text (not just a summary). The ipindia.gov.in landing page is retained as a secondary/administrative reference.
 - Registered-GI counts vary noticeably by source and by what's being counted (total register entries vs. distinct product tags vs. active vs. expired) — don't treat any single number as authoritative without checking the live public register search on ipindia.gov.in.
 - GI registration and Certification Trade Marks are sometimes confused by non-specialists: a GI protects a place-linked product category collectively (no single "owner"), while a Certification Trade Mark is a mark one proprietor licenses out under defined standards (e.g. Woolmark). See [Certification Trade Marks](certification-trade-marks.md) for the distinction.

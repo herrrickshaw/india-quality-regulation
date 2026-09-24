@@ -12,14 +12,17 @@ The Textiles Committee is a statutory body corporate created by Parliament under
 
 ## Primary source
 
-No stable public primary-source document could be fetched; see the official page for the Act text and current scheme information. The Textiles Committee's own domain (textilescommittee.nic.in, including its Act/Rules PDF at `/sites/default/files/act_rules/act_texcom.pdf`) was unreachable from this environment — every connection attempt timed out at the TCP level rather than returning an HTTP error, suggesting a network-level block rather than a broken link. The Ministry of Textiles' own page on the Committee (https://texmin.gov.in/textiles-committee) loaded but returned only an empty client-rendered application shell with no textual content when fetched via `curl` (it requires JavaScript execution to populate).
+- [The Textiles Committee Act, 1963](https://web.archive.org/web/20240831084713/https://www.textilescommittee.nic.in/sites/default/files/act_rules/act_texcom.pdf) (Act No. 41 of 1963) — mirrored at `sources/textiles/textiles-committee.pdf`, fetched 2026-09-24 via a Wayback Machine snapshot (dated 31 August 2024) of the Textiles Committee's own PDF, since the live domain remains unreachable (see below).
 
-- Official Act text (unmirrored): https://textilescommittee.nic.in/sites/default/files/act_rules/act_texcom.pdf
+Live retrieval notes: textilescommittee.nic.in itself still refuses/times out every direct TCP connection attempt as of this research session (across HTTP, HTTPS, bare and `www.` hosts) — the Wayback Machine's cached copy of the exact same URL was used instead, and its digest matches across at least six snapshots from 2022–2024, indicating the file has been stable. The Ministry of Textiles' own page on the Committee (https://texmin.gov.in/textiles-committee) still returns only an empty client-rendered application shell with no textual content to `curl`.
+
+- Official Act text (live domain still unreachable): https://textilescommittee.nic.in/sites/default/files/act_rules/act_texcom.pdf
 - Ministry of Textiles page (unmirrored, JS-rendered): https://texmin.gov.in/textiles-committee
 - Alternate full-text mirror consulted for verification only (not treated as primary; third-party legal database): https://indiankanoon.org/doc/1238203/
 
 ## Notes
 
-- This is the one entry among the nine where no file could be mirrored — the source domain was reachable enough to resolve DNS but refused/timed out every TCP connection during this research session across multiple retries and protocols (HTTP and HTTPS). This may be transient; re-attempt the direct PDF URL above before relying on this note long-term.
-- The Act's key facts (assent 3 December 1963, Gazette publication 4 December 1963, Committee operational from 22 August 1964) are corroborated by secondary legal-reference sources (India Code, Indian Kanoon) even though the primary PDF itself couldn't be retrieved.
+- The mirrored PDF is the Act's operative text (6 pages: short title, definitions, constitution of the Committee, and following sections) — confirmed by direct text extraction, not just metadata.
+- The Act's key facts (assent 3 December 1963, Gazette publication 4 December 1963, Committee operational from 22 August 1964) are corroborated by secondary legal-reference sources (India Code, Indian Kanoon) and are consistent with the mirrored Act text itself.
+- `legislative.gov.in` was not separately checked this round since the Wayback snapshot resolved the gap; worth trying directly if a more current (post-amendment) text is ever needed.
 - Cross-reference: the Committee's dual role — statutory export-inspection body and Handloom Mark administrator — is a good example of the four-layer model's "certification/testing bodies" layer doing double duty, per [00-overview.md](../00-overview.md).

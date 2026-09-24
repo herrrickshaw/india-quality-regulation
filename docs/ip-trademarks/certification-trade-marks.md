@@ -12,10 +12,11 @@ A certification trade mark is not a product or a scheme but a specific category 
 
 ## Primary source
 
-- [TM Act 1999 — official page](https://ipindia.gov.in/tm-act-1999) — mirrored at `sources/ip-trademarks/certification-trade-marks.html`, fetched 2026-09-24
+- [The Trade Marks Act, 1999 — full text](https://indiankanoon.org/doc/1017213/) — mirrored at `sources/ip-trademarks/certification-trade-marks-act.html`, fetched 2026-09-24
+- [TM Act 1999 — official page](https://ipindia.gov.in/tm-act-1999) (secondary/administrative reference) — mirrored at `sources/ip-trademarks/certification-trade-marks.html`, fetched 2026-09-24
 
 ## Notes
 
-- The full statutory PDF is also available from India Code (indiacode.nic.in/bitstream/123456789/1993/1/a199947.pdf), but that host timed out from this research environment during fetch attempts (same network-access pattern seen for `textilescommittee.nic.in` and other `.nic.in` hosts) — the ipindia.gov.in landing page was mirrored instead, which is the Trade Marks Registry's own current page for the Act.
+- **2026-09-24 fix:** recovered the bare Act full text from IndianKanoon after `indiacode.nic.in` was confirmed dead. `legislative.gov.in`'s `lddashboard` subdomain (which hosts `A1999-47.pdf`) was tried first and timed out the same way indiacode.nic.in does — both appear to be the same unreachable NIC infrastructure. IndianKanoon's bare-act page was fetched and verified to contain the full text including Chapter IX (certification trade marks) and Section 43 (assignment requiring Registrar's consent), both referenced in this page's Scope section. The ipindia.gov.in landing page is retained as a secondary/administrative reference.
 - Certification trade marks are easy to confuse with the more familiar concept of a "collective mark" (also under the Trade Marks Act, Chapter VIII) — a collective mark indicates membership in an association, not a certified characteristic. This repo's marks (Woolmark, ISO logos, etc.) are certification marks, not collective marks.
 - Because this is a registration mechanism rather than a certifying body itself, there's no single "status" of mandatory vs. voluntary at the mechanism level — every mark registered under it is, definitionally, adopted voluntarily by the certifying body and by manufacturers who choose to seek certification.

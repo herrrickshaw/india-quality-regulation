@@ -13,10 +13,11 @@ These are two related but distinct marks, both administered by the Office of the
 ## Primary source
 
 - [Handloom Mark — official scheme site](https://hlm.gov.in/) — mirrored at `sources/textiles/handloom-mark.html`, fetched 2026-09-24
-- [India Handloom Brand (IHB) — NHDC](https://nhdc.org.in/en/IHBForms) — mirrored at `sources/textiles/india-handloom-brand.html`, fetched 2026-09-24
+- [India Handloom Brand (IHB) — official government portal](https://indiahandloombrand.gov.in) — mirrored at `sources/textiles/india-handloom-brand-portal.html`, fetched 2026-09-24. Reachable this session (the earlier "connection refused" was transient); the page carries the full IHB scheme menu — Scheme Background, Objectives, Benefits, Standard Operating Procedure, application forms, and the registered-user directory.
+- [India Handloom Brand (IHB) — NHDC](https://nhdc.org.in/en/IHBForms) — kept as secondary; mirrored at `sources/textiles/india-handloom-brand.html`, fetched 2026-09-24
 
 ## Notes
 
-- The dedicated India Handloom Brand government portal (indiahandloombrand.gov.in) was unreachable from this environment during research (connection refused on both bare and `www.` hosts); the NHDC page was used instead as it is the official implementing-agency source and links back to the same scheme.
+- The dedicated India Handloom Brand government portal (indiahandloombrand.gov.in) was unreachable earlier in this research session (connection refused on both bare and `www.` hosts) but responded normally on retry with `--connect-timeout 20 --max-time 60` — confirming the earlier failure was transient rather than a lasting block. The official portal is now the primary citation; the NHDC page remains mirrored as a secondary, implementing-agency source.
 - A 2026 draft notification ("Handloom Mark Standards (Labelling and Display)") published by the Ministry of Textiles suggests the Handloom Mark's labelling rules are being formalised/updated — worth re-checking texmin.gov.in for the finalised version before citing exact display requirements.
 - Do not conflate Handloom Mark (authenticity only) with India Handloom Brand (authenticity + quality-plus): a product can legitimately carry one without the other, and IHB eligibility requires the more demanding audit.

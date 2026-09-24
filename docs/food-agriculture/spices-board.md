@@ -25,18 +25,12 @@ entry is marked Voluntary rather than Mandatory even though exporter
 
 ## Primary source
 
-- [Spices Board — genesis and statutory background (RTI disclosure page)](http://spicesboard.in/public/rti/1.1.6.html) — mirrored at `sources/food-agriculture/spices-board.html`, fetched 2026-09-24
+- [The Spices Board Act, 1986 — full text](https://indiankanoon.org/doc/134656725/) — mirrored at `sources/food-agriculture/spices-board-act.html`, fetched 2026-09-24
+- [Spices Board — genesis and statutory background (RTI disclosure page)](http://spicesboard.in/public/rti/1.1.6.html) (secondary/administrative reference) — mirrored at `sources/food-agriculture/spices-board.html`, fetched 2026-09-24
 
 ## Notes
 
-- The Act text itself proved hard to mirror reliably: the previously
-  published Ministry of Commerce copy
+- **2026-09-24 fix:** recovered the bare Act full text from IndianKanoon. The Act text had previously proved hard to mirror: the Ministry of Commerce copy
   (`commerce.gov.in/wp-content/uploads/2020/04/SB_Act_Rules_English.pdf`)
-  now 404s, and the India Code bitstream copy
-  (`indiacode.nic.in/bitstream/123456789/1872/4/a1986-10.pdf`) timed out
-  repeatedly from this environment. The mirrored page instead is
-  `spicesboard.in`'s own RTI disclosure page, which is on the primary
-  official domain and gives the Act's legislative history (including the
-  1965 Cardamom Act it superseded) in prose. If a clean Act PDF is needed
-  later, both URLs above are worth retrying, along with
-  [India Code: Spices Board Act, 1986](https://www.indiacode.nic.in/handle/123456789/1872).
+  404s, and the India Code bitstream copy
+  (`indiacode.nic.in/bitstream/123456789/1872/4/a1986-10.pdf`) is confirmed dead from this environment (per the repo-wide exclude list in `.lychee.toml`) — that host was not retried. `legislative.gov.in`'s `lddashboard` subdomain, tried first per the standard preference order, timed out the same way. IndianKanoon doesn't expose a single obvious "bare act" URL for this one — its per-section pages (e.g. `/doc/193865957/` for Section 1) all link out to a shared "Entire Act" document, `https://indiankanoon.org/doc/134656725/`, which was fetched and verified to contain the full ~7,100-word text (Chapters I–VII: Preliminary, the Board, Cardamom-estate registration, CRES, Central Government control, finance/accounts/audit, and miscellaneous). The `spicesboard.in` RTI page is retained as a secondary/administrative reference for the Act's legislative history.
