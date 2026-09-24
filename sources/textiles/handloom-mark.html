@@ -1,0 +1,1111 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handloom Mark</title>
+    <link rel="stylesheet" href="assets/css/tailwind.min.css">
+    <link rel="manifest" href="/manifest.json">
+    <script>
+      window.HLM_BASE_PATH = '/';
+    </script>
+    <link rel="icon" href="assets/images/textiles_logo_200.png">
+    <script src="assets/js/alpinejs.min.js" defer></script>
+    <!-- <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script> -->
+</head>
+
+<body class="bg-gray-100">
+<!--   <a href="#main-content" class="sr-only focus:not-sr-only absolute top-0 left-0 bg-blue-600 text-white px-4 py-2 z-50">
+  Skip to main content
+</a>
+ -->
+<!-- Header -->
+<header class="bg-white shadow sticky top-0 z-10">
+    <div class="container mx-auto flex justify-between items-center py-2 px-4">
+        <!-- Logo and Title -->
+        <div class="flex items-center gap-2 justify-center">
+            <a href="index.php" class="flex items-center">
+                <img src="assets/images/handloom_mark_logo.png" alt="Handloom Mark Logo" class="h-14">
+                <h1 class="text-xl font-semibold text-gray-800 ml-2 mb-1">Handloom Mark</h1>
+            </a>
+        </div>
+
+        <!-- Hamburger Menu for Mobile -->
+        <div class="lg:hidden">
+            <button id="menu-toggle" class="text-gray-700 hover:text-blue-500 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav id="nav-links" class="hidden lg:flex items-center gap-4">
+            <a href="what_is_handloom.php" class="text-gray-700 hover:text-blue-500">About HLM</a>
+            <a href="https://textilescommittee.gov.in/" class="text-gray-700 hover:text-blue-500">About TC</a>
+     <!--        <ul>
+              <li><a href="#about" class="text-gray-700 hover:text-blue-500">About HLM</a></li>
+              <li><a href="#about" class="text-gray-700 hover:text-blue-500">About HLM</a></li>
+            </ul> -->
+            <a href="map.php" class="text-gray-700 hover:text-blue-500">Dashboard</a>
+            <a href="contact_us.php" class="text-gray-700 hover:text-blue-500">Contact</a>
+            <a href="circular.php" class="text-gray-700 hover:text-blue-500">Circular</a>
+        </nav>
+
+        <!-- Buttons -->
+        <div class="hidden lg:flex items-center gap-4">
+        <div class="relative inline-block text-left">
+  <button id="loginDropdownBtn" class="inline-flex justify-center w-full px-4 py-2 font-medium text-gray-700 border rounded hover:bg-gray-200">
+    Login
+    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <!-- Dropdown Menu -->
+  <div id="loginDropdownMenu" class="absolute right-0 z-10 mt-2 w-44 origin-top-right bg-white border border-gray-200 rounded shadow-lg hidden">
+    <a href="user_login.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">User Login</a>
+    <a href="office_login.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Office Login</a>
+      <a href="agency_login.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Agency Login</a>
+  </div>
+</div>
+            <a href="#" onclick="openModal()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Online Application Form</a>  
+        </div>
+
+<!-- <ul class="list-disc">
+            <ol class="list-decimal">
+              <li><a href="user_login.php" class="border px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Login</a></li>
+              <li><a href="office_login.php" class="border px-4 py-2 rounded text-gray-700 hover:bg-gray-200">Office Login</a></li>
+            </ol>
+          </ul> -->
+        <!-- Additional Logo -->
+        <div class="hidden lg:flex items-center gap-2 ">
+           <a href="index.php" class="flex items-center">
+            <!-- <img src="assets/images/logo_hindi2.png" alt="Handloom Mark Logo" class="h-14 p-1"> -->
+            <img src="assets/images/logo_english.png" alt="Handloom Mark Logo" class="h-14 p-1.5">
+            <!-- <img src="assets/images/textiles_logo_200.png" alt="Handloom Mark Logo" class="h-14"> -->
+          </a>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="#about" class="block text-gray-700 hover:text-blue-500">About HLM</a>
+            <a href="https://textilescommittee.gov.in/" class="block text-gray-700 hover:text-blue-500">About TC</a>
+            <a href="map.php" class="block text-gray-700 hover:text-blue-500">Dashboard</a>
+            <a href="contact_us.php" class="block text-gray-700 hover:text-blue-500">Contact</a>
+            <a href="circular.php" class="block text-gray-700 hover:text-blue-500">Circular</a>
+
+            <a href="user_login.php" class="block text-gray-700 hover:text-blue-500">Login</a>
+            <a href="#" onclick="openModal()" class="block text-gray-700 hover:text-blue-500">Register</a>
+            <a href="office_login.php" class="block text-gray-700 hover:text-blue-500">Office Login</a>
+            <a href="agency_login.php" class="block text-gray-700 hover:text-blue-500">Agency Login</a>
+        </div>
+    </div>
+</header>
+
+<!-- Modal -->
+<div id="select_cat" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-10">
+  <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full">
+    <form action="adduser.php" method="POST" class="space-y-4">
+      <!-- Modal Header -->
+      <div class="flex justify-between items-center border-b pb-2">
+        <h2 class="text-xl font-semibold">Please Select Category for Application Form</h2>
+        <button type="button" onclick="closeModal()" class="text-gray-500 hover:text-gray-700">&times;</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="space-y-3">
+        <div class="grid grid-cols-3 gap-4">
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="select_cat" value="9" checked class="form-radio text-blue-500">
+            <span>Weaver</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="select_cat" value="10" class="form-radio text-blue-500">
+            <span>Society</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="select_cat" value="11" class="form-radio text-blue-500">
+            <span>Others</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="flex justify-end space-x-2 border-t pt-2">
+        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Next</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<script>
+  function openModal() {
+    document.getElementById("select_cat").classList.remove("hidden");
+  }
+
+  function closeModal() {
+    document.getElementById("select_cat").classList.add("hidden");
+  }
+
+  // Toggle mobile menu
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    var mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('hidden');
+  });
+
+    document.getElementById("loginDropdownBtn").addEventListener("click", function () {
+    document.getElementById("loginDropdownMenu").classList.toggle("hidden");
+  });
+
+  // Optional: close dropdown on click outside
+  document.addEventListener("click", function (event) {
+    const dropdown = document.getElementById("loginDropdownMenu");
+    const button = document.getElementById("loginDropdownBtn");
+    if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+      dropdown.classList.add("hidden");
+    }
+  });
+</script>
+
+</body>
+</html>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #7c3aed;
+    --accent-color: #ec4899;
+    --dark: #1e293b;
+    --light: #f8fafc;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Hero Carousel */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-item {
+    position: relative;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+}
+
+.carousel-item img {
+    /*object-fit: cover;*/
+    /*filter: brightness(0.85);*/
+    transition: transform 0.7s ease, filter 0.7s ease;
+}
+
+.carousel-item:hover img {
+    transform: scale(1.05);
+    /*filter: brightness(0.75);*/
+}
+
+.carousel-item .absolute {
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+    /*backdrop-filter: blur(1px);*/
+}
+
+.carousel-item h2 {
+    text-shadow: 2px 4px 8px rgba(0,0,0,0.5);
+    animation: fadeInUp 0.8s ease;
+}
+
+.carousel-item p {
+    text-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Carousel Navigation */
+/*button#prev, button#next {
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+button#prev:hover, button#next:hover {
+    background: rgba(255,255,255,0.9);
+    color: var(--dark);
+    transform: scale(1.1);
+}*/
+
+/* Product Cards */
+.product-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+}
+
+.product-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+}
+
+.product-card img {
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+.product-card .p-4 {
+    background: linear-gradient(to bottom, white, #f8fafc);
+}
+
+.product-card a {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: var(--primary-color);
+    transition: width 0.6s ease, height 0.6s ease;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.product-card a:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.product-card a:hover {
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Scrolling Sarees */
+@keyframes scroll-x {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.scrolling-wrapper {
+    display: flex;
+    animation: scroll-x 30s linear infinite;
+    width: max-content;
+}
+
+.scrolling-wrapper:hover {
+    animation-play-state: paused;
+}
+
+.scrolling-wrapper img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scrolling-wrapper img:hover {
+    transform: scale(1.15) rotate(2deg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+/* Audio Jingles */
+.wave-circle {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.wave-circle:hover {
+    transform: scale(1.1);
+}
+
+.wave-bars {
+    display: flex;
+    gap: 4px;
+}
+
+.bar {
+    width: 5px;
+    height: 20px;
+    background: white;
+    border-radius: 10px;
+    animation: bounce 1s infinite ease-in-out;
+}
+
+.bar:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.bar:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(2.5);
+    }
+}
+
+.paused .bar {
+    animation-play-state: paused;
+}
+
+.jingle-wrapper {
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+}
+
+.jingle-wrapper:hover {
+    transform: translateX(10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.2);
+}
+
+/* Gandhi Section */
+.intro {
+    background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.intro::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+/* Stats Section */
+.stat-card {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+    transition: left 0.5s ease;
+}
+
+.stat-card:hover::before {
+    left: 0;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
+}
+
+.floating-icon {
+    animation: floatIcon 4s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Benefits Section */
+.benefit-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.benefit-card:hover::before {
+    opacity: 1;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.benefit-card img {
+    transition: transform 0.5s ease;
+}
+
+.benefit-card:hover img {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carousel-item h2 {
+        font-size: 1.5rem;
+    }
+    
+    .carousel-item p {
+        font-size: 0.875rem;
+    }
+    
+    .stat-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+}
+</style>
+
+<!-- Hero Carousel -->
+<section class="relative">
+    <div class="carousel-container relative">
+        <div class="carousel-images overflow-hidden w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:h-screen">
+            <div class="carousel-slide w-full h-full flex transition-transform duration-700">
+                                    <div class="carousel-item relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:h-screen flex-shrink-0">
+                        <img src="assets/images/banner/photo2.jpeg" alt="" class="w-full h-full">
+                        <div class="absolute inset-0 flex items-center justify-center text-center text-white bg-black bg-opacity-10">
+                            <div>
+                                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
+                                                                    </h2>
+                                <p class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-6">
+                                                                    </p>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="carousel-item relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:h-screen flex-shrink-0">
+                        <img src="assets/images/banner/HANDLOOM DAY BANNER _01.png" alt="" class="w-full h-full">
+                        <div class="absolute inset-0 flex items-center justify-center text-center text-white bg-black bg-opacity-10">
+                            <div>
+                                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
+                                                                    </h2>
+                                <p class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-6">
+                                                                    </p>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="carousel-item relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:h-screen flex-shrink-0">
+                        <img src="assets/images/banner/banner24.png" alt="Welcome to Handloom Mark Scheme" class="w-full h-full">
+                        <div class="absolute inset-0 flex items-center justify-center text-center text-white bg-black bg-opacity-10">
+                            <div>
+                                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
+                                    Welcome to Handloom Mark Scheme                                </h2>
+                                <p class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-6">
+                                    Implemented by Textiles Committee <br> sponsored by O/o of Development Commissioner (Handlooms).                                </p>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="carousel-item relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:h-screen flex-shrink-0">
+                        <img src="assets/images/banner/banner20.jpeg" alt="Handloom Mark ensures Authenticity of loom origin in every weave." class="w-full h-full">
+                        <div class="absolute inset-0 flex items-center justify-center text-center text-white bg-black bg-opacity-10">
+                            <div>
+                                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
+                                    Handloom Mark ensures Authenticity of loom origin in every weave.                                </h2>
+                                <p class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-6">
+                                    Explore Authentic Handlooms                                </p>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="carousel-item relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:h-screen flex-shrink-0">
+                        <img src="assets/images/banner/banner3.jpg" alt="Handloom Mark provides Collective Identity to Hand-Woven products" class="w-full h-full">
+                        <div class="absolute inset-0 flex items-center justify-center text-center text-white bg-black bg-opacity-10">
+                            <div>
+                                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
+                                    Handloom Mark provides Collective Identity to Hand-Woven products                                </h2>
+                                <p class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-6">
+                                    Scan QR code on label.                                </p>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="carousel-item relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:h-screen flex-shrink-0">
+                        <img src="assets/images/banner/banner4.jpg" alt="Handloom Mark Creates Market Linkage" class="w-full h-full">
+                        <div class="absolute inset-0 flex items-center justify-center text-center text-white bg-black bg-opacity-10">
+                            <div>
+                                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
+                                    Handloom Mark Creates Market Linkage                                </h2>
+                                <p class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-6">
+                                    Bridging artisans with a global audience.                                </p>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="carousel-item relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:h-screen flex-shrink-0">
+                        <img src="assets/images/banner/banner5.jpg" alt="Buying Handlooms? Insist for Handloom Mark Label" class="w-full h-full">
+                        <div class="absolute inset-0 flex items-center justify-center text-center text-white bg-black bg-opacity-10">
+                            <div>
+                                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
+                                    Buying Handlooms? Insist for Handloom Mark Label                                </h2>
+                                <p class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-6">
+                                    Scan QR code on label.                                </p>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="carousel-item relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:h-screen flex-shrink-0">
+                        <img src="assets/images/banner/banner22.jpg" alt="Provides collective identity to hand-woven products of India" class="w-full h-full">
+                        <div class="absolute inset-0 flex items-center justify-center text-center text-white bg-black bg-opacity-10">
+                            <div>
+                                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
+                                    Provides collective identity to hand-woven products of India                                </h2>
+                                <p class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-6">
+                                    Supporting artisans and their craftsmanship.                                </p>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="carousel-item relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:h-screen flex-shrink-0">
+                        <img src="assets/images/banner/banner6.jpg" alt="Signifies genuinity of loom origin of products" class="w-full h-full">
+                        <div class="absolute inset-0 flex items-center justify-center text-center text-white bg-black bg-opacity-10">
+                            <div>
+                                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
+                                    Signifies genuinity of loom origin of products                                </h2>
+                                <p class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-6">
+                                    A mark of trust and tradition in every fabric.                                </p>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+
+    <button id="prev" class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-60 text-white text-sm sm:text-base md:text-lg p-2 sm:p-3 md:p-4 rounded-full hover:bg-opacity-80 transition">
+        ←
+    </button>
+
+    <button id="next" class="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-60 text-white text-sm sm:text-base md:text-lg p-2 sm:p-3 md:p-4 rounded-full hover:bg-opacity-80 transition">
+        →
+    </button>
+</section>
+
+<main class="container mx-auto py-0 px-0">
+    <!-- Products Section -->
+    <section id="products" class="py-16 px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="product-card">
+                    <div class="overflow-hidden">
+                        <img src="assets\images\banner\banner17.jpg" alt="What is Handloom" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6 justify-items-center text-center">
+                        <h4 class="font-bold text-xl text-gray-800 mb-3">What is Handloom</h4>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                            Handloom textiles constitute a timeless facet of the rich cultural heritage of India.                        </p>
+                        <a href="what_is_handloom.php" class="inline-block border-2 px-6 py-3 rounded-full text-gray-700 font-semibold hover:bg-gray-200">Learn More →</a>
+                    </div>
+                </div>
+                            <div class="product-card">
+                    <div class="overflow-hidden">
+                        <img src="assets\images\banner\banner13.jpeg" alt="Who can Register" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6 justify-items-center text-center">
+                        <h4 class="font-bold text-xl text-gray-800 mb-3">Who can Register</h4>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                            Anyone involved in the production of Handloom products can resister with Textiles Committee for availing the benefits of the HLM Scheme.                        </p>
+                        <a href="who_can_register.php" class="inline-block border-2 px-6 py-3 rounded-full text-gray-700 font-semibold hover:bg-gray-200">Learn More →</a>
+                    </div>
+                </div>
+                            <div class="product-card">
+                    <div class="overflow-hidden">
+                        <img src="assets\images\banner\banner12.jpeg" alt="Why to Authenticate" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6 justify-items-center text-center">
+                        <h4 class="font-bold text-xl text-gray-800 mb-3">Why to Authenticate</h4>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                            Ensuring authenticity protects craftsmanship, supports artisans, and preserves the cultural heritage of genuine handloom products.                        </p>
+                        <a href="why_to_autnenticate.php" class="inline-block border-2 px-6 py-3 rounded-full text-gray-700 font-semibold hover:bg-gray-200">Learn More →</a>
+                    </div>
+                </div>
+                    </div>
+    </section>
+
+    <!-- Scrolling Sarees -->
+    <div class="relative overflow-hidden w-full pb-16">
+        <div class="flex w-full items-center space-x-4">
+            <div class="w-full overflow-hidden">
+                <div class="scrolling-wrapper flex space-x-6">
+                                            <img src="assets/images/Sarees/Banarasi Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Bandhani Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/black-bhagalpuri.jpeg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Bomkai Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Chanderi Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Kanjivaram Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/kanjivaram-saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Kasavu Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Muga Saree.jpeg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Paithani Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Pochapally Saree.jpeg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/nomo_folded.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Tant Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                                                <img src="assets/images/Sarees/Banarasi Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Bandhani Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/black-bhagalpuri.jpeg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Bomkai Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Chanderi Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Kanjivaram Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/kanjivaram-saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Kasavu Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Muga Saree.jpeg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Paithani Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Pochapally Saree.jpeg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/nomo_folded.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                            <img src="assets/images/Sarees/Tant Saree.jpg" class="w-40 h-40 object-cover rounded-2xl shadow-lg">
+                                    </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Jingles -->
+    <section style="background: linear-gradient(135deg, #E8D9C5, #F5E6D3);" class="py-16 mb-12 rounded-3xl shadow-lg px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">🎵 Audio Jingles</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+                            <div class="jingle-wrapper flex items-center bg-white backdrop-blur-sm p-6 rounded-2xl shadow-lg">
+                    <div class="wave-circle paused" data-wave-id="0">
+                        <div class="wave-bars">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col w-full ml-5">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-3">Jingle 1 - Introduction</h3>
+                        <audio data-audio-id="0" controls class="w-full dynamic-audio">
+                            <source src="assets/audio/jingle_1.mpeg" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+                            <div class="jingle-wrapper flex items-center bg-white backdrop-blur-sm p-6 rounded-2xl shadow-lg">
+                    <div class="wave-circle paused" data-wave-id="1">
+                        <div class="wave-bars">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col w-full ml-5">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-3">Jingle 2 - Introduction</h3>
+                        <audio data-audio-id="1" controls class="w-full dynamic-audio">
+                            <source src="assets/audio/jingle_2.mpeg" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+                            <div class="jingle-wrapper flex items-center bg-white backdrop-blur-sm p-6 rounded-2xl shadow-lg">
+                    <div class="wave-circle paused" data-wave-id="2">
+                        <div class="wave-bars">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col w-full ml-5">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-3">Jingle 3 - Introduction</h3>
+                        <audio data-audio-id="2" controls class="w-full dynamic-audio">
+                            <source src="assets/audio/jingle_3.mpeg" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+                            <div class="jingle-wrapper flex items-center bg-white backdrop-blur-sm p-6 rounded-2xl shadow-lg">
+                    <div class="wave-circle paused" data-wave-id="3">
+                        <div class="wave-bars">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col w-full ml-5">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-3">Jingle 4 - Introduction</h3>
+                        <audio data-audio-id="3" controls class="w-full dynamic-audio">
+                            <source src="assets/audio/jingle_4.mpeg" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+                    </div>
+    </section>
+
+    <!-- Gandhi Quote -->
+    <section class="intro flex rounded-3xl shadow-2xl overflow-hidden mb-16" style="padding: 3rem;">
+        <div class="w-full md:w-3/4 pr-6 flex justify-center items-center px-6">
+            <i style="color: #fff; font-size: 22px; font-weight: 600; line-height: 36px; font-style: italic;">
+                "The handlooms are great heritage of India. If properly encouraged, it can become a source of livelihood for millions."
+                <span class="block mt-4 text-lg">— Mahatma Gandhi</span>
+            </i>
+        </div>
+
+        <div class="hidden md:flex w-1/4 justify-end items-end">
+            <img src="assets/images/mahatma-gandhi.png" alt="Mahatma Gandhi" class="w-full max-w-[200px] h-auto rounded-2xl shadow-2xl">
+        </div>
+    </section>
+
+    
+    <!-- Stats Section -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <section id="community-stats" class="bg-gradient-to-br from-blue-100 to-blue-200 py-16 shadow-2xl w-full mx-auto rounded-3xl mb-16">
+        <div class="container mx-auto text-center px-4">
+            <div class="flex justify-center space-x-8 mb-6">
+                <i class="fas fa-user-friends text-blue-400 text-3xl floating-icon" data-aos="fade-up"></i>
+                <i class="fas fa-tags text-blue-400 text-3xl floating-icon" data-aos="fade-up" data-aos-delay="100"></i>
+                <i class="fas fa-award text-blue-400 text-3xl floating-icon" data-aos="fade-up" data-aos-delay="200"></i>
+            </div>
+
+            <h2 class="text-5xl font-bold text-gray-800 mb-6" data-aos="fade-down">
+                Our Growing Community
+            </h2>
+
+            <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="150">
+                We are proud to have a vibrant and growing community of registered handloom mark users.
+            </p>
+
+            <div class="flex flex-wrap gap-8 justify-center">
+                <div class="stat-card bg-white shadow-2xl rounded-2xl p-10 max-w-md w-full" data-aos="zoom-in-up">
+                    <div class="flex justify-center mb-4">
+                        <div class="bg-blue-100 p-5 rounded-full">
+                            <i class="fas fa-user-friends text-blue-500 text-3xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-6xl font-extrabold text-blue-500 mb-3 counter" data-target="29766">
+                        0
+                    </h3>
+                    <p class="text-gray-600 mt-4 text-xl font-semibold">Registered Users</p>
+                    <div class="mt-6 bg-blue-50 rounded-lg p-4">
+                        <div class="flex justify-between text-sm text-gray-600">
+                            <span>Weavers</span>
+                            <span class="counter font-semibold" data-target="21462">0</span>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-600 mt-2">
+                            <span>Societies</span>
+                            <span class="counter font-semibold" data-target="5933">0</span>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-600 mt-2">
+                            <span>Others</span>
+                            <span class="counter font-semibold" data-target="2371">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card bg-white shadow-2xl rounded-2xl p-10 max-w-md w-full" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="flex justify-center mb-4">
+                        <div class="bg-blue-100 p-5 rounded-full">
+                            <i class="fas fa-tags text-blue-500 text-3xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-6xl font-extrabold text-blue-500 mb-3 counter" data-target="256384488">
+                        0
+                    </h3>
+                    <p class="text-gray-600 mt-4 text-xl font-semibold">Labels Distributed</p>
+                    <div class="mt-6 bg-blue-50 rounded-lg p-4">
+                        <div class="flex justify-between text-sm text-gray-600">
+                            <span>This Month</span>
+                            <span class="counter font-semibold" data-target="52107640">0</span>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-600 mt-2">
+                            <span>Total Growth</span>
+                            <span class="text-green-500 font-semibold">+5211%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-white rounded-2xl shadow-lg p-6 max-w-2xl mx-auto" data-aos="fade-up">
+                <div class="flex items-center justify-center space-x-4">
+                    <i class="fas fa-info-circle text-blue-500 text-2xl"></i>
+                    <p class="text-gray-700 text-lg">
+                        Our community continues to grow each month, supporting traditional handloom artisans across the country.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="bg-gray-50 py-16 rounded-3xl mb-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Why Choose Handloom Mark?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                    Handloom Mark stands as a testament to the authenticity, loom origin, and market linkage of handloom products. Here are the key advantages:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="benefit-card">
+                    <img src="assets\images\hlm_creatives\authentication.png" alt="Authenticity Guaranteed" class="w-24 h-24 mx-auto mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3 text-center">Authenticity Guaranteed</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        Handloom Mark assures you of genuine, high-quality handloom products directly from artisans.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <img src="assets\images\hlm_creatives\legacy.png" alt="Cultural Heritage" class="w-24 h-24 mx-auto mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3 text-center">Rich Cultural Heritage</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        Every product represents India's traditional craftsmanship and cultural heritage.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <img src="assets\images\hlm_creatives\spinning-wheel.png" alt="Empowering Artisans" class="w-24 h-24 mx-auto mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3 text-center">Empowering Artisans</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        By choosing Handloom Mark, you support and uplift the livelihoods of skilled artisans.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+</main>
+
+<footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+        <p>&copy; 2026 Textiles Committee. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
+
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap5.min.js"></script>
+
+<script type="text/javascript">
+  window.HLM_USER_ROLE = null;
+</script>
+<script src="offline-sync.js?v=1785913010"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+
+<script>
+// Initialize AOS
+AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+});
+
+// Carousel functionality
+let currentIndex = 0;
+const images = document.querySelector('.carousel-slide');
+const totalImages = images.children.length;
+
+function showNextImage() {
+    currentIndex = (currentIndex + 1) % totalImages;
+    images.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+function showPrevImage() {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    images.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+document.getElementById('next')?.addEventListener('click', showNextImage);
+document.getElementById('prev')?.addEventListener('click', showPrevImage);
+
+// Auto-slide every 10 seconds
+setInterval(showNextImage, 10000);
+
+// Counter Animation
+const observerOptions = {
+    threshold: 0.4
+};
+
+const counterObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.counter').forEach(el => {
+                const target = parseInt(el.getAttribute('data-target'));
+                let current = 0;
+                const increment = target / 100;
+                const duration = 2000;
+                const stepTime = duration / 100;
+
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        el.textContent = new Intl.NumberFormat().format(Math.ceil(current));
+                        setTimeout(updateCounter, stepTime);
+                    } else {
+                        el.textContent = new Intl.NumberFormat().format(target);
+                    }
+                };
+                updateCounter();
+            });
+            obs.disconnect();
+        }
+    });
+}, observerOptions);
+
+const statsSection = document.getElementById("community-stats");
+if (statsSection) counterObserver.observe(statsSection);
+
+// Audio Player functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const audioElements = document.querySelectorAll('.dynamic-audio');
+
+    function pauseAllAudio(except = null) {
+        audioElements.forEach(audio => {
+            if (audio !== except) {
+                audio.pause();
+                const key = audio.dataset.audioId;
+                const wave = document.querySelector(`.wave-circle[data-wave-id="${key}"]`);
+                wave?.classList.add('paused');
+            }
+        });
+    }
+
+    audioElements.forEach(audio => {
+        const key = audio.dataset.audioId;
+        const wave = document.querySelector(`.wave-circle[data-wave-id="${key}"]`);
+
+        audio.addEventListener('play', () => {
+            pauseAllAudio(audio);
+            wave?.classList.remove('paused');
+        });
+
+        audio.addEventListener('pause', () => {
+            wave?.classList.add('paused');
+        });
+
+        audio.addEventListener('ended', () => {
+            wave?.classList.add('paused');
+        });
+    });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Add parallax effect on scroll
+let ticking = false;
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.carousel-item img');
+            parallaxElements.forEach(el => {
+                const speed = 0.5;
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6GBEBPK240"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6GBEBPK240');
+</script>
