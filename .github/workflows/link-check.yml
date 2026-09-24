@@ -15,10 +15,13 @@ jobs:
     name: Internal links (docs cross-links + sources/ paths — blocking)
     runs-on: ubuntu-latest
     # Safety net: the PDF extraction step has per-subprocess timeouts of
-    # its own (see scripts/extract_pdf_text.py) after a real hang there
-    # once ran past 15 minutes uncaught on a shared CI runner — this job
-    # timeout is the backstop in case something else hangs instead.
-    timeout-minutes: 15
+    # its own (see scripts/extract_pdf_text.py). This job timeout is the
+    # backstop in case something else hangs instead. Sized generously
+    # because OCR is genuinely slow here, not hung — local timing showed
+    # the one scanned PDF's 14-page tesseract pass takes ~41s on a fast
+    # Mac; a GitHub-hosted runner's weaker/shared vCPUs took long enough
+    # to blow through a 10-minute step timeout on that step alone.
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
@@ -39,9 +42,9 @@ jobs:
       # Order matters: extraction can add "Full text:" links to doc pages,
       # which coverage/compendium regeneration then needs to see.
       - name: Regenerate derived files and diff
-        timeout-minutes: 10
+        timeout-minutes: 20
         run: |
-          python3 scripts/extract_pdf_text.py
+          python3 -u scripts/extract_pdf_text.py
           python3 scripts/generate_coverage.py
           python3 scripts/build_compendium.py
           git diff --exit-code -- sources docs COMPENDIUM.md badges/entries.json

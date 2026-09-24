@@ -216,21 +216,28 @@ def link_extraction_from_docs(pdf_relpath: str, md_relpath: str) -> int:
 
 
 def main():
+    import time
+
     pdfs = sorted(SOURCES.rglob("*.pdf"))
     if not pdfs:
         print("No PDFs found under sources/.", file=sys.stderr)
         return 1
 
+    run_start = time.monotonic()
     docs_updated_total = 0
     for pdf_path in pdfs:
+        file_start = time.monotonic()
         method, n_chars = process_pdf(pdf_path)
+        elapsed = time.monotonic() - file_start
         rel = pdf_path.relative_to(REPO_ROOT)
         md_rel = rel.with_suffix(".md")
-        print(f"{rel} -> {md_rel} ({n_chars:,} chars, {method})")
+        print(f"[{elapsed:6.1f}s] {rel} -> {md_rel} ({n_chars:,} chars, {method})")
         n_docs = link_extraction_from_docs(rel.as_posix(), md_rel.as_posix())
         docs_updated_total += n_docs
 
-    print(f"\nExtracted {len(pdfs)} PDFs; linked from {docs_updated_total} doc page(s).")
+    total_elapsed = time.monotonic() - run_start
+    print(f"\nExtracted {len(pdfs)} PDFs in {total_elapsed:.1f}s total; "
+          f"linked from {docs_updated_total} doc page(s).")
     return 0
 
 
