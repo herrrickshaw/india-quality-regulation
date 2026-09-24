@@ -229,24 +229,29 @@ jobs with different reliability:
   [`scripts/check_source_refs.py`](scripts/check_source_refs.py) (a
   hyperlink checker doesn't see those — they're code spans, not links —
   and a mismatched one is exactly the kind of mistake this repo has hit
-  before). This job also re-runs `generate_coverage.py` and
-  `build_compendium.py` and fails on any diff, so a doc page edited
+  before). This job also re-runs `extract_pdf_text.py`, `generate_coverage
+  .py` and `build_compendium.py` and fails on any diff **in `docs/`,
+  `COMPENDIUM.md`, or `badges/entries.json`** — so a doc page edited
   without regenerating its derived files fails the build instead of
-  silently drifting, and re-runs
-  [`scripts/verify_compendium.py`](scripts/verify_compendium.py) to check
-  the compendium's headings, fields, section content, anchors, and
-  embedded coverage counts all still match their source docs exactly, and
+  silently drifting — plus
+  [`scripts/verify_compendium.py`](scripts/verify_compendium.py) (the
+  compendium's headings, fields, section content, anchors, and embedded
+  coverage counts all still match their source docs exactly) and
   [`scripts/verify_pdf_extraction.py`](scripts/verify_pdf_extraction.py)
-  to check every PDF's `.md` transcription is present, complete (within 3%
-  of a fresh direct extraction), correctly OCR'd where OCR was needed, and
-  linked from its doc page — the regeneration step above already re-runs
-  `extract_pdf_text.py` itself and diffs `sources/`/`docs/`, which is what
-  proves reproducibility (a separate scratch-copy re-run here once made
-  this job hang for 15+ minutes on a slow CI runner; removed in favour of
-  the cheaper diff-based check already used for coverage/compendium).
-  Fully deterministic, no network involved, and fails the build. (Needs
-  `poppler-utils`, `tesseract-ocr` + `tesseract-ocr-hin`, and `pymupdf` —
-  the CI job installs these; see below to run locally.)
+  (every PDF's `.md` transcription is present, complete — within 3% of a
+  fresh direct extraction — correctly OCR'd where OCR was needed, and
+  linked from its doc page). Deliberately **not** diffing `sources/*.md`
+  byte-for-byte against the regenerated copy: two rounds of chasing
+  individual files (a full extraction failure needing a PyMuPDF fallback,
+  then a Devanagari heading that line-wraps differently) both traced back
+  to poppler's exact text output being version-dependent, not a script
+  bug — CI's Ubuntu poppler will never be pinned to match every
+  contributor's local one, so the tolerant `verify_pdf_extraction.py`
+  checks are the right level of strictness there, not `git diff`. Fully
+  deterministic, no network involved, and fails the build. (Needs
+  `poppler-utils`, `tesseract-ocr` + `tesseract-ocr-hin`, and
+  `pymupdf==1.28.2` — the CI job installs these; see below to run
+  locally.)
 - **External sources (best-effort)** — every "Primary source" URL, over
   the network. Several official `.gov.in`/`.nic.in` hosts in this repo are
   reachable normally but not reliably from GitHub's hosted runners — broken
@@ -260,6 +265,7 @@ match CI, since a different PyMuPDF release can legitimately extract a
 given PDF's text slightly differently):
 
 ```bash
+python3 scripts/extract_pdf_text.py                                       # regenerate sources/*.md transcriptions
 python3 scripts/generate_coverage.py                                      # regenerate coverage + badge
 python3 scripts/build_compendium.py                                       # regenerate COMPENDIUM.md
 lychee --offline --config .lychee.toml README.md "docs/**/*.md" COMPENDIUM.md   # internal, blocking
