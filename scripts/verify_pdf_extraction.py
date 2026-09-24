@@ -60,7 +60,7 @@ def check_ocr_content():
     # references/gates.md on testing a known positive before trusting an
     # absence claim... here it's the inverse: confirm the "positive" input
     # to the OCR path is genuinely OCR-only, not silently native).
-    native = extractor.native_text(target)
+    native, _method = extractor.native_text(target)
     if len(native.strip()) >= 40:
         print(f"FAIL: {target.relative_to(REPO_ROOT)} unexpectedly has native text — "
               f"the OCR-path fixture assumption is stale, update this check", file=sys.stderr)
@@ -121,7 +121,7 @@ def check_completeness():
         if "no native text layer found" in text[:600]:
             continue  # OCR path has its own dedicated check, not diffable against pdftotext
 
-        fresh = extractor.native_text(pdf)
+        fresh, _method = extractor.native_text(pdf)
         fresh_len = len(re.sub(r"\s+", "", fresh))
         if fresh_len == 0:
             continue  # shouldn't happen (would've gone through OCR), but don't divide by zero

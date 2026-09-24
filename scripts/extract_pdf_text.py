@@ -28,6 +28,16 @@ DOCS = REPO_ROOT / "docs"
 OCR_DPI = 300
 NATIVE_TEXT_THRESHOLD = 40  # non-whitespace chars; below this, treat as scan-only
 
+# The only genuinely-scanned PDF in this repo (sources/bis-core/bis-crs.pdf)
+# is 14 pages. If native-text extraction comes back empty for a much longer
+# document, that's almost certainly a parser failure on an otherwise-native
+# PDF (confirmed for ayush-schedule-t.pdf: 635 pages, extracts cleanly with
+# 2M+ characters under a newer poppler, but both `pdftotext -layout` and
+# plain `pdftotext` failed under Ubuntu's older poppler-utils in CI) rather
+# than an actual scan — OCR-ing hundreds of pages to "fix" that would be
+# absurdly expensive and just papers over the real problem. Past this page
+# count, fail loudly instead of silently trying to OCR the whole thing.
+OCR_MAX_PAGES = 40
 
 PDFTOTEXT_TIMEOUT_S = 120  # generous for even the largest (635-page) PDF here
 TESSERACT_TIMEOUT_S = 90   # per page — generous for a single 300-DPI page image
@@ -37,18 +47,30 @@ def run(cmd, **kw):
     return subprocess.run(cmd, check=True, capture_output=True, text=True, **kw)
 
 
-def native_text(pdf_path: Path) -> str:
-    """Try `pdftotext -layout` first (keeps column/table alignment); if the
-    installed poppler version chokes on this specific PDF's structure —
-    seen in practice on Ubuntu's older poppler-utils against a Word-
-    exported PDF that a newer Homebrew poppler parses fine — fall back to
-    plain `pdftotext` (no -layout), which is a simpler code path and more
-    tolerant of exactly this kind of quirk. Returns "" (never raises on a
-    subprocess failure OR a hang — both are treated as "needs OCR" rather
-    than left to block the whole run indefinitely; a real hang here is
-    exactly what left the first CI attempts stuck for 15+ minutes)."""
+def native_text(pdf_path: Path) -> tuple[str, str]:
+    """Three independent attempts, in order, each only tried if the last
+    one came back empty/near-empty or failed outright:
+
+    1. `pdftotext -layout` — keeps column/table alignment, best fidelity.
+    2. plain `pdftotext` (no -layout) — simpler code path, sometimes more
+       tolerant of a PDF structure that trips up -layout mode specifically.
+    3. PyMuPDF's own `page.get_text()` — a completely independent PDF
+       parser (not poppler at all), so a poppler-version-specific failure
+       (seen in practice: a 635-page Word-exported PDF that both pdftotext
+       modes failed to parse under Ubuntu's older poppler-utils, despite
+       extracting cleanly under a newer Homebrew poppler locally) doesn't
+       propagate here.
+
+    Returns (text, method_label); text is "" only if all three failed or
+    returned near-empty output, which the caller then treats as "needs
+    OCR" — but only below OCR_MAX_PAGES, since a failure this deep for a
+    large document is almost certainly a parser bug, not a real scan."""
     try:
-        return run(["pdftotext", "-layout", str(pdf_path), "-"], timeout=PDFTOTEXT_TIMEOUT_S).stdout
+        text = run(["pdftotext", "-layout", str(pdf_path), "-"], timeout=PDFTOTEXT_TIMEOUT_S).stdout
+        if len(text.strip()) >= NATIVE_TEXT_THRESHOLD:
+            return text, "`pdftotext -layout` (native PDF text layer)"
+        print(f"WARNING: 'pdftotext -layout' on {pdf_path.name} exited 0 but returned "
+              f"near-empty text; trying without -layout", file=sys.stderr)
     except subprocess.TimeoutExpired:
         print(f"WARNING: 'pdftotext -layout' timed out after {PDFTOTEXT_TIMEOUT_S}s on "
               f"{pdf_path.name}; retrying without -layout", file=sys.stderr)
@@ -56,16 +78,50 @@ def native_text(pdf_path: Path) -> str:
         print(f"WARNING: 'pdftotext -layout' failed on {pdf_path.name} "
               f"(exit {e.returncode}); retrying without -layout: "
               f"{e.stderr.strip()[:300]}", file=sys.stderr)
+
     try:
-        return run(["pdftotext", str(pdf_path), "-"], timeout=PDFTOTEXT_TIMEOUT_S).stdout
+        text = run(["pdftotext", str(pdf_path), "-"], timeout=PDFTOTEXT_TIMEOUT_S).stdout
+        if len(text.strip()) >= NATIVE_TEXT_THRESHOLD:
+            return text, "`pdftotext` (native PDF text layer)"
+        print(f"WARNING: plain 'pdftotext' on {pdf_path.name} exited 0 but returned "
+              f"near-empty text; trying PyMuPDF's own extractor next", file=sys.stderr)
     except subprocess.TimeoutExpired:
         print(f"WARNING: plain 'pdftotext' also timed out after {PDFTOTEXT_TIMEOUT_S}s on "
-              f"{pdf_path.name}", file=sys.stderr)
-        return ""
+              f"{pdf_path.name}; trying PyMuPDF's own extractor next", file=sys.stderr)
     except subprocess.CalledProcessError as e:
         print(f"WARNING: plain 'pdftotext' also failed on {pdf_path.name} "
-              f"(exit {e.returncode}): {e.stderr.strip()[:300]}", file=sys.stderr)
-        return ""
+              f"(exit {e.returncode}): {e.stderr.strip()[:300]} — trying PyMuPDF's own "
+              f"extractor next", file=sys.stderr)
+
+    try:
+        text = pymupdf_native_text(pdf_path)
+        if len(text.strip()) >= NATIVE_TEXT_THRESHOLD:
+            return text, "PyMuPDF `page.get_text()` (native PDF text layer; pdftotext/poppler failed on this file)"
+        print(f"WARNING: PyMuPDF's own extractor on {pdf_path.name} also returned "
+              f"near-empty text", file=sys.stderr)
+    except Exception as e:
+        print(f"WARNING: PyMuPDF's own extractor also failed on {pdf_path.name}: {e}",
+              file=sys.stderr)
+
+    return "", ""
+
+
+def pymupdf_native_text(pdf_path: Path) -> str:
+    import pymupdf
+
+    doc = pymupdf.open(pdf_path)
+    try:
+        return "\f".join(page.get_text() for page in doc)
+    finally:
+        doc.close()
+
+
+def pdf_page_count(pdf_path: Path) -> int:
+    result = run(["pdfinfo", str(pdf_path)], timeout=30)
+    m = re.search(r"^Pages:\s*(\d+)", result.stdout, re.M)
+    if not m:
+        raise RuntimeError(f"pdfinfo gave no page count for {pdf_path.name}")
+    return int(m.group(1))
 
 
 def ocr_pdf(pdf_path: Path) -> str:
@@ -163,11 +219,22 @@ def process_pdf(pdf_path: Path) -> tuple[str, int]:
     slug = pdf_path.stem
     pdf_relpath = pdf_path.relative_to(REPO_ROOT).as_posix()
 
-    extracted = native_text(pdf_path)
+    extracted, native_method = native_text(pdf_path)
     if len(extracted.strip()) >= NATIVE_TEXT_THRESHOLD:
-        method = "`pdftotext` (native PDF text layer)"
+        method = native_method
         raw_text = extracted
     else:
+        page_count = pdf_page_count(pdf_path)
+        if page_count > OCR_MAX_PAGES:
+            raise RuntimeError(
+                f"{pdf_path.relative_to(REPO_ROOT)}: native-text extraction came back empty, "
+                f"but this PDF has {page_count} pages (over the {OCR_MAX_PAGES}-page OCR safety "
+                f"cap). This is almost certainly a pdftotext/poppler-version parsing failure on "
+                f"a real native-text PDF, not a genuine scan — OCR-ing a document this size "
+                f"would be extremely slow and is very likely masking the real problem rather "
+                f"than fixing it. Investigate the pdftotext WARNING above instead of raising "
+                f"OCR_MAX_PAGES."
+            )
         method = f"OCR (`tesseract`, {OCR_DPI} DPI page renders via PyMuPDF) — no native text layer found"
         raw_text = ocr_pdf(pdf_path)
 
