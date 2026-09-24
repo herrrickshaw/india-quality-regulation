@@ -151,7 +151,7 @@ anything here for an actual filing.
 ## Checks
 
 A GitHub Actions workflow (`.github/workflows/link-check.yml`) runs on
-every push/PR to `main`, weekly on a schedule, and on demand, split into two
+every push/PR to `main`, monthly on a schedule, and on demand, split into two
 jobs with different reliability:
 
 - **Internal links (blocking)** — every relative cross-link between doc
