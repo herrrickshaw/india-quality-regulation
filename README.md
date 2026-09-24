@@ -1,5 +1,7 @@
 # How India Regulates Quality
 
+[![Link check](https://github.com/herrrickshaw/india-quality-regulation/actions/workflows/link-check.yml/badge.svg)](https://github.com/herrrickshaw/india-quality-regulation/actions/workflows/link-check.yml)
+
 A field guide to BIS and the ~36 other statutory regulators, accreditation
 boards and voluntary marks that certify, license and grade quality in
 India — grounded in the actual Acts, Quality Control Orders, gazette
@@ -145,6 +147,31 @@ BIS/AGMARK omission (October 2024), the expanded BEE mandatory list
 years. Check the fetch date on each page's primary source and verify
 against the regulator's current gazette notification before relying on
 anything here for an actual filing.
+
+## Checks
+
+A GitHub Actions workflow (`.github/workflows/link-check.yml`) runs on
+every push/PR to `main`, weekly on a schedule, and on demand — it verifies
+that every link resolves:
+
+- **Hyperlinks** — every relative cross-link between doc pages and every
+  external "Primary source" URL, via [lychee](https://lychee.cli.rs)
+  (config: [`.lychee.toml`](.lychee.toml)). A handful of `.nic.in` hosts
+  that are already documented as unreachable from automated environments
+  (see the per-category `MANIFEST.md` files) are excluded so the build
+  doesn't flap on a known issue instead of a real one.
+- **Mirrored-source references** — every inline `` `sources/...` `` path
+  cited in a doc page, via [`scripts/check_source_refs.py`](scripts/check_source_refs.py)
+  (a hyperlink checker doesn't see these — they're code spans, not links —
+  and a mismatched one is exactly the kind of mistake this repo has hit
+  before).
+
+Run both locally before pushing:
+
+```bash
+lychee --config .lychee.toml README.md "docs/**/*.md"
+python3 scripts/check_source_refs.py
+```
 
 ## License
 

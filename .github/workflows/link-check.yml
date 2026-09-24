@@ -1,0 +1,36 @@
+name: Link check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Catch link rot on official sources even when nothing in the repo changes.
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  hyperlinks:
+    name: Hyperlinks (internal cross-links + external primary sources)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links with lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >
+            --config .lychee.toml
+            --no-progress
+            README.md
+            "docs/**/*.md"
+          fail: true
+
+  source-refs:
+    name: Mirrored-source references (sources/... paths)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check every `sources/...` reference resolves to a real file
+        run: python3 scripts/check_source_refs.py

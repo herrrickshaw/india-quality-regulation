@@ -1,0 +1,32 @@
+# Config for lychee (https://lychee.cli.rs), which checks every relative
+# markdown link between docs pages and every external "Primary source" URL.
+#
+# The external gov.in / nic.in sites in this repo are known to be flaky for
+# automated tools — several already blocked or rate-limited the scripted
+# fetches used to build sources/ (see sources/*/MANIFEST.md for specifics:
+# JS-only shells, timeouts, 403s). A bot-block response doesn't mean the
+# link is actually dead for a human visitor, so those statuses are accepted
+# here rather than failing the build on noise unrelated to this repo's own
+# content.
+
+accept = [200, 201, 202, 203, 204, 206, 226, 300, 301, 302, 303, 304, 307, 308, 403, 405, 429]
+timeout = 20
+retry_wait_time = 5
+max_retries = 3
+no_progress = true
+
+# Mirrored government pages under sources/ are third-party content we don't
+# control and didn't author — only check links inside docs we actually
+# maintain.
+exclude_path = ["sources"]
+
+# Known-unreachable at time of writing (see MANIFEST notes and the "Notes"
+# sections on several docs pages) — excluded so the build doesn't flap on
+# hosts that are already documented as consistently timing out from
+# automated environments, rather than reporting a false regression here.
+# Several .nic.in hosts show this pattern; indiacode.nic.in in particular
+# timed out on every one of ~6 independent attempts across different pages.
+exclude = [
+  "^https://(www\\.)?textilescommittee\\.nic\\.in",
+  "^https://(www\\.)?indiacode\\.nic\\.in",
+]
