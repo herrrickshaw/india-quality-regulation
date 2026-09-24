@@ -5,6 +5,7 @@
 **Established:** 1999 (Act); Trade Marks Act itself succeeded the Trade and Merchandise Marks Act, 1958
 **Legal basis:** Trade Marks Act, 1999 — certification trade marks specifically dealt with under Chapter IX (and Section 2(1)(e) defines the term)
 **Marks issued:** No mark of its own — it is the legal mechanism under which other bodies register their own certification marks (e.g. Woolmark, ISI-adjacent private schemes, ISO/quality certification logos)
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

@@ -5,6 +5,7 @@
 **Established:** 1955 (as the Indian Standards Institution mark; BIS itself constituted 1987, re-constituted under the 2016 Act)
 **Legal basis:** Bureau of Indian Standards Act, 2016 (No. 11 of 2016), which repealed and replaced the BIS Act, 1986; product-specific Quality Control Orders (QCOs) issued under Section 16/17 of the 2016 Act make individual products compulsory
 **Marks issued:** ISI mark (Scheme-I, compulsory registration under a QCO) and the general BIS product-certification mark (voluntary, outside a QCO)
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

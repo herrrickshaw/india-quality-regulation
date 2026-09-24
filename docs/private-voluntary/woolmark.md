@@ -5,6 +5,7 @@
 **Established:** Woolmark logo dates to 1964 (International Wool Secretariat); The Woolmark Company in its current corporate form was established in 1997
 **Legal basis:** None under Indian law — Woolmark is a foreign, privately-owned certification trade mark, licensed internationally including to Indian manufacturers who choose to seek it
 **Marks issued:** Woolmark (100% pure new wool), Woolmark Blend (50–99.9% new wool), Wool Blend Performance (30–49% wool)
+**Source tier:** Official scheme/administrative page — no dedicated Act exists for this entry, so the body's own official page *is* the complete primary source.
 
 ## Scope
 

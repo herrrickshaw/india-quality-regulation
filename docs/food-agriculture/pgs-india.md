@@ -5,6 +5,7 @@
 **Established:** 2011
 **Legal basis:** Scheme notification under PKVY — no dedicated Act
 **Marks issued:** PGS-India Organic (Green, certified) / PGS-India Organic (Grey, in-conversion)
+**Source tier:** Official scheme/administrative page — no dedicated Act exists for this entry, so the body's own official page *is* the complete primary source.
 
 ## Scope
 

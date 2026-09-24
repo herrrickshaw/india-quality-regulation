@@ -5,6 +5,7 @@
 **Established:** 2009 (Act passed); in force from 1 April 2011
 **Legal basis:** Legal Metrology Act, 2009, replacing the Standards of Weights and Measures Act, 1976 and the Standards of Weights and Measures (Enforcement) Act, 1985
 **Marks issued:** Verification/stamping marks on weighing and measuring instruments; mandatory MRP, net-quantity and manufacturer-declaration labels on packaged goods (not a single product "mark" like ISI or FSSAI's logo)
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

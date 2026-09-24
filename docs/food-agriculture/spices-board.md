@@ -5,6 +5,7 @@
 **Established:** 1987 (Act passed 1986; Board constituted 26 February 1987)
 **Legal basis:** Spices Board Act, 1986
 **Marks issued:** Spices Board quality/premium-grade certification marks; Certificate of Registration as Exporter of Spices (CRES)
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

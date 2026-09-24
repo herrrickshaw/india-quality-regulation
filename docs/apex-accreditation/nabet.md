@@ -5,6 +5,7 @@
 **Established:** 2006
 **Legal basis:** Operates under QCI's registered-society charter, working with the Ministry of Environment, Forest and Climate Change (for EIA consultant accreditation) and various skilling ministries
 **Marks issued:** None — accredits education, training and consultancy bodies
+**Source tier:** Official scheme/administrative page — no dedicated Act exists for this entry, so the body's own official page *is* the complete primary source.
 
 ## Scope
 

@@ -5,6 +5,7 @@
 **Established:** 1974 (CPCB constituted under the Water Act; given additional powers under the Air Act in 1981)
 **Legal basis:** Water (Prevention and Control of Pollution) Act, 1974; Air (Prevention and Control of Pollution) Act, 1981; Water (Prevention and Control of Pollution) Cess Act, 1977
 **Marks issued:** Consent to Establish (CTE) and Consent to Operate (CTO) — regulatory clearances, not a consumer mark; co-administers the Ecomark scheme with BIS
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

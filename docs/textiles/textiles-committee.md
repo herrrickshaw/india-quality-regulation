@@ -5,6 +5,7 @@
 **Established:** 1963 (Act); began functioning 22 August 1964
 **Legal basis:** Textiles Committee Act, 1963 (Act No. 41 of 1963)
 **Marks issued:** No product mark of its own — it administers/licenses the [Handloom Mark](handloom-mark.md) and issues pre-shipment inspection certificates for textile exports
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

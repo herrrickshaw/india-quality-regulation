@@ -5,6 +5,7 @@
 **Established:** 2006 (Standards & Labelling programme launched May 2006, under BEE which was itself set up in 2002)
 **Legal basis:** Energy Conservation Act, 2001 (Section 14 empowers mandatory labelling; Section 58 empowers BEE to frame regulations)
 **Marks issued:** BEE Star Label (1–5 stars)
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

@@ -5,6 +5,7 @@
 **Established:** 1999 (Act passed); registry operational from 15 September 2003
 **Legal basis:** Geographical Indications of Goods (Registration and Protection) Act, 1999
 **Marks issued:** GI tag / GI certification mark (product- and region-specific, e.g. Darjeeling Tea, Basmati, Pashmina, Kanchipuram Silk)
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

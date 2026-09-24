@@ -5,6 +5,7 @@
 **Established:** GreenPro launched 2014; IGBC established 2001; GRIHA developed mid-2000s and formally adopted by MNRE
 **Legal basis:** None statutory — GreenPro is a Type I Ecolabel accredited by the Global Ecolabelling Network (GEN) under its GENICES programme (aligned to ISO 14024) and industry-association rating schemes, run entirely outside any Indian Act
 **Marks issued:** GreenPro ecolabel (per product category); IGBC green building ratings; GRIHA star ratings
+**Source tier:** Official scheme/administrative page — no dedicated Act exists for this entry, so the body's own official page *is* the complete primary source.
 
 ## Scope
 

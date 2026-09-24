@@ -5,6 +5,7 @@
 **Established:** Tea Board — 1954 (Tea Act, 1953); Coffee Board — 1942 (Coffee Act, 1942)
 **Legal basis:** Tea Act, 1953; Coffee Act, 1942
 **Marks issued:** Darjeeling Tea (Geographical Indication), Tea Board orthodox/logo mark, Coffee Board grading and quality marks
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

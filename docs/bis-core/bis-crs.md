@@ -5,6 +5,7 @@
 **Established:** 2012
 **Legal basis:** Electronics and Information Technology Goods (Requirement for Compulsory Registration) Order, 2012 (S.O. 2357(E), dated 3 October 2012, issued under the (then) BIS Act, 1986), now administered under the BIS Act, 2016
 **Marks issued:** BIS Standard Mark (CRS "R-number" mark) — visually distinct from the ISI mark
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

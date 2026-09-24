@@ -5,6 +5,7 @@
 **Established:** 1898 (as the Department of Explosives under British rule; renamed PESO in 2007)
 **Legal basis:** Explosives Act, 1884; Static and Mobile Pressure Vessels (Unfired) Rules, 2016 (successor to the 1981 Rules)
 **Marks issued:** Licences for manufacture/storage/import/export of explosives; petroleum storage licences; pressure vessel/LPG cylinder approvals — not a consumer product mark
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

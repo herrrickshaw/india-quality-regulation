@@ -5,6 +5,7 @@
 **Established:** 2008 (Act enacted 2006; Authority operationalised 2008)
 **Legal basis:** Food Safety and Standards Act, 2006
 **Marks issued:** FSSAI licence number / registration mark (printed on packaging)
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

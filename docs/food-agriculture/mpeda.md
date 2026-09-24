@@ -5,6 +5,7 @@
 **Established:** 1972
 **Legal basis:** Marine Products Export Development Authority Act, 1972
 **Marks issued:** MPEDA processing-plant approval number; HACCP-based sanitary certification
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

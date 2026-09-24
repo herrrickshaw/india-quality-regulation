@@ -5,6 +5,7 @@
 **Established:** 1996
 **Legal basis:** Operates under QCI's registered-society charter; accredits against ISO/IEC 17021 (management systems), ISO/IEC 17065 (product certification), ISO/IEC 17024 (personnel certification) and ISO/IEC 17020 (inspection); signatory to IAF and APAC Mutual Recognition Arrangements
 **Marks issued:** None — accredits certification, inspection, and validation/verification bodies
+**Source tier:** Official scheme/administrative page — no dedicated Act exists for this entry, so the body's own official page *is* the complete primary source.
 
 ## Scope
 

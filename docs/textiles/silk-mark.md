@@ -5,6 +5,7 @@
 **Established:** 2004
 **Legal basis:** Not a statutory scheme — an administrative certification programme run by a registered society (Silk Mark Organisation of India, registered under the Karnataka Societies Registration Act, 1960) on behalf of the Central Silk Board, which itself is a statutory body under the Central Silk Board Act, 1948
 **Marks issued:** Silk Mark (hologram label with unique number)
+**Source tier:** Official scheme/administrative page — no dedicated Act exists for this entry, so the body's own official page *is* the complete primary source.
 
 ## Scope
 

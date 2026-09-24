@@ -5,6 +5,7 @@
 **Established:** 2005
 **Legal basis:** Operates under QCI's registered-society charter; sets and assesses against its own patient-safety accreditation standards (not a single external ISO standard)
 **Marks issued:** None — accredits hospitals, clinics and other healthcare facilities
+**Source tier:** Official scheme/administrative page — no dedicated Act exists for this entry, so the body's own official page *is* the complete primary source.
 
 ## Scope
 

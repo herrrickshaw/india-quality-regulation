@@ -5,6 +5,7 @@
 **Established:** 1991 (original scheme notification GSR 85(E), 21 February 1991); Ecomark Certification Rules re-notified 2023
 **Legal basis:** Environment (Protection) Act, 1986 — Sections 3(1), 3(2)(ii), 6(1) and 25(1)
 **Marks issued:** Ecomark (leaf-in-earthen-pot logo)
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

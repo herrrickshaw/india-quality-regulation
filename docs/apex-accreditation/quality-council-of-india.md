@@ -5,6 +5,7 @@
 **Established:** 1997
 **Legal basis:** Registered society under the Societies Registration Act, 1860, set up on the recommendation of an EU expert mission and a 1996 Cabinet decision; DPIIT is the nodal ministry
 **Marks issued:** None — accredits other bodies
+**Source tier:** Official scheme/administrative page — no dedicated Act exists for this entry, so the body's own official page *is* the complete primary source.
 
 ## Scope
 

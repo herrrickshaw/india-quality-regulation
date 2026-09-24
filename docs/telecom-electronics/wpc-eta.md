@@ -5,6 +5,7 @@
 **Established:** 1952 (WPC Wing created as India's National Radio Regulatory Authority)
 **Legal basis:** Indian Wireless Telegraphy Act, 1933 (Act No. 17 of 1933)
 **Marks issued:** Equipment Type Approval (ETA) certificate/self-declaration; SACFA clearance (for spectrum/site coordination)
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

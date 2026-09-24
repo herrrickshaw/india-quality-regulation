@@ -5,6 +5,7 @@
 **Established:** 2001
 **Legal basis:** Foreign Trade (Development & Regulation) Act, 1992
 **Marks issued:** India Organic
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

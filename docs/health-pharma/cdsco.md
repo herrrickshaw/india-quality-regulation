@@ -5,6 +5,7 @@
 **Established:** 1940 (as the office administering the Drugs Act; modern CDSCO structure dates to the Drugs Controller General of India role)
 **Legal basis:** Drugs and Cosmetics Act, 1940 (Act No. 23 of 1940) and Rules, 1945; Medical Devices Rules, 2017
 **Marks issued:** Import/manufacturing licences and registration certificates (Form MD-5, MD-9, and drug-specific forms) — not a consumer-facing mark like ISI or FSSAI's logo
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

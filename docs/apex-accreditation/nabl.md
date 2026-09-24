@@ -5,6 +5,7 @@
 **Established:** 1998
 **Legal basis:** Accreditation system operated in accordance with ISO/IEC 17011; voluntary accreditation schemes under ISO/IEC 17025 (testing/calibration labs), ISO 15189 (medical labs), ISO/IEC 17043 (proficiency testing providers), ISO 17034 (reference material producers)
 **Marks issued:** None — accredits testing, calibration and medical-testing laboratories
+**Source tier:** Official scheme/administrative page — no dedicated Act exists for this entry, so the body's own official page *is* the complete primary source.
 
 ## Scope
 

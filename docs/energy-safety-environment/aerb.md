@@ -5,6 +5,7 @@
 **Established:** 1983 (15 November 1983, by an order of the President under the Atomic Energy Act)
 **Legal basis:** Atomic Energy Act, 1962 (Act No. 33 of 1962); AERB also draws authority from the Environment (Protection) Act, 1986 for certain notifications
 **Marks issued:** Licences/consents for nuclear and radiation facilities (via the e-LORA electronic licensing system) — not a product mark
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

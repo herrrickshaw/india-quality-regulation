@@ -13,6 +13,12 @@ four-layer model (Acts → statutory regulators → accreditation apex →
 certification/testing bodies → marks on the product) that the rest of this
 repo is organised around.
 
+**Source coverage → [`docs/coverage.md`](docs/coverage.md)** — all 36
+entries: 22 have the actual Act/Rules/Regulations/gazette notification
+mirrored, 14 have an official scheme/administrative page (the correct
+primary source for a body with no founding statute — an accreditation
+board, a voluntary industry mark). Zero entries have nothing mirrored.
+
 ## Why this exists
 
 BIS is the name most people reach for, but "quality regulation in India" is
@@ -118,23 +124,34 @@ isn't just secondhand paraphrase.
 ## Repository layout
 
 ```
-docs/                    one page per body/scheme — authority, legal basis,
-                          status, scope, cross-references, primary-source link
+docs/00-overview.md       the four-layer model
+docs/coverage.md          generated source-coverage table (see below)
+docs/                     one page per body/scheme — authority, legal basis,
+                          status, source tier, scope, cross-references,
+                          primary-source link
 sources/                  mirrored primary documents (Acts, QCOs, gazette
                           notifications, official scheme pages), grouped in
                           the same categories as docs/
 sources/*/MANIFEST.md     per-category table: entry, local file, original
                           URL, fetch date, document type, notes
+scripts/generate_coverage.py   regenerates docs/coverage.md from every doc
+                          page's **Source tier:** field
+scripts/check_source_refs.py   CI check — see "Checks" below
 ```
 
-Every `docs/*.md` page ends with a **Primary source** section linking both
-to the original URL and to the mirrored copy under `sources/`. Where no
-stable public document could be found or a site blocked automated fetching,
-the page says so explicitly instead of silently omitting it — see the
-per-category `MANIFEST.md` files for exactly what was and wasn't mirrored,
-and why (a handful of `.gov.in`/`.nic.in` hosts serve JS-only shells or
-timed out; those are documented per entry, with an alternate official
-source substituted where one exists).
+Every `docs/*.md` page carries a **Source tier** field (`Statutory /
+regulatory text` or `Official scheme/administrative page`) right in its
+header, and ends with a **Primary source** section linking both to the
+original URL and to the mirrored copy under `sources/`. `docs/coverage.md`
+is generated from that field, so after re-sourcing an entry, update the doc
+page and re-run `python3 scripts/generate_coverage.py` rather than editing
+the coverage table by hand. Where a site blocked automated fetching, the
+page's Notes section says so and records what was tried — see the
+per-category `MANIFEST.md` files for the full detail (a handful of
+`.gov.in`/`.nic.in` hosts, including `indiacode.nic.in` and
+`legislative.gov.in`, are consistently unreachable from this environment;
+IndianKanoon and Wayback Machine snapshots covered most of the resulting
+gaps).
 
 ## Reading the marks correctly
 

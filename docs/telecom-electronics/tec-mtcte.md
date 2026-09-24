@@ -5,6 +5,7 @@
 **Established:** 2017 (procedure notified under the Indian Telegraph (Amendment) Rules, 2017)
 **Legal basis:** Indian Telegraph Act, 1885 (as amended); Indian Telegraph (Amendment) Rules, 2017
 **Marks issued:** MTCTE certificate (issued per telecom equipment category against Essential Requirements / Generic Requirements / Interface Requirements)
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

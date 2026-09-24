@@ -5,6 +5,7 @@
 **Established:** Schedule T added to the Drugs and Cosmetics Rules in 2000; AYUSH Mark certification scheme launched January 2010 (QCI-run since 2009)
 **Legal basis:** Drugs and Cosmetics Act, 1940 and Rules, 1945 — Schedule T (GMP for Ayurvedic, Siddha and Unani drugs, made under Rule 157); AYUSH Mark Certification Scheme (QCI/Ministry of AYUSH scheme document)
 **Marks issued:** AYUSH Standard Mark, AYUSH Premium Mark
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

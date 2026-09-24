@@ -5,6 +5,7 @@
 **Established:** Varies by body — Jamiat Ulama-i-Hind Halal Trust operates under the Jamiat Ulama-i-Hind organisation (founded 1919), though the Halal Trust's certification arm is a more recent, modern addition
 **Legal basis:** None specific — private religious/commercial certification, not created or governed by any Indian statute. Credibility for export purposes comes from third-party accreditation (NABCB under QCI) rather than any Act
 **Marks issued:** Body-specific halal logos (e.g. JUHHT's own patented halal logo); no unified national halal mark exists
+**Source tier:** Official scheme/administrative page — no dedicated Act exists for this entry, so the body's own official page *is* the complete primary source.
 
 ## Scope
 

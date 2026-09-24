@@ -5,6 +5,7 @@
 **Established:** 1980
 **Legal basis:** MeitY directorate (departmental, not a separate statutory body — operates as part of MeitY rather than under its own Act)
 **Marks issued:** STQC test/certification reports and Common Criteria certificates; no single product mark equivalent to the ISI mark
+**Source tier:** Official scheme/administrative page — no dedicated Act exists for this entry, so the body's own official page *is* the complete primary source.
 
 ## Scope
 

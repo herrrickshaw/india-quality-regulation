@@ -5,6 +5,7 @@
 **Established:** 2006 (Handloom Mark) / 2015 (India Handloom Brand)
 **Legal basis:** Administrative scheme of the Ministry of Textiles; Handloom Mark labelling standards are notified via draft regulations under the Ministry's rule-making powers, not a dedicated Act
 **Marks issued:** Handloom Mark, India Handloom Brand (IHB) logo
+**Source tier:** Official scheme/administrative page — no dedicated Act exists for this entry, so the body's own official page *is* the complete primary source.
 
 ## Scope
 

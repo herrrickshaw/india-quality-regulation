@@ -5,6 +5,7 @@
 **Established:** 1937
 **Legal basis:** Agricultural Produce (Grading and Marking) Act, 1937
 **Marks issued:** AGMARK
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

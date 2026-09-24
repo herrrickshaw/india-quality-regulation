@@ -5,6 +5,7 @@
 **Established:** Varies by state; role created by the Drugs and Cosmetics Act, 1940 itself, which delegates the bulk of manufacturing and sale licensing to state governments
 **Legal basis:** Drugs and Cosmetics Act, 1940 and Rules, 1945 (state authorities act as "State Licensing Authority" under the Act, in coordination with [CDSCO](cdsco.md))
 **Marks issued:** Manufacturing licences (Form 25, Form 28 and equivalents), sale licences, Class A/B medical device manufacturing licences — not a product mark
+**Source tier:** Official scheme/administrative page — no dedicated Act exists for this entry, so the body's own official page *is* the complete primary source.
 
 ## Scope
 

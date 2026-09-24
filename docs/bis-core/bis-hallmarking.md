@@ -5,6 +5,7 @@
 **Established:** Scheme launched 2000; gold hallmarking made mandatory from June 2021
 **Legal basis:** Bureau of Indian Standards Act, 2016, read with the BIS (Hallmarking) Regulations, 2018 (gazetted 14 June 2018) and subsequent amendments (2021, 2022, 2026)
 **Marks issued:** BIS Hallmark (BIS logo + purity/fineness grade + six-digit alphanumeric HUID), applied via BIS-registered Assaying & Hallmarking Centres (AHCs)
+**Source tier:** Statutory / regulatory text — the Act, Rules, Regulations, Order or gazette notification itself is mirrored, not just a page about it.
 
 ## Scope
 

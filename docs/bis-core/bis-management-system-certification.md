@@ -5,6 +5,7 @@
 **Established:** 1991 (Quality Management System / IS/ISO 9001 certification); scope expanded since
 **Legal basis:** BIS Act (1986, now 2016) and Rules & Regulations framed thereunder; BIS's own Management Systems Certification Scheme (MSCS) accredited by [NABCB](../apex-accreditation/nabcb.md)
 **Marks issued:** IS/ISO 9001 (Quality), IS/ISO 14001 (Environmental), IS/ISO 22000 (Food Safety), IS/ISO 45001 (Occupational Health & Safety) certificates, and Integrated Management System (IMS) certificates combining two or more of these
+**Source tier:** Official scheme/administrative page — no dedicated Act exists for this entry, so the body's own official page *is* the complete primary source.
 
 ## Scope
 
