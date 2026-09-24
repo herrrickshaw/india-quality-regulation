@@ -169,14 +169,37 @@ def ocr_pdf(pdf_path: Path) -> str:
 
 
 def find_doc_title(cat_key: str, slug: str) -> str:
-    """Best-effort: find the docs/<cat>/<slug>.md whose Primary source cites
-    this exact PDF, and return its H1 title, for a friendly header. Falls
-    back to a slug-derived title if no doc references this PDF."""
+    """Find the doc page this PDF belongs to, and return its H1 title, for
+    a friendly extraction-file header.
+
+    Tries the naming convention first (docs/<cat>/<slug>.md — true for
+    most PDFs, and unambiguous) before falling back to a text search for
+    PDFs cited by a differently-named doc (e.g. a secondary source, like
+    tea-board-coffee-board-coffee-act.pdf being cited by
+    tea-board-coffee-board.md). That fallback search matches only the
+    literal "mirrored at `sources/<cat>/<slug>.pdf`" citation phrase, not
+    a bare substring — this file's own path can legitimately appear in
+    ANOTHER doc's prose for an unrelated reason (confirmed in practice:
+    ayush-gmp-premium-mark.md's Notes section discusses cdsco.pdf while
+    explaining why it's a different, shorter file than
+    ayush-schedule-t.pdf — a bare-substring search picked THAT doc's title
+    for cdsco.md's own header, on whichever filesystem happened to iterate
+    the category directory in an order that hit it first).
+
+    Falls back to a slug-derived title if nothing matches either way."""
+    same_name_doc = DOCS / cat_key / f"{slug}.md"
+    if same_name_doc.is_file():
+        text = same_name_doc.read_text(encoding="utf-8")
+        m = re.search(r"^# (.+)$", text, re.M)
+        if m:
+            return m.group(1)
+
     cat_dir = DOCS / cat_key
+    citation_marker = f"mirrored at `sources/{cat_key}/{slug}.pdf`"
     if cat_dir.is_dir():
-        for md in cat_dir.glob("*.md"):
+        for md in sorted(cat_dir.glob("*.md")):
             text = md.read_text(encoding="utf-8")
-            if f"sources/{cat_key}/{slug}.pdf" in text:
+            if citation_marker in text:
                 m = re.search(r"^# (.+)$", text, re.M)
                 if m:
                     return m.group(1)
