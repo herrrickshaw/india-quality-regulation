@@ -46,3 +46,7 @@ CRS need to track that transition.
 - The dedicated CRS registration portal is `crsbis.in`, separate from
   `bis.gov.in` — useful for filing, not used here as a primary source since
   it's a transaction portal rather than the notification itself.
+- Schedule 1 of the Order names the specific IS standard each product
+  category must test against (e.g. IS 616:2010 for TVs, IS 13252:2010 for
+  IT equipment) — catalogued, not downloaded, in
+  [`docs/is-standards-referenced.md`](../is-standards-referenced.md).

@@ -24,3 +24,7 @@ The Ministry of AYUSH regulates Ayurvedic, Siddha, Unani and Homoeopathy (ASU&H)
 - No separate AYUSH Premium Mark scheme notification was found on an `ayush.gov.in` path outside the JS-shell root during this pass.
 - Two certification bodies were named at the scheme's 2010 launch (FOODCERT Hyderabad and Bureau Veritas Bombay); the current NABCB-accredited CB list should be checked at the time of use rather than assumed static.
 - Don't confuse Schedule T (mandatory GMP floor) with the AYUSH Mark (voluntary, export-grade signal) — a manufacturer can be fully legal under Schedule T without ever pursuing the AYUSH Mark.
+- The mirrored D&C Rules text also cites specific IS standards for
+  cosmetics (Schedule S/Q) and devices elsewhere in the same consolidation
+  — catalogued, not downloaded, in
+  [`docs/is-standards-referenced.md`](../is-standards-referenced.md).

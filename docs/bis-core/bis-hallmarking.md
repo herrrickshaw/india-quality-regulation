@@ -50,3 +50,6 @@ accredited through NABL.
 - Silver-hallmarking-voluntary-but-HUID-required-if-done is a subtle,
   easy-to-misstate distinction — don't round it off to "silver is
   hallmarked" or "silver hallmarking is mandatory."
+- The Regulations cite IS 1417 (gold purity/marking) and IS 2112 (silver
+  purity/marking) by number — catalogued, not downloaded, in
+  [`docs/is-standards-referenced.md`](../is-standards-referenced.md).

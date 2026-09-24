@@ -86,6 +86,7 @@ def build_title_map():
             title_map[md.relative_to(DOCS).as_posix()] = m.group(1)
     title_map["00-overview.md"] = "Overview"
     title_map["coverage.md"] = "Source Coverage"
+    title_map["is-standards-referenced.md"] = "Referenced Technical Standards"
     return title_map
 
 
@@ -122,19 +123,34 @@ def rewrite_links(text: str, doc_docs_relative_dir: str, title_map: dict, catego
         if target.startswith(("http://", "https://", "mailto:", "#")):
             return m.group(0)
 
-        if target.endswith(".md"):
-            resolved = resolve_docs_relative(doc_docs_relative_dir, target)
+        # A target can carry a GitHub-style fragment, e.g.
+        # `../sources/bis-core/bis-crs.md#L537` (line-anchor into that
+        # file's blob view) — split it off before checking the extension,
+        # since `target.endswith(".md")` would otherwise miss this target
+        # entirely and leave a docs/-relative path uncorrected once this
+        # link is flattened into a repo-root-relative COMPENDIUM.md.
+        path_part, hash_sep, fragment = target.partition("#")
+
+        if path_part.endswith(".md"):
+            resolved = resolve_docs_relative(doc_docs_relative_dir, path_part)
             title = title_map.get(resolved)
-            if title is not None:
+            if title is not None and not fragment:
                 return f"[{label}](#{slugify(title)})"
             # A link that climbs out of docs/ entirely (e.g.
             # `../../sources/bis-core/bis-isi-mark.md`, used to cite a
-            # PDF's extracted-text transcription) resolves, once it clears
-            # docs/, to a path that's already correct relative to the
-            # REPOSITORY ROOT — which is exactly where COMPENDIUM.md lives.
-            # Point the link straight at that file instead of an anchor.
+            # PDF's extracted-text transcription, or the #L537 case above)
+            # resolves, once it clears docs/, to a path that's already
+            # correct relative to the REPOSITORY ROOT — which is exactly
+            # where COMPENDIUM.md lives. Point the link straight at that
+            # file (plus its original fragment, if any) instead of an
+            # in-file anchor.
             if resolved.startswith("sources/") and (REPO_ROOT / resolved).is_file():
-                return f"[{label}]({resolved})"
+                return f"[{label}]({resolved}{hash_sep}{fragment})"
+            if title is not None:
+                # docs/ target with a fragment lychee/GitHub wouldn't
+                # resolve post-flatten anyway (it'd become an anchor); drop
+                # the now-meaningless fragment and point at the section.
+                return f"[{label}](#{slugify(title)})"
             print(f"WARNING: unresolved cross-link '{target}' in {doc_docs_relative_dir or '.'}",
                   file=sys.stderr)
             return m.group(0)
@@ -177,16 +193,21 @@ def main():
     )
     parts.append("")
 
-    # --- Overview ---
-    overview_path = DOCS / "00-overview.md"
-    overview_text = overview_path.read_text(encoding="utf-8")
-    overview_body = strip_h1(overview_text)
-    overview_body = rewrite_links(overview_body, "", title_map, category_map)
-    overview_body = demote(overview_body, 1)
-    parts.append("## Overview")
-    parts.append("")
-    parts.append(overview_body.strip())
-    parts.append("")
+    def embed_top_level_doc(filename: str, section_title: str):
+        """Embed a docs/-root page (Overview, the IS-standards catalogue,
+        Coverage) as its own H2 section, titled section_title rather than
+        the page's own H1 — must match the title_map override above so
+        cross-links resolve to the heading this actually produces."""
+        text = (DOCS / filename).read_text(encoding="utf-8")
+        body = strip_h1(text)
+        body = rewrite_links(body, "", title_map, category_map)
+        body = demote(body, 1)
+        parts.append(f"## {section_title}")
+        parts.append("")
+        parts.append(body.strip())
+        parts.append("")
+
+    embed_top_level_doc("00-overview.md", "Overview")
 
     # --- Each category, each entry ---
     for cat_key, cat_label in CATEGORY_ORDER:
@@ -221,16 +242,8 @@ def main():
             parts.append(body.strip())
             parts.append("")
 
-    # --- Coverage summary ---
-    coverage_path = DOCS / "coverage.md"
-    coverage_text = coverage_path.read_text(encoding="utf-8")
-    coverage_body = strip_h1(coverage_text)
-    coverage_body = rewrite_links(coverage_body, "", title_map, category_map)
-    coverage_body = demote(coverage_body, 1)
-    parts.append("## Source Coverage")
-    parts.append("")
-    parts.append(coverage_body.strip())
-    parts.append("")
+    embed_top_level_doc("is-standards-referenced.md", "Referenced Technical Standards")
+    embed_top_level_doc("coverage.md", "Source Coverage")
 
     OUTPUT.write_text("\n".join(parts), encoding="utf-8")
     print(f"Wrote {OUTPUT.relative_to(REPO_ROOT)} "

@@ -38,3 +38,7 @@ edition (2024); NPOP-covered organic production for 2024–25 ran to roughly
 - NPOP is administered under the Foreign Trade (Development & Regulation)
   Act, 1992 rather than a dedicated organic-farming Act — there is no
   standalone "NPOP Act."
+- The permitted-feed-materials annex cites specific IS grade standards for
+  individual ingredients (e.g. IS 2239:1971 for wheat bran) — catalogued,
+  not downloaded, in
+  [`docs/is-standards-referenced.md`](../is-standards-referenced.md).

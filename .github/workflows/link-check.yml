@@ -14,6 +14,11 @@ jobs:
   internal-links:
     name: Internal links (docs cross-links + sources/ paths — blocking)
     runs-on: ubuntu-latest
+    # Safety net: the PDF extraction step has per-subprocess timeouts of
+    # its own (see scripts/extract_pdf_text.py) after a real hang there
+    # once ran past 15 minutes uncaught on a shared CI runner — this job
+    # timeout is the backstop in case something else hangs instead.
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
@@ -34,6 +39,7 @@ jobs:
       # Order matters: extraction can add "Full text:" links to doc pages,
       # which coverage/compendium regeneration then needs to see.
       - name: Regenerate derived files and diff
+        timeout-minutes: 10
         run: |
           python3 scripts/extract_pdf_text.py
           python3 scripts/generate_coverage.py
@@ -67,6 +73,7 @@ jobs:
   external-sources:
     name: External primary-source URLs (best-effort — not blocking)
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     # Several official .gov.in / .nic.in hosts in this repo are reachable
     # from a residential/office connection but not reliably from GitHub's
     # hosted runners — broken TLS chains (egazette.gov.in, consumeraffairs

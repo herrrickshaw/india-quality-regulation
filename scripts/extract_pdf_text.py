@@ -29,6 +29,10 @@ OCR_DPI = 300
 NATIVE_TEXT_THRESHOLD = 40  # non-whitespace chars; below this, treat as scan-only
 
 
+PDFTOTEXT_TIMEOUT_S = 120  # generous for even the largest (635-page) PDF here
+TESSERACT_TIMEOUT_S = 90   # per page — generous for a single 300-DPI page image
+
+
 def run(cmd, **kw):
     return subprocess.run(cmd, check=True, capture_output=True, text=True, **kw)
 
@@ -39,16 +43,25 @@ def native_text(pdf_path: Path) -> str:
     seen in practice on Ubuntu's older poppler-utils against a Word-
     exported PDF that a newer Homebrew poppler parses fine — fall back to
     plain `pdftotext` (no -layout), which is a simpler code path and more
-    tolerant of exactly this kind of quirk. Returns "" (never raises) if
-    neither works, which the caller treats as "needs OCR"."""
+    tolerant of exactly this kind of quirk. Returns "" (never raises on a
+    subprocess failure OR a hang — both are treated as "needs OCR" rather
+    than left to block the whole run indefinitely; a real hang here is
+    exactly what left the first CI attempts stuck for 15+ minutes)."""
     try:
-        return run(["pdftotext", "-layout", str(pdf_path), "-"]).stdout
+        return run(["pdftotext", "-layout", str(pdf_path), "-"], timeout=PDFTOTEXT_TIMEOUT_S).stdout
+    except subprocess.TimeoutExpired:
+        print(f"WARNING: 'pdftotext -layout' timed out after {PDFTOTEXT_TIMEOUT_S}s on "
+              f"{pdf_path.name}; retrying without -layout", file=sys.stderr)
     except subprocess.CalledProcessError as e:
         print(f"WARNING: 'pdftotext -layout' failed on {pdf_path.name} "
               f"(exit {e.returncode}); retrying without -layout: "
               f"{e.stderr.strip()[:300]}", file=sys.stderr)
     try:
-        return run(["pdftotext", str(pdf_path), "-"]).stdout
+        return run(["pdftotext", str(pdf_path), "-"], timeout=PDFTOTEXT_TIMEOUT_S).stdout
+    except subprocess.TimeoutExpired:
+        print(f"WARNING: plain 'pdftotext' also timed out after {PDFTOTEXT_TIMEOUT_S}s on "
+              f"{pdf_path.name}", file=sys.stderr)
+        return ""
     except subprocess.CalledProcessError as e:
         print(f"WARNING: plain 'pdftotext' also failed on {pdf_path.name} "
               f"(exit {e.returncode}): {e.stderr.strip()[:300]}", file=sys.stderr)
@@ -68,12 +81,20 @@ def ocr_pdf(pdf_path: Path) -> str:
         # (Hindi text precedes the English text on the same scanned page),
         # so English-only OCR mangles half the page. eng+hin lets
         # tesseract recognize both scripts on the same pass.
-        result = subprocess.run(
-            ["tesseract", "stdin", "stdout", "-l", "eng+hin"],
-            input=png_bytes,
-            capture_output=True,
-            check=True,
-        )
+        try:
+            result = subprocess.run(
+                ["tesseract", "stdin", "stdout", "-l", "eng+hin"],
+                input=png_bytes,
+                capture_output=True,
+                check=True,
+                timeout=TESSERACT_TIMEOUT_S,
+            )
+        except subprocess.TimeoutExpired:
+            print(f"WARNING: tesseract timed out after {TESSERACT_TIMEOUT_S}s on "
+                  f"{pdf_path.name} page {page_index + 1} — leaving that page blank "
+                  f"rather than hanging the whole run", file=sys.stderr)
+            pages_text.append("")
+            continue
         pages_text.append(result.stdout.decode("utf-8", errors="replace"))
     doc.close()
     return "\f".join(pages_text)  # \f (form feed) matches pdftotext's own page separator

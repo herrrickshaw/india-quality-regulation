@@ -49,10 +49,11 @@ def load_compendium() -> str:
 def main_entries_region(compendium: str) -> str:
     """The slice of the compendium holding only the 36 entry sections —
     excludes Overview's own H3 subsections (e.g. "The four-layer model")
-    and the Source Coverage section, whose category subheadings are also
-    demoted to H3 and would otherwise look like duplicate/extra entries."""
+    and the Referenced Technical Standards / Source Coverage sections,
+    whose own subheadings are also demoted to H3/H4 and would otherwise
+    look like duplicate/extra entries or spurious content."""
     start_marker = "\n## Apex & Accreditation Infrastructure\n"
-    end_marker = "\n## Source Coverage\n"
+    end_marker = "\n## Referenced Technical Standards\n"
     start = compendium.index(start_marker)
     end = compendium.index(end_marker)
     return compendium[start:end]

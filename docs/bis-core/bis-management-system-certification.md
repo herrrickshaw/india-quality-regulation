@@ -41,3 +41,6 @@ in a market it does not otherwise regulate.
   are different systems that share infrastructure" point: this page is the
   concrete example of that — BIS is simultaneously a statutory regulator
   (elsewhere) and, here, just another accredited commercial CB.
+- The management-system standards themselves (IS/ISO 9001, IS 18001, IS
+  15700, etc.) are catalogued, not downloaded, in
+  [`docs/is-standards-referenced.md`](../is-standards-referenced.md).

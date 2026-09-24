@@ -26,6 +26,14 @@ self-contained Markdown file, for offline reading, pasting elsewhere, or
 handing to something without repo access. Generated from `docs/`; see
 "Checks" below for how it stays in sync.
 
+**Referenced technical standards → [`docs/is-standards-referenced.md`](docs/is-standards-referenced.md)**
+— 37 Indian Standard (IS) numbers that the mirrored Acts/Regulations
+actually cite (e.g. Hallmarking's IS 1417 for gold purity), catalogued
+with title and context but **not downloaded** — unlike the public-domain
+Acts elsewhere in this repo, individual IS standards are BIS's paid,
+DRM-locked commercial product, sold through
+[standardsbis.bsbedge.com](https://standardsbis.bsbedge.com/).
+
 ## Why this exists
 
 BIS is the name most people reach for, but "quality regulation in India" is
