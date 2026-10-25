@@ -69,6 +69,7 @@ def main():
     total = sum(len(v) for v in by_category.values())
     statutory = sum(1 for v in by_category.values() for e in v if e["tier"] == STATUTORY_LABEL)
     official = total - statutory
+    unsourced = sum(1 for v in by_category.values() for e in v if e["n_sources"] == 0)
 
     lines = []
     lines.append("# Source coverage")
@@ -82,7 +83,9 @@ def main():
                   f"{official} are administrative/scheme pages — which is correct, not a gap, for "
                   f"an entry with no dedicated founding Act (an accreditation board, a voluntary "
                   f"industry mark, a scheme that runs on a guideline rather than a statute). "
-                  f"Zero entries have no primary source mirrored at all.**")
+                  + ("Zero entries have no primary source mirrored at all.**" if not unsourced else
+                     f"{unsourced} {'entry has' if unsourced == 1 else 'entries have'} no primary-source "
+                     f"file mirrored yet.**"))
     lines.append("")
     lines.append("Two tiers, not one \"covered/not covered\" flag, because the right primary "
                   "source for a body like NABCB (a QCI board with no founding Act of its own) is "
