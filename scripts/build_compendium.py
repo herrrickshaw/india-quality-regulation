@@ -16,39 +16,19 @@ correctly from a file at the repository root.
 Run `python3 scripts/verify_compendium.py --check all` after this to
 confirm nothing was lost or broken in the process.
 """
+from __future__ import annotations
+
 import re
 import sys
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-DOCS = REPO_ROOT / "docs"
-OUTPUT = REPO_ROOT / "COMPENDIUM.md"
+from _common import CATEGORY_ORDER, DOCS, REPO_ROOT, slugify
 
-CATEGORY_ORDER = [
-    ("apex-accreditation", "Apex & Accreditation Infrastructure"),
-    ("bis-core", "Cross-Sector Statutory — BIS Core"),
-    ("food-agriculture", "Food & Agriculture"),
-    ("health-pharma", "Health, Pharma & AYUSH"),
-    ("energy-safety-environment", "Energy, Safety & Environment"),
-    ("telecom-electronics", "Telecom & Electronics"),
-    ("textiles", "Textiles & Handicrafts"),
-    ("ip-trademarks", "Origin & Trademarks"),
-    ("legal-metrology", "Legal Metrology"),
-    ("private-voluntary", "Private / Industry Voluntary Marks"),
-]
+OUTPUT = REPO_ROOT / "COMPENDIUM.md"
 
 HEADING_RE = re.compile(r"^(#{1,6})(\s+.*)$", re.M)
 LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
-
-
-def slugify(title: str) -> str:
-    """Approximation of GitHub's heading-anchor algorithm."""
-    s = title.lower()
-    s = re.sub(r"[^\w\- ]+", "", s)
-    s = s.strip().replace(" ", "-")
-    s = re.sub(r"-+", "-", s)
-    return s
 
 
 def demote(text: str, levels: int) -> str:
@@ -169,7 +149,8 @@ def rewrite_links(text: str, doc_docs_relative_dir: str, title_map: dict, catego
     return LINK_RE.sub(repl, text)
 
 
-def main():
+def main() -> int:
+    """Write COMPENDIUM.md."""
     title_map = build_title_map()
     category_map = {cat_key: cat_label for cat_key, cat_label in CATEGORY_ORDER}
 
@@ -248,6 +229,7 @@ def main():
     OUTPUT.write_text("\n".join(parts), encoding="utf-8")
     print(f"Wrote {OUTPUT.relative_to(REPO_ROOT)} "
           f"({len(OUTPUT.read_text(encoding='utf-8').splitlines())} lines).")
+    return 0
 
 
 if __name__ == "__main__":

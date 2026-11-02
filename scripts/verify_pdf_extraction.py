@@ -5,23 +5,24 @@ Each --check prints a distinct success-only token and exits 0 only if
 every assertion for that check passes; otherwise it prints the specific
 failure(s) to stderr and exits 1. Used as the CHECK oracle for GATES.md.
 """
+from __future__ import annotations
+
 import argparse
 import re
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import extract_pdf_text as extractor  # reuse its exact pdftotext-with-fallback logic
+from _common import DOCS, REPO_ROOT
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCES = REPO_ROOT / "sources"
-DOCS = REPO_ROOT / "docs"
 
 MIN_EXTRACTION_BYTES = 400  # below this, the file is basically just the header
 COMPLETENESS_TOLERANCE = 0.03  # allow 3% drift between extraction and a fresh direct pdftotext run
 
 
-def all_pdfs():
+def all_pdfs() -> list[Path]:
+    """Every mirrored PDF under sources/, sorted."""
     return sorted(SOURCES.rglob("*.pdf"))
 
 
