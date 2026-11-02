@@ -276,7 +276,7 @@ def main():
     args = parser.parse_args()
 
     if args.check == "all":
-        for name, fn in CHECKS.items():
+        for fn in CHECKS.values():
             fn()
     else:
         CHECKS[args.check]()

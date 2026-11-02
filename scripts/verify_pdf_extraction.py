@@ -92,7 +92,7 @@ def check_ocr_content():
         for f in failures:
             print(f"FAIL: {f}", file=sys.stderr)
         sys.exit(1)
-    print(f"EXTRACTION_OCR_OK (bis-crs.pdf confirmed scan-only; OCR text is substantial and on-topic)")
+    print("EXTRACTION_OCR_OK (bis-crs.pdf confirmed scan-only; OCR text is substantial and on-topic)")
 
 
 def strip_extraction_markup(text: str) -> str:
