@@ -14,6 +14,8 @@ Deterministic and re-runnable: run this again after re-fetching a PDF
 tesseract versions; everything else is byte-for-byte reproducible from the
 same input PDF).
 """
+from __future__ import annotations
+
 import os
 import re
 import subprocess
@@ -21,9 +23,9 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+from _common import DOCS, REPO_ROOT
+
 SOURCES = REPO_ROOT / "sources"
-DOCS = REPO_ROOT / "docs"
 
 OCR_DPI = 300
 NATIVE_TEXT_THRESHOLD = 40  # non-whitespace chars; below this, treat as scan-only
@@ -55,7 +57,8 @@ PDFTOTEXT_TIMEOUT_S = 120  # generous for even the largest (635-page) PDF here
 TESSERACT_TIMEOUT_S = 90   # per page — generous for a single 300-DPI page image
 
 
-def run(cmd, **kw):
+def run(cmd: list[str], **kw) -> subprocess.CompletedProcess:
+    """Run a command, raising on non-zero exit; captures text stdout/stderr."""
     return subprocess.run(cmd, check=True, capture_output=True, text=True, **kw)
 
 

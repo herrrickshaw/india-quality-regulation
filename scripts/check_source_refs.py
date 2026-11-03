@@ -9,11 +9,13 @@ them. That's exactly the class of bug this repo has already hit once
 was actually saved) — this script exists to catch it in CI instead of by
 hand.
 """
+from __future__ import annotations
+
 import re
 import sys
-from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+from _common import REPO_ROOT
+
 # Require a real file extension, and exclude `*` (glob wildcards never
 # appear in a real path), so prose like `` `sources/...` `` or
 # `` `sources/*/MANIFEST.md` `` (used to describe the pattern, e.g. in this
@@ -28,7 +30,8 @@ def find_markdown_files():
     yield from (REPO_ROOT / "docs").rglob("*.md")
 
 
-def main():
+def main() -> int:
+    """Return 1 if any `sources/...` reference is broken, else 0."""
     broken = []
     checked = 0
     for md_file in find_markdown_files():

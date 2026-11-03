@@ -5,24 +5,17 @@ Each --check prints a distinct success-only token and exits 0 only if
 every assertion for that check passes; otherwise it prints the specific
 failure(s) to stderr and exits 1. Used as the CHECK oracle for GATES.md.
 """
+from __future__ import annotations
+
 import argparse
 import re
 import sys
-from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-DOCS = REPO_ROOT / "docs"
+from _common import DOCS, REPO_ROOT, slugify
+
 COMPENDIUM = REPO_ROOT / "COMPENDIUM.md"
 
 FIELD_NAMES = ["Authority", "Status", "Established", "Legal basis", "Marks issued", "Source tier"]
-
-
-def slugify(title: str) -> str:
-    s = title.lower()
-    s = re.sub(r"[^\w\- ]+", "", s)
-    s = s.strip().replace(" ", "-")
-    s = re.sub(r"-+", "-", s)
-    return s
 
 
 def normalize(text: str) -> str:
@@ -283,7 +276,7 @@ def main():
     args = parser.parse_args()
 
     if args.check == "all":
-        for name, fn in CHECKS.items():
+        for fn in CHECKS.values():
             fn()
     else:
         CHECKS[args.check]()

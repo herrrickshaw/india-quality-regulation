@@ -7,3 +7,6 @@ GATES.md
 .unlazy/
 .unlazy-hook-state.json
 .claude/settings.local.json
+.venv/
+.pytest_cache/
+.ruff_cache/

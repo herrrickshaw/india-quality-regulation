@@ -7,36 +7,26 @@ hand-editing docs/coverage.md or the badge count — both are derived, not
 authored, so they can't drift out of sync with what the doc pages actually
 say.
 """
+from __future__ import annotations
+
 import json
 import re
 import sys
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-DOCS = REPO_ROOT / "docs"
+from _common import CATEGORY_ORDER, DOCS, H1_RE, REPO_ROOT
+
 OUTPUT = DOCS / "coverage.md"
 BADGE_OUTPUT = REPO_ROOT / "badges" / "entries.json"
-
-CATEGORY_ORDER = [
-    ("apex-accreditation", "Apex & Accreditation Infrastructure"),
-    ("bis-core", "Cross-Sector Statutory — BIS Core"),
-    ("food-agriculture", "Food & Agriculture"),
-    ("health-pharma", "Health, Pharma & AYUSH"),
-    ("energy-safety-environment", "Energy, Safety & Environment"),
-    ("telecom-electronics", "Telecom & Electronics"),
-    ("textiles", "Textiles & Handicrafts"),
-    ("ip-trademarks", "Origin & Trademarks"),
-    ("legal-metrology", "Legal Metrology"),
-    ("private-voluntary", "Private / Industry Voluntary Marks"),
-]
 
 STATUTORY_LABEL = "Statutory / regulatory text"
 OFFICIAL_LABEL = "Official scheme/administrative page"
 
 
-def parse_doc(path: Path):
+def parse_doc(path: Path) -> dict:
+    """Return title, source tier, primary citation and mirrored-file count for one doc page."""
     text = path.read_text(encoding="utf-8")
-    title = re.search(r"^# (.+)$", text, re.M).group(1)
+    title = H1_RE.search(text).group(1)
     tier_line = re.search(r"\*\*Source tier:\*\*\s*(.+)", text)
     if not tier_line:
         raise SystemExit(f"{path}: missing **Source tier:** field")
@@ -57,7 +47,8 @@ def parse_doc(path: Path):
     }
 
 
-def main():
+def main() -> int:
+    """Write docs/coverage.md and badges/entries.json."""
     by_category = {key: [] for key, _ in CATEGORY_ORDER}
     for cat_key, _ in CATEGORY_ORDER:
         cat_dir = DOCS / cat_key
@@ -123,6 +114,7 @@ def main():
     print(f"Wrote {OUTPUT.relative_to(REPO_ROOT)}: {total} entries "
           f"({statutory} statutory text, {official} official page).")
     print(f"Wrote {BADGE_OUTPUT.relative_to(REPO_ROOT)}: message={badge['message']!r}")
+    return 0
 
 
 if __name__ == "__main__":

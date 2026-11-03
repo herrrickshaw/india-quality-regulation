@@ -1,53 +1,64 @@
 # How India Regulates Quality
 
-<!-- how-to-use-with-ai -->
-> **New here?** See [How to use this repo with AI (Claude, Gemini, ChatGPT)](HOW_TO_USE_WITH_AI.md) — clone it, paste it into an AI tool, and ask in plain English.
+A field guide to BIS and the ~36 other statutory regulators, accreditation boards and voluntary marks that
+certify, license and grade quality in India, grounded in the actual Acts, Quality Control Orders, gazette
+notifications and scheme pages behind each one. It is a Markdown reference (one page per body) plus the
+mirrored primary documents and the small Python scripts that keep the derived files in sync.
 
+> Status: maintained reference. Orientation map, not a compliance checklist: always verify against the
+> regulator's current gazette notification before relying on it for a filing. Mirrored files under
+> `sources/` remain the copyright of their originators (see Licence).
 
 [![Link check](https://github.com/herrrickshaw/india-quality-regulation/actions/workflows/link-check.yml/badge.svg)](https://github.com/herrrickshaw/india-quality-regulation/actions/workflows/link-check.yml)
 [![Entries](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/herrrickshaw/india-quality-regulation/main/badges/entries.json)](docs/coverage.md)
 
-A field guide to BIS and the ~36 other statutory regulators, accreditation
-boards and voluntary marks that certify, license and grade quality in
-India — grounded in the actual Acts, Quality Control Orders, gazette
-notifications and scheme pages behind each one, not just descriptions of
-them.
+<!-- how-to-use-with-ai -->
+New to this? See [How to use this repo with AI](HOW_TO_USE_WITH_AI.md) (clone, paste into an AI tool, ask in
+plain English).
 
-**Start here → [`docs/00-overview.md`](docs/00-overview.md)** — the
-four-layer model (Acts → statutory regulators → accreditation apex →
-certification/testing bodies → marks on the product) that the rest of this
-repo is organised around.
+## What it does
+- **Start here:** [`docs/00-overview.md`](docs/00-overview.md) explains the four-layer model
+  (Acts, statutory regulators, accreditation apex, certification/testing bodies, marks on the product).
+- **36 entries**, each naming the authority, legal basis, whether the mark is mandatory or voluntary, and
+  linking the mirrored primary source. [`docs/coverage.md`](docs/coverage.md): 22 have the Act/Rules/Regulations/
+  gazette text mirrored, 14 an official scheme or administrative page (the correct source for a body with no
+  founding statute); none lack a mirrored source.
+- **One-file edition:** [`COMPENDIUM.md`](COMPENDIUM.md) flattens the overview, all entries and the coverage
+  table for offline reading or pasting elsewhere (generated from `docs/`).
+- **Referenced standards:** [`docs/is-standards-referenced.md`](docs/is-standards-referenced.md) catalogues 37 IS
+  numbers cited by the mirrored texts (e.g. IS 1417 for hallmarking). They are listed, **not downloaded**: IS
+  standards are BIS's paid, DRM-locked product ([standardsbis.bsbedge.com](https://standardsbis.bsbedge.com/)).
+- **Full-text transcriptions** of every mirrored PDF (`sources/*/<slug>.md`, via `pdftotext`, OCR for the one scan).
 
-**Source coverage → [`docs/coverage.md`](docs/coverage.md)** — all 36
-entries: 22 have the actual Act/Rules/Regulations/gazette notification
-mirrored, 14 have an official scheme/administrative page (the correct
-primary source for a body with no founding statute — an accreditation
-board, a voluntary industry mark). Zero entries have nothing mirrored.
+## Quick start
+```bash
+git clone https://github.com/herrrickshaw/india-quality-regulation.git
+cd india-quality-regulation
+python3 -m venv .venv && source .venv/bin/activate
+pip install pytest ruff pymupdf==1.28.2     # PDF steps also need poppler + tesseract (+ Hindi data)
+python3 scripts/generate_coverage.py        # regenerate docs/coverage.md and badges/entries.json
+```
+Reading needs nothing installed: open [`docs/00-overview.md`](docs/00-overview.md).
 
-**Everything in one file → [`COMPENDIUM.md`](COMPENDIUM.md)** — the
-overview, all 36 entries, and the coverage table flattened into a single
-self-contained Markdown file, for offline reading, pasting elsewhere, or
-handing to something without repo access. Generated from `docs/`; see
-"Checks" below for how it stays in sync.
+## How it works
+`docs/**/*.md` is the maintained source; everything else is derived or checked from it.
 
-**Referenced technical standards → [`docs/is-standards-referenced.md`](docs/is-standards-referenced.md)**
-— 37 Indian Standard (IS) numbers that the mirrored Acts/Regulations
-actually cite (e.g. Hallmarking's IS 1417 for gold purity), catalogued
-with title and context but **not downloaded** — unlike the public-domain
-Acts elsewhere in this repo, individual IS standards are BIS's paid,
-DRM-locked commercial product, sold through
-[standardsbis.bsbedge.com](https://standardsbis.bsbedge.com/).
+| Stage | Module | Output |
+|---|---|---|
+| Extract PDF text | `scripts/extract_pdf_text.py` | `sources/*/<slug>.md`, plus "Full text" links in doc pages |
+| Coverage table + badge | `scripts/generate_coverage.py` | `docs/coverage.md`, `badges/entries.json` |
+| Flatten to one file | `scripts/build_compendium.py` | `COMPENDIUM.md` |
+| Verify compendium | `scripts/verify_compendium.py --check all` | headings/fields/sections/anchors/counts match `docs/` |
+| Verify extractions | `scripts/verify_pdf_extraction.py --check all` | coverage, OCR, completeness (within 3%), doc links |
+| Verify references | `scripts/check_source_refs.py` | every inline `sources/...` path resolves |
+| Shared constants | `scripts/_common.py` | category order, paths, `slugify` |
 
-## Why this exists
-
-BIS is the name most people reach for, but "quality regulation in India" is
-actually a federation of independent regulators — FSSAI for food, CDSCO for
-drugs and devices, BEE for energy labels, PESO for explosives, Legal
-Metrology for weights and measures, and a separate accreditation apex (QCI)
-that certifies the certifiers rather than the products. Each entry in this
-repo names the actual authority, its legal basis, whether the mark is
-mandatory or voluntary, and mirrors the primary source document so the claim
-isn't just secondhand paraphrase.
+Every doc page carries a **Source tier** field (`Statutory / regulatory text` or `Official scheme/administrative
+page`) and ends with a **Primary source** section linking the original URL and the mirrored copy. After
+re-sourcing an entry, edit the page and re-run the generators; never hand-edit generated files. Sources that
+blocked automated fetching are explained in the page's Notes and in each category's `MANIFEST.md` (several
+`.gov.in`/`.nic.in` hosts, including `indiacode.nic.in` and `legislative.gov.in`, were unreachable; IndianKanoon
+and Wayback Machine snapshots filled most gaps).
 
 ## Index
 
@@ -141,149 +152,49 @@ isn't just secondhand paraphrase.
 | GreenPro / Green Building Marks | Voluntary | [docs](docs/private-voluntary/greenpro.md) |
 
 ## Repository layout
+| Path | Purpose |
+|---|---|
+| `docs/` | one page per body/scheme (hand-written), plus `00-overview.md`, `is-standards-referenced.md`, generated `coverage.md` |
+| `sources/<category>/` | mirrored primary documents, per-category `MANIFEST.md` (entry, file, URL, fetch date, type), generated PDF transcriptions |
+| `scripts/` | generators and verifiers listed above |
+| `tests/` | offline pytest unit/smoke tests for the scripts |
+| `COMPENDIUM.md`, `badges/entries.json` | generated |
+| `.github/workflows/` | `link-check.yml` (links, regeneration diff, verifiers), `ci.yml` (ruff + pytest) |
 
-```
-docs/00-overview.md       the four-layer model
-docs/coverage.md          generated source-coverage table (see below)
-docs/                     one page per body/scheme — authority, legal basis,
-                          status, source tier, scope, cross-references,
-                          primary-source link
-COMPENDIUM.md             generated: every docs/ page flattened into one
-                          self-contained file
-sources/                  mirrored primary documents (Acts, QCOs, gazette
-                          notifications, official scheme pages), grouped in
-                          the same categories as docs/
-sources/*/*.pdf.md        generated: full-text extraction of the PDF next
-                          to it (pdftotext, or OCR for the one scan with
-                          no text layer) — a <slug>.pdf's transcription is
-                          always <slug>.md in the same folder
-sources/*/MANIFEST.md     per-category table: entry, local file, original
-                          URL, fetch date, document type, notes
-badges/entries.json       shields.io endpoint badge (entry count) — also
-                          written by generate_coverage.py
-scripts/generate_coverage.py   regenerates docs/coverage.md and
-                          badges/entries.json from every doc page's
-                          **Source tier:** field
-scripts/build_compendium.py    regenerates COMPENDIUM.md from every
-                          docs/*.md page, rewiring cross-doc links to
-                          in-file anchors
-scripts/verify_compendium.py   checks COMPENDIUM.md against its source
-                          docs (headings/fields/sections/anchors/coverage
-                          counts) — CI check, see "Checks" below
-scripts/extract_pdf_text.py    regenerates every sources/*/*.md PDF
-                          transcription, and links each one from its
-                          entry's doc page
-scripts/verify_pdf_extraction.py   checks every PDF transcription
-                          (coverage/OCR content/completeness/doc
-                          links/reproducibility) — CI check, see "Checks"
-                          below
-scripts/check_source_refs.py   CI check — see "Checks" below
-```
+## Data sources
+Official regulator and gazette sites (BIS, FSSAI, CDSCO, BEE, PESO, AERB, WPC, TEC, QCI boards, and others),
+fetched by hand and mirrored under `sources/` with the original URL and fetch date in each `MANIFEST.md`.
+Secondary copies (IndianKanoon, Wayback Machine) are used only where the official host was unreachable and are
+marked as such. Copyright stays with the originating body.
 
-Every `docs/*.md` page carries a **Source tier** field (`Statutory /
-regulatory text` or `Official scheme/administrative page`) right in its
-header, and ends with a **Primary source** section linking both to the
-original URL and to the mirrored copy under `sources/`. `docs/coverage.md`
-is generated from that field, so after re-sourcing an entry, update the doc
-page and re-run `python3 scripts/generate_coverage.py` rather than editing
-the coverage table by hand. Where a site blocked automated fetching, the
-page's Notes section says so and records what was tried — see the
-per-category `MANIFEST.md` files for the full detail (a handful of
-`.gov.in`/`.nic.in` hosts, including `indiacode.nic.in` and
-`legislative.gov.in`, are consistently unreachable from this environment;
-IndianKanoon and Wayback Machine snapshots covered most of the resulting
-gaps).
+## Configuration
+None. No credentials are used or stored.
 
-Every PDF mirrored under `sources/` also has a full-text `.md`
-transcription next to it, generated by
-[`scripts/extract_pdf_text.py`](scripts/extract_pdf_text.py) — useful for
-full-text search or reading a 600-page gazette PDF without a PDF viewer.
-Most of these Acts/Regulations extract cleanly via `pdftotext`; one PDF
-(`sources/bis-core/bis-crs.pdf`) is a pure scan with no text layer and was
-OCR'd instead (`tesseract`, English + Hindi, since these gazette scans are
-routinely bilingual). A handful of the native-text PDFs also embed their
-Hindi text in a legacy pre-Unicode font that `pdftotext` can't decode into
-real Devanagari — that's a property of the source PDF's font encoding, not
-an extraction bug, and each affected file says so; the English legal text
-extracts correctly regardless. Every doc page whose entry has a mirrored
-PDF links to that PDF's transcription in its Primary source section.
-
-## Reading the marks correctly
-
-This is an orientation map, not a compliance checklist. Whether a specific
-product needs BIS registration, which Quality Control Order applies, or
-which CDSCO device class a product falls into depends on current
-notifications and changes often — the furniture QCO (2025), the FSSAI
-BIS/AGMARK omission (October 2024), the expanded BEE mandatory list
-(January 2026), and "Scheme-X" (September 2026) all moved in the last two
-years. Check the fetch date on each page's primary source and verify
-against the regulator's current gazette notification before relying on
-anything here for an actual filing.
-
-## Checks
-
-A GitHub Actions workflow (`.github/workflows/link-check.yml`) runs on
-every push/PR to `main`, monthly on a schedule, and on demand, split into two
-jobs with different reliability:
-
-- **Internal links (blocking)** — every relative cross-link between doc
-  pages (including `COMPENDIUM.md`'s in-file anchors), checked offline via
-  [lychee](https://lychee.cli.rs) (config: [`.lychee.toml`](.lychee.toml)),
-  plus every inline `` `sources/...` `` path via
-  [`scripts/check_source_refs.py`](scripts/check_source_refs.py) (a
-  hyperlink checker doesn't see those — they're code spans, not links —
-  and a mismatched one is exactly the kind of mistake this repo has hit
-  before). This job also re-runs `extract_pdf_text.py`, `generate_coverage
-  .py` and `build_compendium.py` and fails on any diff **in `docs/`,
-  `COMPENDIUM.md`, or `badges/entries.json`** — so a doc page edited
-  without regenerating its derived files fails the build instead of
-  silently drifting — plus
-  [`scripts/verify_compendium.py`](scripts/verify_compendium.py) (the
-  compendium's headings, fields, section content, anchors, and embedded
-  coverage counts all still match their source docs exactly) and
-  [`scripts/verify_pdf_extraction.py`](scripts/verify_pdf_extraction.py)
-  (every PDF's `.md` transcription is present, complete — within 3% of a
-  fresh direct extraction — correctly OCR'd where OCR was needed, and
-  linked from its doc page). Deliberately **not** diffing `sources/*.md`
-  byte-for-byte against the regenerated copy: two rounds of chasing
-  individual files (a full extraction failure needing a PyMuPDF fallback,
-  then a Devanagari heading that line-wraps differently) both traced back
-  to poppler's exact text output being version-dependent, not a script
-  bug — CI's Ubuntu poppler will never be pinned to match every
-  contributor's local one, so the tolerant `verify_pdf_extraction.py`
-  checks are the right level of strictness there, not `git diff`. Fully
-  deterministic, no network involved, and fails the build. (Needs
-  `poppler-utils`, `tesseract-ocr` + `tesseract-ocr-hin`, and
-  `pymupdf==1.28.2` — the CI job installs these; see below to run
-  locally.)
-- **External sources (best-effort)** — every "Primary source" URL, over
-  the network. Several official `.gov.in`/`.nic.in` hosts in this repo are
-  reachable normally but not reliably from GitHub's hosted runners — broken
-  TLS chains or what looks like IP-range blocking, confirmed by comparing a
-  clean local run against this job's failures — so it *reports* rather than
-  blocking merges. Read the job summary for what's actually unreachable.
-
-Run it all locally before pushing (macOS: `brew install poppler tesseract
-tesseract-lang`; `pip install pymupdf==1.28.2` either way — pinned to
-match CI, since a different PyMuPDF release can legitimately extract a
-given PDF's text slightly differently):
-
+## Testing
 ```bash
-python3 scripts/extract_pdf_text.py                                       # regenerate sources/*.md transcriptions
-python3 scripts/generate_coverage.py                                      # regenerate coverage + badge
-python3 scripts/build_compendium.py                                       # regenerate COMPENDIUM.md
-lychee --offline --config .lychee.toml README.md "docs/**/*.md" COMPENDIUM.md   # internal, blocking
-python3 scripts/check_source_refs.py                                      # internal, blocking
-python3 scripts/verify_compendium.py --check all                          # internal, blocking
-python3 scripts/verify_pdf_extraction.py --check all                      # internal, blocking
-lychee --config .lychee.toml README.md "docs/**/*.md" COMPENDIUM.md       # external, best-effort
+ruff check . && pytest -q                                   # offline unit tests (what ci.yml runs)
+python3 scripts/check_source_refs.py                        # internal, blocking in CI
+python3 scripts/verify_compendium.py --check all            # internal, blocking in CI
+python3 scripts/verify_pdf_extraction.py --check all        # needs poppler, tesseract, pymupdf==1.28.2
+lychee --offline --config .lychee.toml README.md "docs/**/*.md" COMPENDIUM.md
 ```
+`link-check.yml` additionally re-runs the three generators and fails on any diff in `docs/`, `COMPENDIUM.md` or
+`badges/entries.json`. It deliberately does not byte-diff `sources/*.md`: poppler's output is version-dependent,
+so `verify_pdf_extraction.py` checks coverage, OCR content, completeness and linkage instead. A second,
+non-blocking job checks external URLs, because several `.gov.in` hosts are unreliable from GitHub runners.
+Use `pymupdf==1.28.2` locally to match CI.
 
-## License
+## Limitations and known issues
+- Regulation changes often: the furniture QCO (2025), the FSSAI BIS/AGMARK omission (October 2024), the expanded
+  BEE mandatory list (January 2026) and "Scheme-X" (September 2026) all moved recently. Check each page's fetch
+  date and the current gazette.
+- Some native-text gazette PDFs embed Hindi in a legacy pre-Unicode font; `pdftotext` cannot decode it into
+  Devanagari (the English legal text is intact, and each affected transcription says so).
+- `sources/bis-core/bis-crs.pdf` is a pure scan, OCR'd with tesseract (English + Hindi).
+- `ayush-schedule-t.pdf` has a malformed trailer and is forced through PyMuPDF so local and CI output agree.
+- IS standards are catalogued, not mirrored.
 
-Original analysis and prose (`docs/`, this file) are MIT-licensed — see
-[`LICENSE`](LICENSE). Mirrored files under `sources/` remain the copyright
-of their originating government body or organisation; they're included here
-for research, reference and continuity, with attribution and a link back to
-the original in every case (see the `MANIFEST.md` in each `sources/`
-subfolder).
+## Licence
+Original analysis and prose (`docs/`, this file) are MIT-licensed; see [`LICENSE`](LICENSE). Mirrored files under
+`sources/` remain the copyright of their originating government body or organisation, included for research and
+reference with attribution and a link back in every case (see each `sources/*/MANIFEST.md`).
