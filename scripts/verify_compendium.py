@@ -20,9 +20,8 @@ FIELD_NAMES = ["Authority", "Status", "Established", "Legal basis", "Marks issue
 def slugify(title: str) -> str:
     s = title.lower()
     s = re.sub(r"[^\w\- ]+", "", s)
-    s = s.strip().replace(" ", "-")
-    s = re.sub(r"-+", "-", s)
-    return s
+    # GitHub turns each space into '-' and does NOT collapse runs: "BIS — ISI Mark" -> "bis--isi-mark"
+    return s.strip().replace(" ", "-")
 
 
 def normalize(text: str) -> str:
