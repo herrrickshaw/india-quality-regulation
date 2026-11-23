@@ -51,12 +51,13 @@ def test_all_pdfs_sorted(pdf_tree):
 
 def test_coverage_check_variants(pdf_tree, capsys):
     assert "no PDFs found under sources/" in fails(capsys, vp.check_coverage)
-    add_pdf(pdf_tree, "ok.pdf", "x" * vp.MIN_EXTRACTION_BYTES)
+    assert vp.MIN_EXTRACTION_BYTES == 400
+    add_pdf(pdf_tree, "ok.pdf", "x" * 400)                                             # exactly 400 bytes is enough
     add_pdf(pdf_tree, "none.pdf")
-    add_pdf(pdf_tree, "tiny.pdf", "x" * (vp.MIN_EXTRACTION_BYTES - 1))
+    add_pdf(pdf_tree, "tiny.pdf", "x" * 399)
     err = fails(capsys, vp.check_coverage)
     assert "sources/cat/none.pdf: no companion .md extraction file" in err
-    assert f"sources/cat/tiny.md: only {vp.MIN_EXTRACTION_BYTES - 1} bytes" in err and "ok" not in err.replace("looks", "")
+    assert "sources/cat/tiny.md: only 399 bytes" in err and "ok" not in err.replace("looks", "")
     (pdf_tree / "sources" / "cat" / "none.md").write_text("x" * vp.MIN_EXTRACTION_BYTES)
     (pdf_tree / "sources" / "cat" / "tiny.md").write_text("x" * vp.MIN_EXTRACTION_BYTES)
     vp.check_coverage()
@@ -89,6 +90,11 @@ def test_ocr_content_check(pdf_tree, monkeypatch, capsys):
     target.with_suffix(".md").write_text(short, encoding="utf-8")                      # on-topic but under 5000 chars
     err = fails(capsys, vp.check_ocr_content)
     assert "too short" in err and "missing 'no native text layer found'" not in err and "not found anywhere" not in err
+    pad = "Compulsory Registration "
+    target.with_suffix(".md").write_text("no native text layer found\n" + (pad * 300)[: 4999 - 27], encoding="utf-8")
+    assert "only 4999 chars" in fails(capsys, vp.check_ocr_content)                    # 5000 is the minimum
+    target.with_suffix(".md").write_text("no native text layer found\n" + (pad * 300)[: 5000 - 27], encoding="utf-8")
+    vp.check_ocr_content()
 
 
 def test_completeness_check(pdf_tree, monkeypatch, capsys):
@@ -320,3 +326,25 @@ def test_verify_compendium_main(cmp_tree, monkeypatch):
     with pytest.raises(SystemExit) as e:
         vc.main()
     assert e.value.code == 2
+
+
+def test_short_chunks_are_not_checked_but_15_chars_are(cmp_tree, capsys):
+    short = "Twelve chars"                                    # 12 characters: below the 15-char minimum
+    exact = "Fifteen chars!!"                                 # exactly 15: compared
+    assert len(short) == 12 and len(exact) == 15
+    write_docs(cmp_tree, a=entry_doc("A", scope=short))
+    (cmp_tree / "COMPENDIUM.md").write_text(comp([comp_entry("A", scope="completely different")]), encoding="utf-8")
+    vc.check_sections()
+    capsys.readouterr()
+    write_docs(cmp_tree, a=entry_doc("A", scope=exact))
+    assert "A / Scope: chunk not found" in fails(capsys, vc.check_sections)
+
+
+def test_entry_slice_stops_at_a_category_heading(cmp_tree, capsys):
+    write_docs(cmp_tree, a=entry_doc("A"), b=entry_doc("B"))
+    # the compendium has a category H2 between the two entries; A's own slice must end there
+    cat_break = comp_entry("A").replace("**Authority:** BIS", "**Authority:** BIS") + "\n## Another category\n**Authority:** BIS\n"
+    text = comp([cat_break, comp_entry("B").replace("**Authority:** BIS", "**Authority:** Changed")])
+    region = vc.main_entries_region(text)
+    assert "Another category" not in vc.entry_slice(region, "A") and "BIS" in vc.entry_slice(region, "A")
+    assert "Changed" not in vc.entry_slice(region, "A")

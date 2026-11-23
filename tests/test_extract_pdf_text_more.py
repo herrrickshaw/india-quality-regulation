@@ -109,10 +109,11 @@ def test_native_text_layout_success(monkeypatch):
 
 
 def test_native_text_threshold_is_inclusive(monkeypatch):
-    exact = "x" * ex.NATIVE_TEXT_THRESHOLD
+    assert ex.NATIVE_TEXT_THRESHOLD == 40
+    exact = "x" * 40
     script(monkeypatch, [CP("  " + exact + "  ")])
     assert ex.native_text(Path("a.pdf"))[1].startswith("`pdftotext -layout`")
-    script(monkeypatch, [CP("x" * (ex.NATIVE_TEXT_THRESHOLD - 1)), CP(LONG)])
+    script(monkeypatch, [CP("x" * 39), CP(LONG)])
     assert ex.native_text(Path("a.pdf"))[1] == "`pdftotext` (native PDF text layer)"
 
 
@@ -305,3 +306,19 @@ def test_main_processes_every_pdf_and_reports(tree, monkeypatch, capsys):
     assert seen == ["a.pdf", "b.pdf"]
     assert "sources/cat/a.pdf -> sources/cat/a.md (1,234 chars, method-x)" in out
     assert "Extracted 2 PDFs in " in out and "linked from 4 doc page(s)." in out
+
+
+def test_process_pdf_threshold_is_inclusive_at_40_chars(tree, monkeypatch):
+    pdf = make_pdf(tree, "edge.pdf")
+    monkeypatch.setattr(ex, "native_text", lambda p: ("y" * 40, "native-method"))
+    monkeypatch.setattr(ex, "pdf_page_count", lambda p: pytest.fail("40 chars is enough: no OCR"))
+    assert ex.process_pdf(pdf)[0] == "native-method"
+    monkeypatch.setattr(ex, "native_text", lambda p: ("y" * 39, "native-method"))
+    monkeypatch.setattr(ex, "pdf_page_count", lambda p: 3)
+    monkeypatch.setattr(ex, "ocr_pdf", lambda p: "ocr text here")
+    assert ex.process_pdf(pdf)[0].startswith("OCR (`tesseract`")
+
+
+def test_build_markdown_separates_pages_with_rules():
+    md = ex.build_markdown("sources/c/a.pdf", "T", "m", "one\ftwo\fthree")
+    assert md.endswith("<!-- page 1 -->\n\none\n\n---\n\n<!-- page 2 -->\n\ntwo\n\n---\n\n<!-- page 3 -->\n\nthree\n")
